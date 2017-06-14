@@ -1,0 +1,10 @@
+scss_files:
+  - 'app/assets/stylesheets/**'
+exclude:
+  - 'app/assets/stylesheets/application.css.scss'
+  - 'vendor/assets/**'
+linters:
+  ImportantRule:
+    enabled: false
+  MergeableSelector:
+    enabled: false
