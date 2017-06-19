@@ -1,0 +1,38 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:700');
+
+$base-font: 'Dancing Script';
+$base-font-size: 14px;
+
+$hover-color: #e74c3c;
+
+.navbar-primary .navbar-nav {
+  text-align: center;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    float: none;
+  }
+
+  a {
+    font-family: $base-font;
+    font-size: 1.5 * $base-font-size;
+    padding: 0 30px;
+    transition: all ease .25s;
+
+    &:hover {
+      background-color: transparent;
+      color: $hover-color;
+    }
+  }
+
+  .main-logo {
+    font-family: $base-font;
+    font-size: 4 * $base-font-size;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
