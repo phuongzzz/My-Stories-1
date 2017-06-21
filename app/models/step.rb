@@ -1,6 +1,8 @@
 class Step < ApplicationRecord
-  has_many :comment
-  has_many :vote
+  has_many :comments
+  has_many :votes
 
   belongs_to :story
+
+  validates :content, presence: true
 end
