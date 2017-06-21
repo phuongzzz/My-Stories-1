@@ -46,6 +46,8 @@ group :test do
   gem "cucumber-rails", require: false
   gem "rspec-rails", "~> 3.6"
   gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails"
+  gem "capybara", "~> 2.14", ">= 2.14.3"
+  gem "factory_girl_rails", "~> 4.8"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
