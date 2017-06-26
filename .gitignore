@@ -24,3 +24,4 @@
 
 /.framgia-ci-reports
 .framgia-ci-result.temp.yml
+coverage
