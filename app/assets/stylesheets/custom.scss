@@ -9,7 +9,8 @@
 $base-font: 'Dancing Script';
 $base-font-size: 14px;
 
-$hover-color: #e74c3c;
+$link-color: #3498db;
+$hover-color: darken($link-color, 30%);
 
 .navbar-primary .navbar-nav {
   text-align: center;
