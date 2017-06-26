@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
 
   describe "validations" do
     before do
-      @sample_user = FactoryGirl.create :user
+      @sample_user = FactoryGirl.build :user
     end
 
     it {should validate_presence_of :name}
@@ -54,7 +54,30 @@ RSpec.describe User, type: :model do
         expect(@sample_user).to_not be_valid
       end
     end
+
+    it "invalid if password is blank" do
+      @sample_user.password = nil
+      expect(@sample_user).to_not be_valid
+    end
+
+    it "invalid if password is too short" do
+      @sample_user.password = "a" * 5
+      expect(@sample_user).to_not be_valid
+    end
+
+    it "invalid if password and password confirmation do not match" do
+      @sample_user.password = "a" * 10
+      @sample_user.password_confirmation = "b" * 10
+      expect(@sample_user).to_not be_valid
+    end
+
+    it "invalid if email is duplicate" do
+      @sample_user.save
+      @duplicate_user = FactoryGirl.build :user
+      expect(@duplicate_user).to_not be_valid
+    end
   end
+
 
   describe "associations" do
     it {should have_many :comments}

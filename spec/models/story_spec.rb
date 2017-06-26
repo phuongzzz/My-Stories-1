@@ -18,7 +18,7 @@ RSpec.describe Story, type: :model do
   describe "validations" do
 
     before do
-      @sample_story = FactoryGirl.create :story
+      @sample_story = FactoryGirl.build :story
     end
 
     it {should validate_presence_of :name}
