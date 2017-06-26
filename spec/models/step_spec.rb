@@ -14,7 +14,7 @@ RSpec.describe Step, type: :model do
   describe "validations" do
 
     before do
-      @sample_step = FactoryGirl.create :step
+      @sample_step = FactoryGirl.build :step
     end
 
     it {should validate_presence_of :content}

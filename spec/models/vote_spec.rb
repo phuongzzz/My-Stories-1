@@ -13,7 +13,7 @@ RSpec.describe Vote, type: :model do
 
    describe "validations" do
     before do
-      @sample_vote = FactoryGirl.create :vote
+      @sample_vote = FactoryGirl.build :vote
     end
 
     it "is invalid if vote value is blank" do

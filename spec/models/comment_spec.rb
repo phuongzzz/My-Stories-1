@@ -13,7 +13,7 @@ RSpec.describe Comment, type: :model do
 
   describe "validations" do
     before do
-      @sample_comment = FactoryGirl.create(:comment)
+      @sample_comment = FactoryGirl.build :comment
     end
 
     it {should validate_presence_of :content}

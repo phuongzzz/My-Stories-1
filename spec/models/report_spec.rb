@@ -12,7 +12,7 @@ RSpec.describe Report, type: :model do
 
   describe "validations" do
     before do
-      @sample_report = FactoryGirl.create :report
+      @sample_report = FactoryGirl.build :report
     end
 
     it {should validate_presence_of :content}
