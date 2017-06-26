@@ -18,6 +18,7 @@ gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass", "3.3.7"
 gem "devise", "~> 4.3"
 gem "pundit"
+gem "faker", "1.6.6"
 
 group :development, :test do
   gem "byebug", platform: :mri
