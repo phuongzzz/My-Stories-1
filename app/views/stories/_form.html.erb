@@ -1,0 +1,29 @@
+<%= form_for story do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", required: true %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control", required: true %>
+
+  <h3><strong><%= t "steps" %></strong></h3>
+  <div class="group-steps">
+    <%= f.fields_for :steps do |step| %>
+      <%= render "step_fields", field: step %>
+    <% end %>
+  </div>
+  <div class="add-step">
+    <%= link_to_add_fields t("add_step"), f, :steps %>
+  </div>
+
+  <%= f.label :due_date %>
+  <%= f.datetime_field :due_date, class: "form-control" %>
+
+  <%= f.radio_button :is_public, true %>
+  <%= f.label :is_public_true, t("public") %>
+  <%= f.radio_button :is_public, false %>
+  <%= f.label :is_public_false, t("private") %>
+  <br>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

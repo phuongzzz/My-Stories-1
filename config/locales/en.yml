@@ -30,3 +30,4 @@ en:
     notifications: "user not permit action"
   story_not_found: "Story not found"
   require_login: "must be logged in"
+  add_step: "add step"
