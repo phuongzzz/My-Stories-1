@@ -6,3 +6,7 @@ en:
     about: "About"
     home: "MyStories"
     toggle-nav: "Toogle navigation"
+  links:
+    sign_up: "Sign up"
+  notifications:
+    sign_up_success: "You have signed up successfully."

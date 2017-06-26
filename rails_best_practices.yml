@@ -26,7 +26,8 @@ RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck: {
   except_methods: [
     PagesController#show,
-    ApplicationController#user_not_authorize
+    ApplicationController#user_not_authorize,
+    RegistrationsController#create
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
