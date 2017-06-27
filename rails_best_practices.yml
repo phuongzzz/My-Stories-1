@@ -27,6 +27,7 @@ RemoveUnusedMethodsInControllersCheck: {
   except_methods: [
     PagesController#show,
     ApplicationController#user_not_authorize,
+    ApplicationController#configure_permitted_parameters,
     RegistrationsController#create
   ]
 }
