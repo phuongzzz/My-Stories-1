@@ -1,10 +1,28 @@
 {
   "env": {
     "browser": true,
+    // "commonjs": true,
+    // "es6": true,
     "jquery": true
   },
   "globals": {
-    "window": true
+    "window": true,
+    "I18n": true,
+    "$calendar": true,
+    "currentView": true,
+    "calendarViewContext": true,
+    "org_id": true,
+    "timezone": true,
+    "I18n": true,
+    "Base64": true,
+    "moment": true,
+    "$calContent": true,
+    "hiddenDialog": true,
+    "dialogCordinate": true,
+    "eventData": true,
+    "initDialogEventClick": true,
+    "showDialog": true,
+    "App": true
   },
 
   "extends": "eslint:recommended",
