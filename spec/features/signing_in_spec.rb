@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Users can sign in" do
-  let! :user {FactoryGirl.create :user}
+  let!(:user) {FactoryGirl.create(:user)}
 
   before do
     visit "/"
@@ -13,7 +13,7 @@ RSpec.feature "Users can sign in" do
     fill_in "Password", with: user.password
     click_button "Log in"
     expect(page).to have_content "Signed in successfully."
-    expect(page).to have_content "hello, #{user.name}"
+    expect(page).to have_content "#{user.name}"
   end
 
   scenario "with invalid credentials" do
