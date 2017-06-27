@@ -1,6 +1,6 @@
 class Story < ApplicationRecord
   STORY_PARAMS = [:name, :description, :is_public, :due_date,
-    steps_attributes: [:id, :content, :_destroy]]
+    steps_attributes: [:id, :content, :_destroy]].freeze
 
   has_many :comments
   has_many :votes

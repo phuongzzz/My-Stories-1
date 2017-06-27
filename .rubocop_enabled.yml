@@ -133,6 +133,10 @@ Style/DotPosition:
   Description: "Checks the position of the dot in multi-line method calls."
   Enabled: true
 
+Style/DoubleNegation:
+  Description: "Checks for uses of double negation (!!)."
+  Enabled: true
+
 Style/EachWithObject:
   Description: "Prefer `each_with_object` over `inject` or `reduce`."
   Enabled: true
@@ -163,6 +167,10 @@ Style/EmptyLinesAroundModuleBody:
 
 Style/EmptyLiteral:
   Description: "Prefer literals to Array.new/Hash.new/String.new."
+  Enabled: true
+
+Style/Encoding:
+  Description: "Use UTF-8 as the source file encoding."
   Enabled: true
 
 Style/EndBlock:
@@ -235,6 +243,10 @@ Style/IndentHash:
   Description: "Checks the indentation of the first key in a hash literal."
   Enabled: true
 
+Style/Lambda:
+  Description: "Use the new lambda literal syntax for single-line blocks."
+  Enabled: true
+
 Style/LambdaCall:
   Description: "Use lambda.call(...) instead of lambda.(...)."
   Enabled: true
@@ -269,6 +281,10 @@ Style/MethodName:
 
 Style/ModuleFunction:
   Description: "Checks for usage of `extend self` in modules."
+  Enabled: true
+
+Style/MultilineBlockChain:
+  Description: "Avoid multi-line chains of blocks."
   Enabled: true
 
 Style/MultilineIfThen:
@@ -365,6 +381,18 @@ Style/RedundantReturn:
   Description: "Don't use return where it's not required."
   Enabled: true
 
+Style/RedundantSelf:
+  Description: "Don't use self where it's not needed."
+  Enabled: true
+
+Style/RegexpLiteral:
+  Description: >-
+                 Use %r for regular expressions matching more than
+                 `MaxSlashes` '/' characters.
+                 Use %r only for regular expressions matching more than
+                 `MaxSlashes` '/' character.
+  Enabled: true
+
 Style/RescueModifier:
   Description: "Avoid using rescue in its modifier form."
   Enabled: true
@@ -389,7 +417,7 @@ Style/SingleLineMethods:
   Description: "Avoid single-line methods."
   Enabled: true
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Description: >-
                  Checks that exactly one space is used between a method name
                  and the first argument for method calls without parentheses.
@@ -401,6 +429,10 @@ Style/SpaceAfterColon:
 
 Style/SpaceAfterComma:
   Description: "Use spaces after commas."
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Description: "Use spaces after if/elsif/unless/while/until/case/when."
   Enabled: true
 
 Style/SpaceAfterMethodName:
@@ -453,6 +485,10 @@ Style/SpaceAroundEqualsInParameterDefault:
 
 Style/SpaceAroundOperators:
   Description: "Use spaces around operators."
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Description: "Put a space before the modifier keyword."
   Enabled: true
 
 Style/SpaceInsideBrackets:
@@ -584,6 +620,10 @@ Lint/EmptyInterpolation:
   Description: "Checks for empty string interpolation."
   Enabled: true
 
+Lint/EndAlignment:
+  Description: "Align ends correctly."
+  Enabled: true
+
 Lint/EndInMethod:
   Description: "END blocks should not be placed inside method definitions."
   Enabled: true
@@ -642,6 +682,12 @@ Lint/ShadowingOuterLocalVariable:
                  for block arguments or block local variables.
   Enabled: true
 
+Lint/SpaceBeforeFirstArg:
+  Description: >-
+                 Put a space between a method name and the first argument
+                 in a method call without parentheses.
+  Enabled: true
+
 Lint/StringConversionInInterpolation:
   Description: "Checks for Object#to_s usage in string interpolation."
   Enabled: true
@@ -691,6 +737,10 @@ Lint/Void:
 Rails/ActionFilter:
   Description: "Enforces consistent use of action filter methods."
   Enabled: true
+
+# Rails/DefaultScope:
+#   Description: "Checks if the argument passed to default_scope is a block."
+#   Enabled: true
 
 Rails/Delegate:
   Description: "Prefer delegate method for delegations."

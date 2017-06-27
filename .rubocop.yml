@@ -7,25 +7,24 @@ inherit_from:
   - .rubocop_disabled.yml
 
 # Common configuration.
+AllCops:
+  # Include gemspec and Rakefile
+  Include:
+    - '**/*.gemspec'
+  Exclude:
+    - 'vendor/**/*'
+    - 'config/unicorn.rb'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'spec/**/*'
+    - 'script/rails'
+    - 'config/**/*'
+  # By default, the rails cops are not run. Override in project or home
+  # directory .rubocop.yml files, or by giving the -R/--rails option.
 Rails:
   Enabled: true
 
-Style/BlockLength:
-  Exclude:
-    - Rakefile
-    - spec/**/**/*.rb
 
-AllCops:
-  TargetRubyVersion: 2.2
-  Excludes:
-    - db/schema.rb
-    - lib/tasks/**/*.rake
-    - test/**
-    - config/initializers/**
-    - config/environments/**
-    - db/migrate/**
-    - spec/controllers/**
-    - spec/**
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -118,6 +117,11 @@ Style/AlignParameters:
 
 Metrics/BlockNesting:
   Max: 3
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
+  # a Float.
+  Max: 20
 
 Style/BracesAroundHashParameters:
   EnforcedStyle: no_braces
@@ -287,7 +291,7 @@ Style/LambdaCall:
     - braces
 
 Metrics/LineLength:
-  Max: 80
+  Max: 120
   AllowURI: true
   Exclude:
     - config/routes.rb
@@ -320,12 +324,6 @@ Style/MethodDefParentheses:
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 10
-
-Metrics/BlockLength:
-  CountComments: false  # count full line comments?
-  Max: 25
-  Exclude:
-    - config/**/*.rb
 
 Style/MethodName:
   EnforcedStyle: snake_case
@@ -370,6 +368,11 @@ Style/RaiseArgs:
 Style/RedundantReturn:
   # When true allows code like `return x, y`.
   AllowMultipleReturnValues: false
+
+#Style/RegexpLiteral:
+#  # The maximum number of (escaped) slashes that a slash-delimited regexp is
+#  # allowed to have. If there are more slashes, a %r regexp shall be used.
+#  MaxSlashes: 0
 
 Style/Semicolon:
   # Allow ; to separate several expressions on the same line.
@@ -440,9 +443,9 @@ Style/TrailingCommaInLiteral:
   # If EnforcedStyleForMultiline is comma, the cop allows a comma after the
   # last item of a list, but only for lists where each item is on its own line.
   EnforcedStyleForMultiline: no_comma
-  SupportedStyles:
-    - comma
-    - no_comma
+  # SupportedStyles:
+  #   - comma
+  #   - no_comma
 
 # TrivialAccessors doesn't require exact name matches and doesn't allow
 # predicated methods by default.
@@ -503,9 +506,9 @@ Lint/EndAlignment:
   # with the start of the variable on the left hand side of `=`. In all other
   # situations, `end` should still be aligned with the keyword.
   EnforcedStyleAlignWith: keyword
-  SupportedStyles:
-    - keyword
-    - variable
+  # SupportedStyles:
+  #   - keyword
+  #   - variable
 
 Lint/DefEndAlignment:
   # The value `def` means that `end` should be aligned with the def keyword.
@@ -513,9 +516,9 @@ Lint/DefEndAlignment:
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
   EnforcedStyleAlignWith: start_of_line
-  SupportedStyles:
-    - start_of_line
-    - def
+  # SupportedStyles:
+  #   - start_of_line
+  #   - def
 
 ##################### Rails ##################################
 
@@ -526,6 +529,10 @@ Rails/ActionFilter:
     - filter
   Include:
     - app/controllers/**/*.rb
+
+# Rails/DefaultScope:
+#   Include:
+#     - app/models/**/*.rb
 
 Rails/HasAndBelongsToMany:
   Include:
@@ -542,6 +549,3 @@ Rails/ScopeArgs:
 Rails/Validation:
   Include:
     - app/models/**/*.rb
-
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
