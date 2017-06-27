@@ -8,5 +8,7 @@ en:
     toggle-nav: "Toogle navigation"
   links:
     sign_up: "Sign up"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
   notifications:
     sign_up_success: "You have signed up successfully."

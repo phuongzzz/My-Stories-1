@@ -28,6 +28,12 @@
           <li>
             <%= link_to t("navbar.about"), page_path(page: "about") %>
           </li>
+          <% if user_signed_in? %>
+            <li><%= current_user.name %></li>
+            <li><%= link_to t("links.sign_out"), destroy_user_session_path,
+              method: :delete %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
