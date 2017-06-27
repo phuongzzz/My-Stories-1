@@ -25,10 +25,11 @@ RemoveEmptyHelpersCheck: { }
 RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck: {
   except_methods: [
-    PagesController#show,
-    ApplicationController#user_not_authorize,
-    ApplicationController#configure_permitted_parameters,
-    RegistrationsController#create
+    PagesController#show, StoriesController#create, StoriesController#edit,
+    StoriesController#update, StoriesController#new, StoriesController#story_params,
+    StoriesController#find_story, StoriesController#authorize_story,
+    ApplicationController#user_not_authorize, PagesController#valid_page,
+    RegistrationsController#create, ApplicationController#configure_permitted_parameters
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }

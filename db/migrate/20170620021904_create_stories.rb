@@ -4,10 +4,10 @@ class CreateStories < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.string :name
       t.string :description
-      t.float :completed_rate
-      t.integer :numbers_of_steps
-      t.integer :vote
-      t.boolean :is_public
+      t.float :completed_rate, default: 0
+      t.integer :numbers_of_steps, default: 0
+      t.integer :vote, default: 0
+      t.boolean :is_public, default: false
       t.datetime :due_date
 
       t.timestamps

@@ -23,6 +23,7 @@ RSpec.describe Story, type: :model do
 
     it {should validate_presence_of :name}
     it {should validate_presence_of :description}
+    it {should validate_presence_of :due_date}
 
     it "is invalid if name is blank" do
       @sample_story.name = nil
@@ -33,6 +34,12 @@ RSpec.describe Story, type: :model do
       @sample_story.description = nil
       expect(@sample_story).to_not be_valid
     end
+
+    it "is invalid if due_date is blank" do
+      @sample_story.due_date = nil
+      expect(@sample_story).to_not be_valid
+    end
+
   end
 
   describe "associations" do

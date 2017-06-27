@@ -57,11 +57,6 @@ Style/EmptyMethod:
   StyleGuide: '#no-single-line-methods'
   Enabled: false
 
-Style/GuardClause:
-  Description: 'Check for conditionals that can be replaced with guard clauses'
-  StyleGuide: '#no-nested-conditionals'
-  Enabled: false
-
 Style/DoubleNegation:
   Description: "Checks for uses of double negation (!!)."
   Enabled: false
