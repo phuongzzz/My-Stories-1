@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Signed in user can sign out" do
-  let!(:user) {FactoryGirl.create(:user)}
+  let!(:user) {FactoryGirl.create(:user, email: "123456@gmail.com")}
 
   before do
     login_as user

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Users can sign in" do
-  let!(:user) {FactoryGirl.create(:user)}
+  let!(:user) {FactoryGirl.create(:user, email: "123456@gmail.com")}
 
   before do
     visit "/"

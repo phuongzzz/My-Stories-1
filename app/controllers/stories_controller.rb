@@ -9,6 +9,7 @@ class StoriesController < ApplicationController
 
   def create
     @story = current_user.stories.new story_params
+
     if @story.save
       flash[:success] = t "success_created_plan"
       redirect_to root_path
