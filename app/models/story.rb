@@ -14,4 +14,6 @@ class Story < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :due_date, presence: true
+
+  scope :order_by_time, ->{order created_at: :desc}
 end

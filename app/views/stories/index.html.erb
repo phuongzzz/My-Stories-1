@@ -1,0 +1,21 @@
+<div class="stories-container">
+  <% @stories.each do |story| %>
+    <div class="story-box">
+      <h2 class="text-center story-name">
+        <%= link_to story.name, story %>
+      </h2>
+
+      <div class="row main-content">
+        <div class="col-md-6 story-meta">
+          <p class=" story-author"><%= t "by" %> <%= story.user.name %></p>
+          <p class=""><%= t "comments" %>: <%= story.comments.count %></p>
+          <p class=""><%= t "votes" %>: <%= story.vote %></p>
+        </div>
+        <div class="col-md-6 story-description">
+          <p><%= story.description %></p>
+          <%= link_to t("read_more"), story, class: "btn btn-primary btn-custom text-center" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,10 @@
 class StoriesController < ApplicationController
-  before_action :load_story, only: [:edit, :update]
+  before_action :load_story, only: [:show, :edit, :update]
   before_action :authorize_story, only: [:edit, :update]
+
+  def index
+    @stories = Story.all.order_by_time
+  end
 
   def new
     @story = current_user.stories.new
@@ -17,6 +21,10 @@ class StoriesController < ApplicationController
       flash[:danger] = t "false_created_plan"
       render :new
     end
+  end
+
+  def show
+    @steps = @story.steps
   end
 
   def edit; end
