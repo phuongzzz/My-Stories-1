@@ -6,16 +6,15 @@ RSpec.feature "Create new plan", type: :feature do
   before do
     login_as user
     visit root_path
-    click_link I18n.t("navbar.discover")
   end
 
   scenario "User create plan" do
-    expect(page).to have_selector("a", "Create Plan")
+    expect(page).to have_content "Start new story"
   end
 
   describe "test form create" do
     before do
-      click_link I18n.t("create_plan")
+      click_link "Start new story"
     end
 
     scenario "display form" do

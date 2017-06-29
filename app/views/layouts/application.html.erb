@@ -11,7 +11,9 @@
       <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
     <% end %>
     <div class="container">
-      <%= yield %>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

@@ -9,34 +9,109 @@
 $base-font: 'Dancing Script';
 $base-font-size: 14px;
 
+$default-background: #fff;
+$base-background-color: #e6ecf0;
 $link-color: #3498db;
 $hover-color: darken($link-color, 30%);
+$default-border-color: #000;
+$input-background: #f5f8fa;
+$flat-red: #e74c3c;
 
-.navbar-primary .navbar-nav {
-  text-align: center;
-  width: 100%;
+//GLOBAL STYLES
 
-  li {
-    display: inline-block;
-    float: none;
+.wrapper {
+  margin: 120px 30px 30px 20px;
+}
+
+//NAVBAR
+
+.navbar {
+  background-color: $default-background;
+  border-bottom: 1px solid lighten($default-border-color, 70%);
+  border-radius: 0;
+  max-height: 52px;
+
+  * {
+    transition: all ease .25s;
   }
 
-  a {
-    font-family: $base-font;
-    font-size: 1.5 * $base-font-size;
-    padding: 0 30px;
-    transition: all ease .25s;
+  .navbar-form {
+    input {
+      background-color: $input-background;
+      border: 1px solid lighten($default-border-color, 90%);
+      border-radius: 21px;
+      box-shadow: none;
+    }
 
-    &:hover {
-      background-color: transparent;
-      color: $hover-color;
+    input:focus {
+      background-color: $default-background;
     }
   }
+}
 
-  .main-logo {
-    font-family: $base-font;
-    font-size: 4 * $base-font-size;
-    font-weight: 600;
-    line-height: normal;
+.link-active {
+  border-bottom: 4px solid lighten($default-border-color, 20%);
+}
+
+.navbar-brand {
+  height: 110px;
+  left: 50%;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: height ease-in-out .15s;
+
+  &:hover {
+    height: 115px;
   }
+}
+
+.nav-link a:hover {
+  border-bottom: 4px solid lighten($default-border-color, 20%);
+}
+
+//Style story box (each story)
+
+.story-box {
+  border-bottom: 1px solid lighten($default-border-color, 70%);
+  color: $default-border-color;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.stories-container {
+  padding: 0 30px;
+
+  * {
+    color: lighten($default-border-color, 10%);
+    font-family: serif;
+  }
+}
+
+.btn-custom {
+  background-color: transparent;
+  border: 1px solid $default-border-color;
+  border-radius: 0;
+  color: $default-border-color;
+  padding: 5px 15px;
+  transition: all ease .15s;
+
+  &:hover {
+    background-color: $default-border-color;
+    color: $default-background;
+  }
+}
+
+.story-name {
+  font-size: 4em;
+  margin: 80px 0;
+}
+
+.story-meta {
+  font-size: 2em;
+  text-align: right;
+}
+
+.story-description {
+  font-size: 1.2em;
 }
