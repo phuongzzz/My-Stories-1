@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
 
     if @story.save
       flash[:success] = t "success_created_plan"
-      redirect_to root_path
+      redirect_to @story
     else
       flash[:danger] = t "false_created_plan"
       render :new
@@ -32,7 +32,7 @@ class StoriesController < ApplicationController
   def update
     if @story.update_attributes story_params
       flash[:success] = t "success_updated_plan"
-      redirect_to root_path
+      redirect_to @story
     else
       flash[:danger] = t "failse_updated_plan"
       render :edit

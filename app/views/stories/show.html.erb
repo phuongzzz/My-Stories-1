@@ -1,4 +1,6 @@
 <%= @story.name %>
+<%= link_to t("update_story"), edit_story_path %> <hr>
 <% @steps.each do |step| %>
   <%= step.content %>
+  <hr>
 <% end %>

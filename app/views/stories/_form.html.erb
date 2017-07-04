@@ -9,11 +9,9 @@
 
   <h3><strong><%= t "steps" %></strong></h3>
   <div class="group-steps">
-    <%= f.fields_for :steps do |step| %>
-      <%= render "step_fields", field: step %>
+    <%= f.fields_for :steps do |builder| %>
+      <%= render "step_fields", field: builder %>
     <% end %>
-  </div>
-  <div class="add-step">
     <%= link_to_add_fields t("add_step"), f, :steps %>
   </div>
 

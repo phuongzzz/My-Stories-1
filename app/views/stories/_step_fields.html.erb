@@ -1,8 +1,7 @@
-<div class="step-nested-fields" id="story_steps_attributes_<%= field.options[:child_index] %>">
-  <fieldset>
-    <%= field.label :content %>
-    <%= field.text_area :content, class: "form-control", required: true %>
-    <%= field.hidden_field :_destroy %>
-    <%= link_to t("remove_step"), "#", class: "remove_step_fields" %>
-  </fieldset>
-</div>
+<fieldset>
+  <%= field.label :content, t("step_title") %>
+  <%= field.text_area :content %>
+  <br>
+  <%= field.hidden_field :_destroy %>
+  <%= link_to t("remove-step"), "#", class: "remove-fields btn btn-danger" %>
+</fieldset>
