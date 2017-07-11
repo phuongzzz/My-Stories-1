@@ -1,0 +1,9 @@
+en:
+  api:
+    missing_params: "Missing parameter"
+    invalid_token: "Invalid token"
+  users:
+    show:
+      success: "Show user success"
+    messages:
+      user_not_found: "User not found"

@@ -1,0 +1,4 @@
+en:
+  flashs:
+    messages:
+      not_found: "%{model_name} couldn't be found"
