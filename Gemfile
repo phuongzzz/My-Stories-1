@@ -14,6 +14,7 @@ gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "devise", "~> 4.3"
+gem "simple_token_authentication"
 
 group :development, :test do
   gem "pry"
