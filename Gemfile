@@ -15,6 +15,9 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "devise", "~> 4.3"
 gem "simple_token_authentication"
+gem "rubocop", require: false
+gem "rubocop-checkstyle_formatter", require: false
+gem "rails_best_practices"
 
 group :development, :test do
   gem "pry"

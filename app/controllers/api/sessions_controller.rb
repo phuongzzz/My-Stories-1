@@ -7,11 +7,11 @@ module Api
     before_action :valid_token, only: :destroy
 
     def create
-      if @user.valid_password? sign_in_params[:password]
-        sign_in "user", @user
+      if user.valid_password? sign_in_params[:password]
+        sign_in "user", user
         render json: {
           messages: I18n.t("devise.sessions.signed_in"),
-          data: {user_info: {id: @user.id, name: @user.name}}
+          data: {user_info: {id: user.id, name: user.name}}
         }, status: :ok
       else
         invalid_login_attempt
@@ -19,8 +19,8 @@ module Api
     end
 
     def destroy
-      sign_out @user
-      @user.generate_new_authentication_token
+      sign_out user
+      user.generate_new_authentication_token
       render json: {
         messages: I18n.t("devise.sessions.signed_out")
       }, status: :ok
@@ -28,12 +28,14 @@ module Api
 
     private
 
+    attr_reader :user
+
     def sign_in_params
       params.require(:sign_in).permit :email, :password
     end
 
     def ensure_params_exist
-      return unless params[:sign_in].blank?
+      return if params[:sign_in].present?
       render json: {
         messages: I18n.t("api.missing_params")
       }, status: :unauthorized
@@ -46,18 +48,20 @@ module Api
     end
 
     def load_user
-      @user = User.find_for_database_authentication email: sign_in_params[:email]
+      @user =
+        User.find_for_database_authentication email: sign_in_params[:email]
 
-      return if @user
+      return if user
       render json: {
         messages: I18n.t("devise.failure.invalid", authentication_keys: "email")
       }, status: :not_found
     end
 
     def valid_token
-      @user = User.find_by authentication_token: request.headers["MS-AUTH-TOKEN"]
+      @user =
+        User.find_by authentication_token: request.headers["MS-AUTH-TOKEN"]
 
-      return if @user
+      return if user
       render json: {
         messages: I18n.t("api.invalid_token")
       }, status: :not_found

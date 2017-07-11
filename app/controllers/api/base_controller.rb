@@ -1,20 +1,20 @@
 class Api::BaseController < ActionController::API
   include Authenticable
-  acts_as_token_authentication_handler_for User, {fallback: :none}
+  acts_as_token_authentication_handler_for User, fallback: :none
 
   private
 
-  alias_method :authenticate_user_from_token, :authenticate_with_token!
+  alias authenticate_user_from_token authenticate_with_token!
 
   def find_variable_name
-    return if params[:controller].blank?
-    params[:controller].split("/").last.singularize
+    return if params_controller.blank?
+    params_controlle.rsplit("/").last.singularize
   end
 
   def ensure_parameters_exist
     find_variable_name
-    
-    return unless params[find_variable_name].blank?
+
+    return if params[find_variable_name].present?
     render json: {
       messages: I18n.t("api.missing_params")
     }, status: :unprocessable_entity
@@ -24,9 +24,14 @@ class Api::BaseController < ActionController::API
     instance_name = find_variable_name
     instance_variable_set "@#{instance_name}",
       instance_name.classify.constantize.find_by(id: params[:id])
+    return if instance_variable_get "@#{instance_name}"
     render json: {
       messages:
         I18n.t("#{instance_name.pluralize}.messages.#{instance_name}_not_found")
-    }, status: :not_found unless instance_variable_get "@#{instance_name}"
+    }, status: :not_found
+  end
+
+  def params_controller
+    params[:controller]
   end
 end

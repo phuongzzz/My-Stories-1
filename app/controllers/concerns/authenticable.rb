@@ -1,7 +1,7 @@
 module Authenticable
   def current_user
-    @current_user ||= User
-      .find_by authentication_token: request.headers["MS-AUTH-TOKEN"]
+    @current_user ||=
+      User.find_by authentication_token: request.headers["MS-AUTH-TOKEN"]
   end
 
   def authenticate_with_token!

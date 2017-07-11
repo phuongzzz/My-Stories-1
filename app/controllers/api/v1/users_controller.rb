@@ -3,8 +3,7 @@ class Api::V1::UsersController < Api::BaseController
 
   def show
     render json: {
-      messages: I18n.t("flashs.messages.not_found", model_name: User),
-      data: {user: @user}
+      messages: I18n.t("users.show.success"), data: {user: @user}
     }, status: :ok
   end
 end
