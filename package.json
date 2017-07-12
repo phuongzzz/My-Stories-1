@@ -1,5 +1,8 @@
 {
   "name": "My-Stories",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/cli": "^1.2.0"
+  }
 }

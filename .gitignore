@@ -24,3 +24,5 @@ config/database.yml
 /public/system
 /public/assets/
 /public/uploads/
+/.framgia-ci-reports
+.framgia-ci-result.temp.yml

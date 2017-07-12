@@ -1,0 +1,23 @@
+# build:
+#   image: dieunb/crb
+#   pull: true
+#   environment:
+#     RAILS_ENV: test
+#   commands:
+#     - rm -f config/database.yml
+#     - cp config/drone.database.yml config/database.yml
+#     - /bin/bash -l -c bundle install --without production
+#     - framgia-ci test-connect 127.0.0.1 3306
+#     - framgia-ci test-connect 127.0.0.1 6379
+#     - /bin/bash -l -c rake db:create db:migrate RAILS_ENV=test
+#     - framgia-ci run
+# compose:
+#   database:
+#     image: mysql:5.7
+#     environment:
+#       MYSQL_DATABASE: My_Stories_test
+#       MYSQL_USER: root
+#       MYSQL_PASSWORD: 1
+#       MYSQL_ROOT_PASSWORD: 1
+#   cache:
+#     image: redis
