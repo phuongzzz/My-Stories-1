@@ -2,6 +2,8 @@ class User < ApplicationRecord
   acts_as_token_authenticatable
 
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  ATTRIBUTES_PARAMS = [:email, :name, :avatar,
+    :password, :password_confirmation].freeze
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
