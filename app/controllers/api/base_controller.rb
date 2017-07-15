@@ -8,7 +8,7 @@ class Api::BaseController < ActionController::API
 
   def find_variable_name
     return if params_controller.blank?
-    params_controlle.rsplit("/").last.singularize
+    params_controller.split("/").last.singularize
   end
 
   def ensure_parameters_exist
