@@ -9,10 +9,7 @@ module Api
     def create
       if user.valid_password? sign_in_params[:password]
         sign_in "user", user
-        render json: {
-          messages: I18n.t("devise.sessions.signed_in"),
-          data: {user_info: {id: user.id, name: user.name}}
-        }, status: :ok
+        created_respone_success
       else
         invalid_login_attempt
       end
@@ -65,6 +62,19 @@ module Api
       render json: {
         messages: I18n.t("api.invalid_token")
       }, status: :not_found
+    end
+
+    def created_respone_success
+      render json: {
+        messages: I18n.t("devise.sessions.signed_in"),
+        data: {
+          user_info: {
+            id: user.id,
+            name: user.name,
+            token: user.authentication_token
+          }
+        }
+      }, status: :ok
     end
   end
 end

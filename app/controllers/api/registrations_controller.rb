@@ -8,13 +8,13 @@ module Api
         render json: {
           message: I18n.t("devise.registrations.signed_up"),
           data: {user: user}
-        }, status: 201
+        }, status: :ok
       else
         warden.custom_failure!
         render json: {
           message: user.errors.messages,
           data: {}
-        }, status: 422
+        }, status: :unprocessable_entity
       end
     end
 

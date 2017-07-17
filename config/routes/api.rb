@@ -10,5 +10,9 @@ namespace :api, defaults: {format: "json"} do
   scope module: :v1,
     constraints: ApiConstraints.new(version: 1, default: true) do
     resources :users, only: :show
+    resources :stories, only: :create
+    namespace :admin do
+      resources :stories, only: :delete
+    end
   end
 end

@@ -7,3 +7,4 @@ en:
       success: "Show user success"
     messages:
       user_not_found: "User not found"
+      stories_created: "The stories has been created"
