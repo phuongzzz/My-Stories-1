@@ -3,7 +3,11 @@ class Api::V1::UsersController < Api::BaseController
 
   def show
     render json: {
-      messages: I18n.t("users.show.success"), data: {user: @user}
+      messages: I18n.t("users.show.success"), data: {user: user}
     }, status: :ok
   end
+
+  private
+
+  attr_reader :user
 end
