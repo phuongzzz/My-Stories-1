@@ -1,0 +1,29 @@
+<div class="col-md-6 col-md-offset-3">
+  <h2>{{'SignUp' | translate}}</h2>
+  <form #signupForm = "ngForm" (ngSubmit)="onSubmit(signupForm.value)" >
+    <div ngModelGroup="user">
+      <div class="form-group">
+        <label for="name">{{'UserName' | translate}}</label>
+        <input type="text" name="name" id="name"
+               class="form-control" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="email">{{'Email' | translate}}</label>
+        <input type="text" name="email" id="email" class="form-control" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="password">{{'Password' | translate}}</label>
+        <input type="password" name="password" id="password"
+               class="form-control" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="password-confirmation">{{'Password_confirmation' | translate}}</label>
+        <input type="password" name="password-confirmation"
+               id="password-confirmation" class="form-control" ngModel/>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" >{{'SignUp' | translate}}</button>
+      </div>
+    </div>
+  </form>
+</div>
