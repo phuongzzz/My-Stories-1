@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -9,6 +9,6 @@ export class SignupService {
   }
 
   signup(data: any): Observable<any> {
-    return this.http.post(this.apiURL, data);;
+    return this.http.post(this.apiURL, data);
   }
 }

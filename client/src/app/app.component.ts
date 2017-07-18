@@ -8,8 +8,8 @@ import { TranslateService } from 'ng2-translate';
 })
 export class AppComponent {
 
-  constructor(private translate: TranslateService){
-    translate.addLangs(['en','jp']);
-    translate.setDefaultLang('jp');
+  constructor(private translate: TranslateService) {
+    translate.addLangs(['en', 'jp']);
+    translate.setDefaultLang('en');
   }
 }

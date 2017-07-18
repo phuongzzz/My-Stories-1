@@ -1,9 +1,10 @@
 {
-  "HomeLink": "Home",
-  "Login": "Login",
-  "SignUp": "Sign Up",
-  "UserName": "User Name",
-  "Email": "Email",
-  "Password": "Password",
-  "Password_confirmation": "Password confirmation"
+  "homelink": "Home",
+  "login": "Login",
+  "signup": "Sign Up",
+  "username": "User Name",
+  "email": "Email",
+  "password": "Password",
+  "password_confirmation": "Password confirmation",
+  "createstory": "New Story"
 }

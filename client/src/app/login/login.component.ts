@@ -8,6 +8,8 @@ import { LoginService } from './login.service';
   providers: [ LoginService ]
 })
 export class LoginComponent implements OnInit {
+  private User: any = {};
+  private User_info: any = {};
   constructor(public loginService: LoginService) {
   }
 
@@ -16,7 +18,9 @@ export class LoginComponent implements OnInit {
 
   onNext(response) {
     if (response) {
-      alert('login success !');
+      this.User = JSON.parse(response._body);
+      this.User_info = this.User.data.user_info;
+      window.localStorage.setItem('currentUser', JSON.stringify(this.User_info));
     }
   };
 
