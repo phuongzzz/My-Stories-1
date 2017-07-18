@@ -1,9 +1,10 @@
 {
-  "HomeLink": "ホーム",
-  "Login": "ログイン",
-  "SignUp": "サインアップ",
-  "UserName": "ユーザー名",
-  "Email": "メール",
-  "Password": "パスワード",
-  "Password_confirmation": "パスワード確認"
+  "homelink": "ホーム",
+  "login": "ログイン",
+  "signup": "サインアップ",
+  "username": "ユーザー名",
+  "email": "メール",
+  "password": "パスワード",
+  "password_confirmation": "パスワード確認",
+  "createstory": "新しい物語"
 }
