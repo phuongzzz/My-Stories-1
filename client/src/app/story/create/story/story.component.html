@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row header">
+    <h2>{{'createstory' | translate}}</h2>
+  </div>
+  <div class="row body">
+
+    <form #newstory = "ngForm" (ngSubmit)="onSubmit(newstory.value)">
+      <div ngModelGroup="story">
+        <ul class="infor-detail">
+          <li>
+            <p class="left">
+              <label for="title">{{'story_form.title' | translate}}</label>
+              <input type="text" name="name" id="title" class="form-control"
+                     placeholder="Title" ngModel/>
+            </p>
+          </li>
+
+          <li>
+            <p class="left">
+              <label for="public">{{'story_form.public' | translate}}</label>
+              <select id="public" class="form-control" name="is_public" ngModel>
+                <option value = true >{{'story_form.public' | translate}}</option>
+                <option value = false >{{'story_form.private' | translate}}</option>
+              </select>
+          </li>
+
+          <li>
+            <p class="left">
+              <label for="due date">
+                {{'story_form.duedate' | translate}}</label>
+              <input type="date" name="due_date" id="due date"
+                     class="form-control" placeholder="Due Date" ngModel/>
+            </p>
+          </li>
+
+          <li>
+            <label for="description">
+              {{'story_form.description' | translate}}</label>
+            <textarea cols="46" style="overflow:hidden" name="description"
+                      wrap="hard" id="description" (input)="autoExpand()" ngModel>
+            </textarea>
+          </li>
+
+          <li>
+            <button type="submit" class="btn btn-submit">
+              {{'story_form.createstory' | translate}}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

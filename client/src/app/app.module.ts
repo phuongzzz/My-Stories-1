@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
+import { StoryComponent } from './story/story.component';
+import { CreateComponent } from './story/create/create.component';
+import { StoryFormComponent } from './story/create/story/story.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
+    StoryComponent,
+    CreateComponent,
+    StoryFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { URL } from '../app.routes';
 
 @Injectable()
 export class LoginService {
-  private apiURL = 'http://localhost:3000/api/sign_in';
+  private apiURL;
   constructor(private http: Http) {
+    this.apiURL = URL + 'api/sign_in';
   }
 
   login(data: any): Observable<any> {

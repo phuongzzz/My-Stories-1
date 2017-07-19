@@ -1,10 +1,20 @@
 {
   "homelink": "Home",
   "login": "Login",
+  "logout": "Log out",
   "signup": "Sign Up",
   "username": "User Name",
   "email": "Email",
   "password": "Password",
   "password_confirmation": "Password confirmation",
-  "createstory": "New Story"
+  "createstory": "New Story",
+
+  "story_form": {
+    "title": "Title",
+    "description": "Description",
+    "createstory": "Create",
+    "public": "Public",
+    "private": "Only me",
+    "duedate": "Due date"
+  }
 }

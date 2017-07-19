@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { URL } from '../app.routes';
 
 @Injectable()
 export class SignupService {
-  private apiURL = 'http://localhost:3000/api/sign_up';
+  private apiURL;
   constructor( private http: Http ) {
+    this.apiURL = URL + 'api/sign_up';
   }
 
   signup(data: any): Observable<any> {

@@ -1,10 +1,20 @@
 {
   "homelink": "ホーム",
   "login": "ログイン",
+  "logout": "ログアウト",
   "signup": "サインアップ",
   "username": "ユーザー名",
   "email": "メール",
   "password": "パスワード",
   "password_confirmation": "パスワード確認",
-  "createstory": "新しい物語"
+  "createstory": "新しい物語",
+
+  "story_form": {
+    "title": "タイトル",
+    "description": "説明",
+    "createstory": "作成",
+    "public": "公開",
+    "private": "自分の見",
+    "duedate": "期限"
+  }
 }
