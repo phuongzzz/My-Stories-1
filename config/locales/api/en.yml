@@ -7,4 +7,14 @@ en:
       success: "Show user success"
     messages:
       user_not_found: "User not found"
+  stories:
+    messages:
       stories_created: "The stories has been created"
+      stories_showed: "The stories has been showed"
+      story_not_found: "Can't find the story..."
+  steps: 
+    messages:
+      step_not_found: "Can't find step..."
+      step_showed: "The step has been showed..."
+      created_success: "The step has been created"
+      created_fail: "Can't create step.... Please try again!!!"

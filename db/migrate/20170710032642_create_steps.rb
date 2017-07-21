@@ -1,6 +1,7 @@
 class CreateSteps < ActiveRecord::Migration[5.1]
   def change
     create_table :steps do |t|
+      t.string :name
       t.text :content
       t.integer :completed_rate
       t.integer :story_id
