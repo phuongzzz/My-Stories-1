@@ -1,7 +1,7 @@
 class Step < ApplicationRecord
   ATTRIBUTES_PARAMS = %i(name content).freeze
 
-  has_many :comments
+  has_many :comments, as: :commentable
   has_many :sub_steps
   has_many :votes, as: :voteable, dependent: :destroy
 

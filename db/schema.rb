@@ -14,13 +14,12 @@ ActiveRecord::Schema.define(version: 20170719031923) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "story_id"
-    t.integer "step_id"
+    t.integer "commentable_id"
+    t.string "commentable_type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["step_id"], name: "index_comments_on_step_id"
-    t.index ["story_id"], name: "index_comments_on_story_id"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
