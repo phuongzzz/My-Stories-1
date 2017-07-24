@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from './signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,9 +10,12 @@ import { SignupService } from './signup.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(public signupService: SignupService) { }
+  constructor(public signupService: SignupService, private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('currentUser')) {
+      this.router.navigate(['']);
+    }
   }
 
   onSubmit(value: any) {
