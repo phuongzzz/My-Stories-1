@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170719031923) do
     t.string "name"
     t.text "content"
     t.integer "completed_rate"
+    t.integer "total_vote"
     t.integer "story_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,8 +56,8 @@ ActiveRecord::Schema.define(version: 20170719031923) do
 
   create_table "stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "description"
-    t.float "completed_rate", limit: 24
+    t.text "description"
+    t.integer "total_vote"
     t.integer "number_of_steps"
     t.boolean "is_public"
     t.datetime "due_date"

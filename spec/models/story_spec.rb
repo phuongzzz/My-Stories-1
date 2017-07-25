@@ -10,8 +10,8 @@ RSpec.describe Story, type: :model do
 
   describe "ActiveRecord validations" do
     it {should have_db_column(:name).of_type :string}
-    it {should have_db_column(:description).of_type :string}
-    it {should have_db_column(:completed_rate).of_type :float}
+    it {should have_db_column(:description).of_type :text}
+    it {should have_db_column(:total_vote).of_type :integer}
     it {should have_db_column(:number_of_steps).of_type :integer}
     it {should have_db_column(:is_public).of_type :boolean}
     it {should have_db_column(:due_date).of_type :datetime}
