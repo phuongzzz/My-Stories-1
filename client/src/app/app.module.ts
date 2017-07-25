@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MdButtonModule} from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -11,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
 import { CreateComponent } from './story/create/create.component';
 import { StoryindexComponent } from './story/storyindex/storyindex.component';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { StoryindexComponent } from './story/storyindex/storyindex.component';
     ReactiveFormsModule,
     HttpModule,
     AppRoutes,
-    I18nModule
+    I18nModule,
+    BrowserAnimationsModule,
+    MdButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
