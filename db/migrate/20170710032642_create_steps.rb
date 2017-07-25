@@ -4,6 +4,7 @@ class CreateSteps < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :content
       t.integer :completed_rate
+      t.integer :total_vote
       t.integer :story_id
 
       t.timestamps
