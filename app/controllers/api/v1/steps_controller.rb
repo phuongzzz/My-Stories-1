@@ -1,11 +1,16 @@
 class Api::V1::StepsController < Api::BaseController
-  before_action :find_story, only: :create
+  before_action :find_story, only: [:create, :show]
   before_action :find_object, only: :show
+  before_action :find_comments, only: :show
   skip_before_action :authenticate_user_from_token, only: :show
 
   def show
-    if step.present?
-      step_showed
+    if check_include step
+      step_showed if step.present?
+    else
+      render json: {
+        messages: I18n.t("steps.messages.step_not_found")
+      }, status: :not_found
     end
   end
 
@@ -20,15 +25,27 @@ class Api::V1::StepsController < Api::BaseController
 
   private
 
-  attr_reader :step, :story
+  attr_reader :step, :story, :comments
 
   def find_story
     @story = Story.find_by id: params[:story_id]
   end
 
+  def check_include step
+    if step.story_id == params[:story_id].to_i
+      true
+    else
+      false
+    end
+  end
+
   def steps_params
     params.require(:step).permit Step::ATTRIBUTES_PARAMS,
       sub_steps_attributes: [:name, :content, :_destroy]
+  end
+
+  def find_comments
+    @comments = Comment.comments_for_step params[:id]
   end
 
   def step_created_success
@@ -53,7 +70,7 @@ class Api::V1::StepsController < Api::BaseController
   def step_showed
     render json: {
       messages: I18n.t("steps.messages.step_showed"),
-      data: {step: step, sub_steps: step.sub_steps}
+      data: {step: step, comments: comments, sub_steps: step.sub_steps}
     }, status: :ok
   end
 end

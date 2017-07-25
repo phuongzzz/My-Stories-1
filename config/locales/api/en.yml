@@ -18,3 +18,6 @@ en:
       step_showed: "The step has been showed..."
       created_success: "The step has been created"
       created_fail: "Can't create step.... Please try again!!!"
+  comments:
+    messages: 
+      comment_created: "Your comment was successfully posted"
