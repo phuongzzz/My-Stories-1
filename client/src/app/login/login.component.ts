@@ -21,10 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
   onNext(response) {
-    if (response) {
+    if (response.status === 200) {
+      console.log('vl');
       this.User = JSON.parse(response._body);
       this.User_info = this.User.data.user_info;
       localStorage.setItem('currentUser', JSON.stringify(this.User_info));
+      location.reload();
     }
   };
 
@@ -34,11 +36,9 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  onCompleted() {
-    location.href = '#';
-  };
-
   onSubmit(value: any) {
-    this.loginService.login(value).subscribe(this.onNext, this.onError, this.onCompleted);
+    this.loginService.login(value).subscribe(
+      response => this.onNext(response),
+      response => this.onError(response));
   }
 }
