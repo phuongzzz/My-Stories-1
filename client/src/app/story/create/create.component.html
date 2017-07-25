@@ -1,0 +1,81 @@
+<form [formGroup]="StoryForm">
+  <div class="container">
+    <div class="row header">
+      <h2>{{'createstory' | translate}}</h2>
+    </div>
+
+    <div class="row body">
+      <div class="infor-detail">
+        <div>
+          <p class="left">
+            <label >{{'story_form.title' | translate}}</label>
+            <input type="text" class="form-control"
+              placeholder="Title" formControlName="name"/>
+          </p>
+        </div>
+
+        <div>
+          <p class="left">
+            <label>{{'story_form.public' | translate}}</label>
+            <select class="form-control" formControlName="is_public">
+              <option value = true >{{'story_form.public' | translate}}</option>
+              <option value = false >{{'story_form.private' | translate}}</option>
+            </select>
+          </p>
+        </div>
+
+        <div>
+          <p class="left">
+            <label>{{'story_form.duedate' | translate}}</label>
+            <input type="date" class="form-control" placeholder="Due Date"
+              formControlName="due_date"/>
+          </p>
+        </div>
+
+        <div>
+          <label>{{'story_form.description' | translate}}</label>
+            <textarea cols="46" style="overflow:hidden" wrap="hard"
+              id='description' (input)="autoExpand('description')" formControlName="description">
+            </textarea>
+        </div>
+        <div *ngIf="hidden">
+          <button class="btn btn-submit" (click)="createStep()">
+            {{'story_form.createstory' | translate}}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="!hidden">
+    <h2>{{'story_form.step_detail' | translate}}</h2>
+    <div formArrayName="step_forms" class="row body">
+      <div *ngFor="let step of StoryForm.controls.step_forms.controls;
+        let i=index" class="infor-detail">
+
+        <div [formGroupName]="i">
+          <div class="form-group">
+            <label class="center-block">{{'story_form.step_name' | translate}}</label>
+            <input class="form-control" formControlName="name">
+          </div>
+
+          <div>
+            <label>{{'story_form.content' | translate}}</label>
+            <textarea cols="46" style="overflow:hidden" wrap="hard"
+              id="description{{i}}" (input)="autoExpand('description'+i)" formControlName="content">
+            </textarea>
+          </div>
+        </div>
+        <hr>
+      </div>
+
+      <div>
+        <button class="btn btn-submit" (click)="newStep()">
+          {{'story_form.newstep' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-submit" (click)="submit()">{{'story_form.post' | translate}}</button>
+</form>

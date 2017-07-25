@@ -15,6 +15,11 @@
     "createstory": "作成",
     "public": "公開",
     "private": "自分の見",
-    "duedate": "期限"
+    "duedate": "期限",
+    "step_detail": "詳しくのステップ",
+    "step_name": "ステップ名",
+    "content": "内容",
+    "newstep": "新たステップ",
+    "post": "投稿"
   }
 }

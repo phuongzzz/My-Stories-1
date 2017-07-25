@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutes } from './app.routes';
 import { I18nModule } from './app.i18n';
@@ -10,7 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
 import { CreateComponent } from './story/create/create.component';
-import { StoryFormComponent } from './story/create/story/story.component';
+import { StoryindexComponent } from './story/storyindex/storyindex.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,12 @@ import { StoryFormComponent } from './story/create/story/story.component';
     HeaderComponent,
     StoryComponent,
     CreateComponent,
-    StoryFormComponent,
+    StoryindexComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutes,
     I18nModule

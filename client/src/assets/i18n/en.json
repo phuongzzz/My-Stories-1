@@ -15,6 +15,11 @@
     "createstory": "Create",
     "public": "Public",
     "private": "Only me",
-    "duedate": "Due date"
+    "duedate": "Due date",
+    "step_detail": "Step Detail",
+    "step_name": "Step Name",
+    "content": "Content",
+    "newstep": "Add New Step",
+    "post": "Post"
   }
 }
