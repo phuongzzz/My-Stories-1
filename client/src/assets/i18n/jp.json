@@ -20,6 +20,7 @@
     "step_name": "ステップ名",
     "content": "内容",
     "newstep": "新たステップ",
-    "post": "投稿"
+    "post": "投稿",
+    "step": "ステップ"
   }
 }

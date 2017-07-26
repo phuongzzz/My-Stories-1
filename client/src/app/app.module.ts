@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MdButtonModule} from '@angular/material';
+import { MdButtonModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -16,7 +16,7 @@ import { StoryRowComponent } from './story/storyindex/story-row/story-row.compon
 import { CreateComponent } from './story/create/create.component';
 import { StoryindexComponent } from './story/storyindex/storyindex.component';
 import { MdDialogModule, MdCardModule } from '@angular/material';
-
+import { LoggedInGuard } from './logged-in.guard';
 import 'hammerjs';
 
 @NgModule({
@@ -47,7 +47,7 @@ import 'hammerjs';
     LoginComponent,
     SignupComponent
   ],
-  providers: [],
+  providers: [LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
