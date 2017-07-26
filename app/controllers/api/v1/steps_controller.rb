@@ -70,7 +70,21 @@ class Api::V1::StepsController < Api::BaseController
   def step_showed
     render json: {
       messages: I18n.t("steps.messages.step_showed"),
-      data: {step: step, comments: comments, sub_steps: step.sub_steps}
+      data: {
+        step: step_serializer,
+        comments: comments,
+        sub_steps: sub_step_serializer
+      }
     }, status: :ok
+  end
+
+  def sub_step_serializer
+    Serializers::SubSteps::SubStepsSerializer
+      .new(object: step.sub_steps).serializer
+  end
+
+  def step_serializer
+    Serializers::Step::StepSerializer
+      .new(object: step).serializer
   end
 end

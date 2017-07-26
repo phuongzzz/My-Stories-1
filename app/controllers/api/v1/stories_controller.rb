@@ -46,7 +46,11 @@ class Api::V1::StoriesController < Api::BaseController
   def show_response
     render json: {
       messages: I18n.t("stories.messages.stories_showed"),
-      data: {story: story, comments: comments}
+      data: {story: story_serializer, comments: comments}
     }, status: :ok
+  end
+
+  def story_serializer
+    Serializers::Story::StorySerializer.new(object: story).serializer
   end
 end
