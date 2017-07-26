@@ -8,17 +8,17 @@
 
       <li class="dropdown" *ngIf="current_user; else loginTemplate">
         <a data-toggle="dropdown"
-          class="dropdown-toggle" href="#">{{current_user.name}}</a>
+           class="dropdown-toggle" href="#">{{current_user.name}}</a>
         <ul class="dropdown-menu">
           <li><a href="#" (click)="$event.preventDefault();
             onClick()">{{'logout' | translate}}</a></li>
         </ul>
       </li>
-        <li><a routerLink="/story" *ngIf="current_user">{{'createstory' | translate}}</a></li>
+      <li><a routerLink="/story" *ngIf="current_user">{{'createstory' | translate}}</a></li>
 
       <ng-template #loginTemplate>
-        <li><a routerLink="/login">{{'login' | translate}}</a></li>
-        <li><a routerLink="/signup">{{'signup' | translate}}</a></li>
+        <li><a md-button (click)="openDialogLogIn()">{{'login' | translate}}</a></li>
+        <li><a md-button (click)="openDialogSignUp()">{{'signup' | translate}}</a></li>
       </ng-template>
     </ul>
   </div>

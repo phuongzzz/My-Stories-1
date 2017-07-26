@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
 import { CreateComponent } from './story/create/create.component';
 import { StoryindexComponent } from './story/storyindex/storyindex.component';
+import { MdDialogModule } from '@angular/material';
 
 import 'hammerjs';
 
@@ -24,7 +25,7 @@ import 'hammerjs';
     HeaderComponent,
     StoryComponent,
     CreateComponent,
-    StoryindexComponent,
+    StoryindexComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,12 @@ import 'hammerjs';
     AppRoutes,
     I18nModule,
     BrowserAnimationsModule,
-    MdButtonModule
+    MdButtonModule,
+    MdDialogModule
+  ],
+  entryComponents: [
+    LoginComponent,
+    SignupComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
