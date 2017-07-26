@@ -1,6 +1,6 @@
 class Api::V1::StoriesController < Api::BaseController
   before_action :user_signed_in?
-  before_action :find_object
+  before_action :find_object, only: :show
   before_action :find_comments, only: :show
   skip_before_action :authenticate_user_from_token, only: :show
 

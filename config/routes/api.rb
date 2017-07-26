@@ -12,8 +12,10 @@ namespace :api, defaults: {format: "json"} do
     resources :users, only: :show
     resources :stories, only: [:create, :show] do
       resources :comments, only: :create
+      post "vote", to: "votes#up_down_vote"
       resources :steps, only: [:create, :show] do
         resources :comments, only: :create
+        post "vote", to: "votes#up_down_vote"
       end
     end
 
