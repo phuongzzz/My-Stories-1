@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from './logout.service';
 import { LoginComponent } from '../login/login.component'
-import {MdDialog} from '@angular/material';
-import {SignupComponent} from '../signup/signup.component';
+import { MdDialog } from '@angular/material';
+import { SignupComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'app-header',
@@ -45,10 +45,6 @@ export class HeaderComponent implements OnInit {
   onClick() {
     this.logoutService.logout(this.current_user.token).subscribe(this.onNext,
       this.onError, this.onComplete);
-  }
-
-  login() {
-    console.log('asdfkjlasd')
   }
 
   openDialogLogIn() {

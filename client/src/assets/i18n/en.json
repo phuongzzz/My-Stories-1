@@ -20,6 +20,7 @@
     "step_name": "Step Name",
     "content": "Content",
     "newstep": "Add New Step",
-    "post": "Post"
+    "post": "Post",
+    "step": "STEP"
   }
 }

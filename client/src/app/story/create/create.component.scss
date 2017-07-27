@@ -3,6 +3,8 @@ $grey: #e2e2e2;
 $dark_grey: #555;
 $blue: #4f6fad;
 $pink: #ee9cb4;
+$asbestos: #7f8c8d;
+$clouds: #ecf0f1;
 
 @mixin lato-book { font-family: 'Lato', sans-serif; font-weight: 300; }
 @mixin lato-reg { font-family: 'Lato', sans-serif; font-weight: 400; }
@@ -24,8 +26,33 @@ body {
   font-size: 100%;
   @include lato-reg;
 }
+.p-container {
+  max-width: 1000px;
+  min-width: 324px;
+  margin: 0 auto 0;
 
+  .btn-slide {
+    background-color: transparent;
+    border: none;
+    color: $asbestos;
+    z-index: 999;
+    transform: scale(2, 2);
+  }
+
+  .btn-left {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+  }
+
+  .btn-right {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+  }
+}
 .container {
+  position: relative;
   max-width: 800px;
   min-width: 324px;
   margin: 50px auto 60px;
@@ -195,4 +222,9 @@ form {
   li small {
     display: none;
   }
+}
+
+.btn-slide:hover i {
+  transition: all ease .5s;
+  transform: scale(5,5);
 }
