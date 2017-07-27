@@ -11,9 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
+import { StoriesListComponent } from './story/storyindex/stories-list/stories-list.component';
+import { StoryRowComponent } from './story/storyindex/story-row/story-row.component';
 import { CreateComponent } from './story/create/create.component';
 import { StoryindexComponent } from './story/storyindex/storyindex.component';
-import { MdDialogModule } from '@angular/material';
+import { MdDialogModule, MdCardModule } from '@angular/material';
 
 import 'hammerjs';
 
@@ -25,7 +27,9 @@ import 'hammerjs';
     HeaderComponent,
     StoryComponent,
     CreateComponent,
-    StoryindexComponent
+    StoryindexComponent,
+    StoriesListComponent,
+    StoryRowComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import 'hammerjs';
     I18nModule,
     BrowserAnimationsModule,
     MdButtonModule,
-    MdDialogModule
+    MdDialogModule,
+    MdCardModule
   ],
   entryComponents: [
     LoginComponent,

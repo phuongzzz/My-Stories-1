@@ -1,0 +1,14 @@
+.custom-nav {
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(168,168,168,1);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(168,168,168,1);
+  box-shadow: 0px 1px 2px 0px rgba(168,168,168,1);
+  border-radius: 0;
+  background-color: white;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+}
+.phuong-home:hover {
+  color: deeppink;
+}

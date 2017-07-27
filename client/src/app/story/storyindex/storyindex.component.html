@@ -1,6 +1,9 @@
-<p>
-  storyindex works!
-</p>
-<button class="btn btn-submit" (click)="onClick()">
-  {{'story_form.createstory' | translate}}
-</button>
+<div class="story-container">
+  <p>
+    storyindex works!
+  </p>
+
+  <app-stories-list
+    [storyList]="stories">
+  </app-stories-list>
+</div>

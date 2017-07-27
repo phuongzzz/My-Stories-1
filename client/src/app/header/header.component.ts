@@ -52,10 +52,16 @@ export class HeaderComponent implements OnInit {
   }
 
   openDialogLogIn() {
-    this.dialog.open(LoginComponent);
+    this.dialog.open(LoginComponent, {
+      height: '400px',
+      width: '600px'
+    });
   }
 
   openDialogSignUp() {
-    this.dialog.open(SignupComponent);
+    this.dialog.open(SignupComponent, {
+      height: '500px',
+      width: '600px'
+    });
   }
 }
