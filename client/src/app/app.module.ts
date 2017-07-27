@@ -15,9 +15,12 @@ import { StoriesListComponent } from './story/storyindex/stories-list/stories-li
 import { StoryRowComponent } from './story/storyindex/story-row/story-row.component';
 import { CreateComponent } from './story/create/create.component';
 import { StoryindexComponent } from './story/storyindex/storyindex.component';
-import { MdDialogModule, MdCardModule } from '@angular/material';
+import { MdDialogModule, MdCardModule, MdInputModule, MdTooltipModule } from '@angular/material';
 import { LoggedInGuard } from './logged-in.guard';
 import 'hammerjs';
+import { UpdateUserComponent } from './updateuser/updateuser.component';
+import { UpdateUserNameComponent } from './updateuser/update-user-name/update-user-name.component'
+import { InfoUserComponent } from './info-user/info-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import 'hammerjs';
     CreateComponent,
     StoryindexComponent,
     StoriesListComponent,
-    StoryRowComponent
+    StoryRowComponent,
+    UpdateUserComponent,
+    UpdateUserNameComponent,
+    InfoUserComponent
   ],
   imports: [
     BrowserModule,
@@ -41,11 +47,15 @@ import 'hammerjs';
     BrowserAnimationsModule,
     MdButtonModule,
     MdDialogModule,
-    MdCardModule
+    MdCardModule,
+    MdInputModule,
+    MdTooltipModule
   ],
   entryComponents: [
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    InfoUserComponent,
+    UpdateUserNameComponent
   ],
   providers: [LoggedInGuard],
   bootstrap: [AppComponent]

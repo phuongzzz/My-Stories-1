@@ -7,13 +7,14 @@
       <li class="active"><a routerLink="/" md-button class="phuong-home"><i class="material-icons">home</i></a></li>
 
       <li class="dropdown" *ngIf="current_user; else loginTemplate">
-        <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{current_user.name}}</a>
+        <a  md-button data-toggle="dropdown" class="dropdown-toggle" href="#">{{current_user.name}}</a>
         <ul class="dropdown-menu">
+          <li><a md-button (click)="openDialogInfoUser()">{{'Profile' | translate}}</a></li>
           <li><a md-button (click)="$event.preventDefault();
             onClick()">{{'logout' | translate}}</a></li>
         </ul>
       </li>
-      <li><a routerLink="story/create" *ngIf="current_user">{{'createstory' | translate}}</a></li>
+      <li><a md-button routerLink="story/create" *ngIf="current_user">{{'createstory' | translate}}</a></li>
       <li><a routerLink="story" md-button *ngIf="current_user">All Stories</a></li>
 
       <ng-template #loginTemplate>
