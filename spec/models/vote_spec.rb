@@ -5,6 +5,7 @@ RSpec.describe Vote, type: :model do
     it {should have_db_column(:voteable_type).of_type :string}
     it {should have_db_column(:voteable_id).of_type :integer}
     it {should have_db_column(:user_id).of_type :integer}
+    it {should have_db_column(:value).of_type :integer}
 
     it {should belong_to :user}
     it {should belong_to :voteable}
