@@ -1,29 +1,26 @@
 <div class="p-container">
-  <button (click)="back()" class="btn-slide btn-left" *ngIf="presentStep >= 0">
+  <a href="" (click)="$event.preventDefault(); back()"
+    class="btn-slide btn-left" *ngIf="presentStep >= 0">
     <i class="material-icons">keyboard_arrow_left</i>
-  </button>
-  <button (click)="next()" class="btn-slide btn-right"
-    *ngIf="presentStep + 1 < StoryForm.controls['step_forms'].length && !hidden" >
+  </a>
+  <a href="" (click)="$event.preventDefault(); next()" class="btn-slide btn-right"
+    *ngIf="presentStep + 1 < StepForm.length && !hidden">
     <i class="material-icons">keyboard_arrow_right</i>
-  </button>
+  </a>
 
   <form [formGroup]="StoryForm">
     <div class="container" id="story">
       <div class="row header">
         <h2>{{'createstory' | translate}}</h2>
       </div>
-
       <div class="row body">
         <div class="infor-detail">
-          <div>
+          <div class="col-md-7">
             <p class="left">
               <label >{{'story_form.title' | translate}}</label>
-              <input type="text" class="form-control"
+              <input type="text" class="form-control" required
                 placeholder="Title" formControlName="name"/>
             </p>
-          </div>
-
-          <div>
             <p class="left">
               <label>{{'story_form.public' | translate}}</label>
               <select class="form-control" formControlName="is_public">
@@ -31,21 +28,28 @@
                 <option value = false >{{'story_form.private' | translate}}</option>
               </select>
             </p>
-          </div>
-
-          <div>
             <p class="left">
               <label>{{'story_form.duedate' | translate}}</label>
               <input type="date" class="form-control" placeholder="Due Date"
-                formControlName="due_date"/>
+                required formControlName="due_date"/>
             </p>
           </div>
-
-          <div>
+          <div class="col-md-5">
+            <div class="text-center">
+              <img [src]="url_image_story" id="story_cover">
+              <a class="upload-pic" href=""
+                (click)="$event.preventDefault(); chooseImage('#imageInput')">
+                <i class="material-icons">linked_camera</i>
+              </a>
+              <input type="file" id="imageInput" style="display: none"
+                (change)="onChange($event, 0)">
+            </div>
+          </div>
+          <div class="description">
             <label>{{'story_form.description' | translate}}</label>
             <textarea cols="46" style="overflow:hidden" wrap="hard"
               id='description' (input)="autoExpand('description')"
-              formControlName="description">
+              required formControlName="description">
             </textarea>
           </div>
           <div *ngIf="hidden">
@@ -53,45 +57,79 @@
               {{'story_form.createstory' | translate}}
             </button>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="container" id="step" style="display: none">
-      <h2>{{'story_form.step_detail' | translate}}</h2>
-      <div formArrayName="step_forms" class="row body">
-        <div *ngFor="let step of StoryForm.controls.step_forms.controls;
-          let i=index" class="infor-detail">
-
+      <div class="col-md-10"><h2>{{'story_form.step_detail' | translate}}</h2></div>
+      <br><br>
+      <a href="" (click)="$event.preventDefault(); delStep()" class="del-icon">
+        <i class="material-icons">delete</i>
+      </a>
+      <a href="" (click)="$event.preventDefault(); newStep()" class="add-icon">
+        <i class="material-icons">add_to_photos</i>
+      </a>
+      <div formArrayName="step" class="row body">
+        <div *ngFor="let step of StepForm.controls; let i=index"
+          class="infor-detail">
           <div [formGroupName]="i" id="step{{i}}">
             <h3>{{'story_form.step' | translate}} {{i+1}}</h3>
             <div class="form-group">
               <label class="center-block">{{'story_form.step_name' | translate}}</label>
-              <input class="form-control" formControlName="name">
+              <input class="form-control" required formControlName="name">
             </div>
-
-            <div>
-              <label>{{'story_form.content' | translate}}</label>
-              <textarea cols="46" style="overflow:hidden" wrap="hard"
-                id="description{{i}}" (input)="autoExpand('description'+i)"
-                formControlName="content">
-              </textarea>
+            <label>{{'story_form.content' | translate}}</label>
+            <textarea cols="46" style="overflow:hidden" wrap="hard"
+              id="description{{i}}" (input)="autoExpand('description'+i)"
+              required formControlName="content">
+            </textarea>
+            <hr><br>
+            <div formArrayName="sub_steps_attributes">
+              <div *ngFor="let substep of getStepForm(i).controls; let j=index">
+                <div [formGroupName] = "j" id="substep{{i}}_{{j}}">
+                  <a href="" (click)="$event.preventDefault(); delSubStep(j)"
+                    class="col-md-7 remove-icon">
+                    <i class="material-icons">remove_circle_outline</i>
+                  </a>
+                  <div class="col-md-7">
+                    <div class="form-group">
+                      <label class="center-block">
+                        {{'story_form.step_name' | translate}}
+                      </label>
+                      <input class="form-control" formControlName="name">
+                    </div>
+                    <label class="form-group">
+                      {{'story_form.content' | translate}}
+                    </label>
+                    <textarea cols="46" style="overflow:hidden" wrap="hard"
+                      id="content{{j}}" (input)="autoExpand('content'+j)"
+                      formControlName="content">
+                    </textarea>
+                    <br><hr>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="text-center">
+                      <img [src]="url_image_story" id="image{{i}}_{{j}}">
+                      <a class="upload-pic" href=""
+                         (click)="$event.preventDefault(); chooseImage('#input'+i+'_'+j)">
+                        <i class="material-icons">linked_camera</i>
+                      </a>
+                      <input type="file" style="display: none" id="input{{i}}_{{j}}"
+                        (change)="onChange($event, j)">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <hr>
           </div>
         </div>
-
-        <div>
-          <button class="btn btn-submit" (click)="newStep()">
-            {{'story_form.newstep' | translate}}
-          </button>
-        </div>
-        <div>
-          <button class="btn btn-submit" (click)="submit()">
-            {{'story_form.post' | translate}}
-          </button>
-        </div>
+        <div class="col-md-11"></div>
+        <a href="" (click)="$event.preventDefault(); newSubStep()" class="add-icon">
+          <i class="material-icons">add_circle_outline</i>
+        </a>
+        <button class="btn btn-submit" (click)="submit()">
+          {{'story_form.post' | translate}}
+        </button>
       </div>
     </div>
   </form>
