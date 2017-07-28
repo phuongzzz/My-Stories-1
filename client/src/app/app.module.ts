@@ -22,7 +22,10 @@ import { LoggedInGuard } from './logged-in.guard';
 import 'hammerjs';
 import { UpdateUserComponent } from './updateuser/updateuser.component';
 import { UpdateUserNameComponent } from './updateuser/update-user-name/update-user-name.component'
+import { UpdateUserPasswordComponent } from './updateuser/update-user-password/update-user-password.component'
 import { InfoUserComponent } from './info-user/info-user.component';
+import { EditUserDialogComponent }  from './info-user/user-dialog.component';
+import { MdSnackBarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { InfoUserComponent } from './info-user/info-user.component';
     UpdateUserComponent,
     UpdateUserNameComponent,
     InfoUserComponent,
-    StoryDetailsComponent
+    StoryDetailsComponent,
+    UpdateUserPasswordComponent,
+    InfoUserComponent,
+    EditUserDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,13 +58,16 @@ import { InfoUserComponent } from './info-user/info-user.component';
     MdDialogModule,
     MdCardModule,
     MdInputModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdSnackBarModule
   ],
   entryComponents: [
     LoginComponent,
     SignupComponent,
     InfoUserComponent,
-    UpdateUserNameComponent
+    UpdateUserNameComponent,
+    UpdateUserPasswordComponent,
+    EditUserDialogComponent,
   ],
   providers: [LoggedInGuard, StoryService],
   bootstrap: [AppComponent]

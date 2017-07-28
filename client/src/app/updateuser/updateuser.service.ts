@@ -11,6 +11,6 @@ export class UpdateUserService {
   }
 
   edit(data: any): Observable<any> {
-    return this.http.get(this.apiURL, data);
+    return this.http.patch(this.apiURL, data);
   }
 }

@@ -1,7 +1,22 @@
-<form class="example-form">
-  <md-input-container >
-    <input mdInput #message maxlength="256" placeholder="Message">
-    <md-hint align="start"><strong>Don't disclose personal info</strong> </md-hint>
-    <md-hint align="end">{{message.value.length}} / 256</md-hint>
-  </md-input-container >
+<form class="form">
+  <div>
+    <h2>{{'New Name' | translate}}</h2>
+    <form #nameForm = "ngForm" (ngSubmit)="onSubmit(nameForm.value)" >
+      <div ngModelGroup="user">
+        <div class="form-group">
+          <md-input-container  class="full-width" >
+            <textarea mdInput  ngModel
+              placeholder="{{'update_user.name' | translate}}"
+              name="name" id="name" >
+            </textarea>
+          </md-input-container >
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" >
+            {{'update_user.submit' | translate}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </form>

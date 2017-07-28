@@ -3,13 +3,15 @@ import { UpdateUserService } from './updateuser.service';
 import { Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MdDialog } from '@angular/material';
-import { UpdateUserNameComponent } from './update-user-name/update-user-name.component'
+import { UpdateUserNameComponent } from './update-user-name/update-user-name.component';
+import { UpdateUserPasswordComponent } from './update-user-password/update-user-password.component';
+import { InfoUserComponent } from '../info-user/info-user.component'
 
 @Component({
   selector: 'app-updateuser',
   templateUrl: './updateuser.component.html',
   styleUrls: ['./updateuser.component.css'],
-  providers: [ UpdateUserService, FormBuilder ]
+  providers: [ UpdateUserService, FormBuilder, InfoUserComponent, UpdateUserPasswordComponent ]
 })
 
 export class UpdateUserComponent implements OnInit {
@@ -21,29 +23,12 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit() {
     if (!localStorage.getItem('currentUser')) {
       this.router.navigate(['']);
-    } else {
-      this.createForm();
     }
-  }
-
-  createForm() {
-    this.EditUserForm = this.formbuilder.group({
-      name: '',
-      email: '',
-      current_password: '',
-      password: '',
-      password_confirmation: ''
-    });
-  }
-  onSubmit(value: any) {
-    console.log('aa')
-    this.updateuserService.edit(value).subscribe(response => {
-      if (response) {
-        alert('update success!');
-      }
-    });
   }
   onUpdateName(){
     this.dialog.open(UpdateUserNameComponent)
+  }
+  onUpdatePassword(){
+    this.dialog.open(UpdateUserPasswordComponent)
   }
 }
