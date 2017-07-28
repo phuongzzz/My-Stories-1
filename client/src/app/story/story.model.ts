@@ -1,9 +1,9 @@
 export class Story {
   constructor(
-    // public id: number,
+    public id: number,
     public name: string,
     public description: string,
-    public featured_image: string,
+    public imageUrl: string,
     // public total_vote: number,
     // public number_of_steps: null,
     // public is_public: boolean,

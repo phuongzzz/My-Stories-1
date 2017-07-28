@@ -12,3 +12,7 @@
 .phuong-home:hover {
   color: deeppink;
 }
+
+.navbar {
+  transition: all ease .5s
+}

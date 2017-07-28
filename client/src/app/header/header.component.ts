@@ -4,13 +4,15 @@ import { LoginComponent } from '../login/login.component'
 import { MdDialog } from '@angular/material';
 import { SignupComponent } from '../signup/signup.component';
 import { InfoUserComponent } from '../info-user/info-user.component'
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers: [ LogoutService, LoginComponent ]
+  providers: [LogoutService, LoginComponent]
 })
+
 export class HeaderComponent implements OnInit {
   private current_user: any;
   constructor(public logoutService: LogoutService, public dialog: MdDialog) {
@@ -20,6 +22,18 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('currentUser')) {
       this.current_user = JSON.parse(localStorage.getItem('currentUser'));
     }
+
+    $(window).on('scroll', function () {
+      var wn = $(window).scrollTop();
+      if (wn > 120) {
+        $('.navbar').removeClass('custom-nav');
+        $('.navbar').addClass('navbar-inverse');
+      }
+      else {
+        $('.navbar').removeClass('navbar-inverse');
+        $('.navbar').addClass('custom-nav');
+      }
+    });
   }
 
   onNext() {
