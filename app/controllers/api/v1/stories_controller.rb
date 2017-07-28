@@ -10,12 +10,18 @@ class Api::V1::StoriesController < Api::BaseController
 
   def create
     @story = current_user.stories.new stories_params
-    story.save ? created_response_success : created_response_fail
+    
+    if story.save
+      save_each_step if params_steps.present?
+      created_response_success
+    else
+      created_response_fail
+    end
   end
 
   private
 
-  attr_reader :story, :comments
+  attr_reader :story, :comments, :step
 
   def find_story
     @story = Story.find_by id: params[:id]
@@ -29,10 +35,18 @@ class Api::V1::StoriesController < Api::BaseController
     params.require(:story).permit Story::ATTRIBUTES_PARAMS
   end
 
+  def save_each_step
+    StoryService.new(total_params: params[:story], story: story).perform
+  end
+
+  def params_steps
+    params[:story][:step]
+  end
+
   def created_response_success
     render json: {
       messages: I18n.t("stories.messages.stories_created"),
-      data: {story: story}
+      data: {story: story_serializer}
     }, status: :ok
   end
 
@@ -46,7 +60,7 @@ class Api::V1::StoriesController < Api::BaseController
   def show_response
     render json: {
       messages: I18n.t("stories.messages.stories_showed"),
-      data: {story: story_serializer, comments: comments}
+      data: {story: story_serializer}
     }, status: :ok
   end
 
