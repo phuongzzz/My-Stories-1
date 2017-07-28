@@ -6,20 +6,13 @@ import { Story } from '../../story.model';
 @Component({
   selector: 'app-story-row',
   templateUrl: './story-row.component.html',
-  styles: [
-    `
-      .phuong-custom-card {
-        margin-bottom: 80px;
-        box-shadow: none !important;
-      }
-    `
-  ]
+  styleUrls: ['./story-row.component.css']
 })
 
 export class StoryRowComponent implements OnInit {
   @Input() story: Story;
 
   ngOnInit() {
-   $('.phuong-custom-card').addClass('animated bounceInUp');
+    $('.phuong-custom-card').addClass('animated bounceInUp');
   }
 }

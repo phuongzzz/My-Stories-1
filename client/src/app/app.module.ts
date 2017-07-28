@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
+import { StoryService } from './story/shared/story.service';
+import { StoryDetailsComponent } from './story/storyindex/story-details/story-details.component';
 import { StoriesListComponent } from './story/storyindex/stories-list/stories-list.component';
 import { StoryRowComponent } from './story/storyindex/story-row/story-row.component';
 import { CreateComponent } from './story/create/create.component';
@@ -35,7 +37,8 @@ import { InfoUserComponent } from './info-user/info-user.component';
     StoryRowComponent,
     UpdateUserComponent,
     UpdateUserNameComponent,
-    InfoUserComponent
+    InfoUserComponent,
+    StoryDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { InfoUserComponent } from './info-user/info-user.component';
     InfoUserComponent,
     UpdateUserNameComponent
   ],
-  providers: [LoggedInGuard],
+  providers: [LoggedInGuard, StoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

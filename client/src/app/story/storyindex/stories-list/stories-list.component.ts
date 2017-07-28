@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
+import { StoryService } from '../../shared/story.service';
 
 import { Story } from '../../story.model';
 
@@ -7,9 +8,13 @@ import { Story } from '../../story.model';
   templateUrl: './stories-list.component.html'
 })
 
-export class StoriesListComponent {
-  @Input() storyList: Story[];
+export class StoriesListComponent implements OnInit {
+  storyList: any[];
 
-  constructor() {
+  constructor(private storyService: StoryService) {
+  }
+
+  ngOnInit() {
+    this.storyList = this.storyService.getAllStories();
   }
 }
