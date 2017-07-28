@@ -31,6 +31,7 @@ config/database.yml
 client/dist
 client/tmp
 client/out-tsc
+client/package-lock.json
 
 # dependencies
 client/node_modules
