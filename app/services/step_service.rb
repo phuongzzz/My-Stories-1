@@ -8,7 +8,7 @@ class StepService
     steps.each do |params_step|
       @params = ActionController::Parameters.new(step: params_step)
       @step = story.steps.new steps_params
-      
+
       unless step.save
         step_created_fail
         break

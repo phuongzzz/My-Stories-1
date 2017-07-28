@@ -31,7 +31,17 @@ class Api::BaseController < ActionController::API
     }, status: :not_found
   end
 
+  def correct_user object
+    object.eql? current_user
+  end
+
   def params_controller
     params[:controller]
+  end
+
+  def not_have_permit
+    render json: {
+      messages: I18n.t("api.not_have_permit")
+    }, status: :ok
   end
 end

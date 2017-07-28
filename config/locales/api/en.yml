@@ -2,9 +2,16 @@ en:
   api:
     missing_params: "Missing parameter"
     invalid_token: "Invalid token"
+    not_have_permit: "You don't have permission"
   users:
     show:
-      success: "Show user success"
+      success: "Showed user successfully"
+    update:
+      success: "Updated profile successfully"
+      fail: "Updated profile fail"
+    destroy:
+      success: "Destroy successfully"
+      fail: "Destroy fail"
     messages:
       user_not_found: "User not found"
   stories:
