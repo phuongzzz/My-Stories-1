@@ -10,7 +10,7 @@ class Api::V1::StoriesController < Api::BaseController
 
   def create
     @story = current_user.stories.new stories_params
-    
+
     if story.save
       save_each_step if params_steps.present?
       created_response_success
