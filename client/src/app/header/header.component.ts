@@ -3,6 +3,7 @@ import { LogoutService } from './logout.service';
 import { LoginComponent } from '../login/login.component'
 import { MdDialog } from '@angular/material';
 import { SignupComponent } from '../signup/signup.component';
+import { InfoUserComponent } from '../info-user/info-user.component'
 
 @Component({
   selector: 'app-header',
@@ -58,6 +59,12 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(SignupComponent, {
       height: '500px',
       width: '600px'
+    });
+  }
+  openDialogInfoUser() {
+    this.dialog.open(InfoUserComponent,{
+      height: '300px',
+      width: '800px',
     });
   }
 }
