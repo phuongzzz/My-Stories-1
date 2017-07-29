@@ -1,0 +1,8 @@
+<div class="well hoverwell thumbnail"
+  [ngClass]="getStoryTotalVotes()"
+  [routerLink]="['/story', story.id]">
+  <h2>{{'single_story.name'| translate}} {{story?.name}}</h2>
+  <div>{{'single_story.description' | translate}}: {{story?.description}}</div>
+  <div>{{'single_story.total_votes' | translate}}  : {{story?.total_vote}}</div>
+  <div>{{'single_story.number_of_steps' | translate}} : {{story?.number_of_steps}}</div>
+</div>

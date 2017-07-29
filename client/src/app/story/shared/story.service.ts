@@ -1,20 +1,117 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Rx';
 
 @Injectable()
 export class StoryService {
-  getAllStories() {
-    return STORIES;
+  getStories() {
+    const subject = new Subject();
+    setTimeout(() => {subject.next(STORIES); subject.complete(); },
+      2000);
+    return subject;
   }
 
   getStory(id: number) {
-    return STORIES.find(story => story.id === id)
+    return STORIES.find(story => story.id === id);
   }
 }
 
 const STORIES = [
-  { id: 1, name: "Story 1", description: "Story 1 description", imageUrl: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/20245991_1927491454129349_8695881823121263491_n.jpg?oh=b6c851c88cdd6b61845f02db00710050&oe=59F8EF63" },
-  { id: 2, name: "Story 2", description: "Story 2 description", imageUrl: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/19875487_1921257118086116_533189366890095691_n.jpg?oh=4e149ed31d63afaf6e1f80fc908da05f&oe=59F54520" },
-  { id: 3, name: "Story 3", description: "Story 3 description", imageUrl: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/19657464_1919332308278597_5193691111643115388_n.jpg?oh=0a5a62a86e64d9803c8311c472657de1&oe=59FB5A10" },
-  { id: 4, name: "Story 4", description: "Story 4 description", imageUrl: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/19059460_1908138622731299_5938846659345776813_n.jpg?oh=4a8229d4793667916dd6d7ff9da01377&oe=5A379896" },
-  { id: 5, name: "Story 5", description: "Story 5 description", imageUrl: "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/18765701_1900659010145927_1160420934129052524_n.jpg?oh=404eb707e17ef1758cbf74f7e606640d&oe=5A0520C1" },
+  {
+    id: 1,
+    name: 'Phuong Story',
+    description: 'This is the first story ever on this system',
+    imageUrl: 'https://static.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg',
+    total_vote: 5,
+    number_of_steps: 5,
+    is_public: true,
+    due_date: '2017-07-25',
+    user_id: 1,
+    steps: [
+      {
+        id: 1,
+        name: 'First Step',
+        content: 'First Step Content',
+        total_vote: 4,
+        sub_steps: [
+          {
+            id: 1,
+            name: 'Substep 1',
+            content: 'Nhieu vl'
+          },
+          {
+            id: 2,
+            name: 'Substep 2',
+            content: 'Sao lam the'
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: 'Second Step',
+        content: 'Second Step Content',
+        total_vote: 6,
+        sub_steps: [
+          {
+            id: 4,
+            name: 'Substep 1 cua cai thu 2',
+            content: 'Nhieu vl'
+          },
+          {
+            id: 3,
+            name: 'Substep 2 cua cai thu 2',
+            content: 'Sao lam the, demama'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: 'Phuc Story',
+    description: 'This is Phuc Story',
+    imageUrl: 'https://i.pinimg.com/originals/63/97/23/639723a34ff2644545e6390d51625b9d.jpg',
+    total_vote: 9,
+    number_of_steps: 2,
+    is_public: true,
+    due_date: '2017-07-26',
+    user_id: 2,
+    steps: [
+      {
+        id: 3,
+        name: 'First Step of Phuc',
+        content: 'First Step Content of Phuc',
+        total_vote: 9,
+        sub_steps: [
+          {
+            id: 5,
+            name: 'Substep 1 cua Phuc',
+            content: 'Nhieu vl ra ong a'
+          },
+          {
+            id: 6,
+            name: 'Substep 2 cua Phuc',
+            content: 'Sao lam the ong ei'
+          }
+        ]
+      },
+      {
+        id: 4,
+        name: 'Second Step cua Phuc',
+        content: 'Second Step Content cua Phuc',
+        total_vote: 60,
+        sub_steps: [
+          {
+            id: 7,
+            name: 'Substep 1 cua cai thu 2 cua Phuc',
+            content: 'Nhieu vl, det mo kho vl'
+          },
+          {
+            id: 8,
+            name: 'Substep 2 cua cai thu 2 cua Phuc',
+            content: 'Sao lam the, demama, dai vkl'
+          }
+        ]
+      }
+    ]
+  },
 ]

@@ -11,12 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
-import { StoryService } from './story/shared/story.service';
-import { StoryDetailsComponent } from './story/storyindex/story-details/story-details.component';
-import { StoriesListComponent } from './story/storyindex/stories-list/stories-list.component';
-import { StoryRowComponent } from './story/storyindex/story-row/story-row.component';
 import { CreateComponent } from './story/create/create.component';
-import { StoryindexComponent } from './story/storyindex/storyindex.component';
 import { MdDialogModule, MdCardModule, MdInputModule, MdTooltipModule } from '@angular/material';
 import { LoggedInGuard } from './logged-in.guard';
 import 'hammerjs';
@@ -24,8 +19,16 @@ import { UpdateUserComponent } from './updateuser/updateuser.component';
 import { UpdateUserNameComponent } from './updateuser/update-user-name/update-user-name.component'
 import { UpdateUserPasswordComponent } from './updateuser/update-user-password/update-user-password.component'
 import { InfoUserComponent } from './info-user/info-user.component';
-import { EditUserDialogComponent }  from './info-user/user-dialog.component';
+import { EditUserDialogComponent } from './info-user/user-dialog.component';
 import { MdSnackBarModule } from '@angular/material';
+
+import {
+  StoriesListComponent,
+  StoryThumbnailComponent,
+  StoryDetailsComponent,
+  StoryService,
+  StoriesListResolverService
+} from './story/index';
 
 @NgModule({
   declarations: [
@@ -35,16 +38,15 @@ import { MdSnackBarModule } from '@angular/material';
     HeaderComponent,
     StoryComponent,
     CreateComponent,
-    StoryindexComponent,
-    StoriesListComponent,
-    StoryRowComponent,
     UpdateUserComponent,
     UpdateUserNameComponent,
     InfoUserComponent,
-    StoryDetailsComponent,
     UpdateUserPasswordComponent,
     InfoUserComponent,
     EditUserDialogComponent,
+    StoriesListComponent,
+    StoryDetailsComponent,
+    StoryThumbnailComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,7 @@ import { MdSnackBarModule } from '@angular/material';
     UpdateUserPasswordComponent,
     EditUserDialogComponent,
   ],
-  providers: [LoggedInGuard, StoryService],
+  providers: [LoggedInGuard, StoryService, StoriesListResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
