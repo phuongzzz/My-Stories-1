@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IStory } from './shared/story.model';
 
 @Component({
   selector: 'app-story-thumbnail',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 
 export class StoryThumbnailComponent {
-  @Input() story: any;
+  @Input() story: IStory;
 
   getStoryTotalVotes() {
     if(this.story && this.story.total_vote > 5) {

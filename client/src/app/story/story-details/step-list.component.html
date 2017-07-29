@@ -1,0 +1,15 @@
+<div class="row" *ngFor="let step of steps">
+  <div class="col-md-1">
+    <app-upvote
+      (vote)="toggleVote(step)"
+      [count]="step.voters_id.length"
+      [voted]="userHasVoted(step)"
+    ></app-upvote>
+  </div>
+  <div class="col-md-10">
+    <app-collapsible-well [name]="step.name">
+      <p>{{step.content}}</p>
+      <p>{{'step.votes' | translate}} : {{step.voters_id.length}}</p>
+    </app-collapsible-well>
+  </div>
+</div>

@@ -16,7 +16,6 @@
       </li>
       <li><a md-button routerLink="story/create" *ngIf="current_user">{{'createstory' | translate}}</a></li>
       <li><a routerLink="story/list" md-button *ngIf="current_user">{{'stories.all_stories' | translate}}</a></li>
-
       <ng-template #loginTemplate>
         <li><a md-button  (click)=" openDialogLogIn()">{{'login' | translate}}</a></li>
         <li><a md-button (click)="openDialogSignUp()">{{'signup' | translate}}</a></li>

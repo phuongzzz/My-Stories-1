@@ -3,3 +3,7 @@ export * from './story-thumbnail.component';
 export * from './shared/stories-list-resolver.service';
 export * from './shared/story.service';
 export * from './story-details/story-details.component';
+export * from './shared/story.model';
+export * from './story-details/step-list.component';
+export * from './story-details/upvote.component';
+export * from './story-details/vote.service';
