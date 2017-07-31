@@ -7,3 +7,4 @@ export * from './shared/story.model';
 export * from './story-details/step-list.component';
 export * from './story-details/upvote.component';
 export * from './story-details/vote.service';
+export * from './story-details/sub-step.component';

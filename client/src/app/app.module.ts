@@ -12,7 +12,12 @@ import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { StoryComponent } from './story/story.component';
 import { CreateComponent } from './story/create/create.component';
-import { MdDialogModule, MdCardModule, MdInputModule, MdTooltipModule } from '@angular/material';
+import { MdDialogModule,
+  MdCardModule,
+  MdInputModule,
+  MdTooltipModule,
+  MdChipsModule
+} from '@angular/material';
 import { LoggedInGuard } from './logged-in.guard';
 import 'hammerjs';
 import { UpdateUserComponent } from './updateuser/updateuser.component';
@@ -31,7 +36,8 @@ import {
   StoriesListResolverService,
   StepListComponent,
   UpvoteComponent,
-  VoteService
+  VoteService,
+  SubStepComponent
 } from './story/index';
 
 @NgModule({
@@ -52,7 +58,8 @@ import {
     StoryDetailsComponent,
     StepListComponent,
     CollapsibleWellComponent,
-    UpvoteComponent
+    UpvoteComponent,
+    SubStepComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,8 @@ import {
     MdCardModule,
     MdInputModule,
     MdTooltipModule,
-    MdSnackBarModule
+    MdSnackBarModule,
+    MdChipsModule
   ],
   entryComponents: [
     LoginComponent,
@@ -76,6 +84,7 @@ import {
     UpdateUserNameComponent,
     UpdateUserPasswordComponent,
     EditUserDialogComponent,
+    SubStepComponent
   ],
   providers: [
     LoggedInGuard,

@@ -1,0 +1,7 @@
+<h1 class="text-center">{{name}}</h1>
+<ul class="accordion">
+  <li *ngFor="let sub_step of sub_steps">
+    <a>{{sub_step.name}}</a>
+    <p>{{sub_step.content}}</p>
+  </li>
+</ul>

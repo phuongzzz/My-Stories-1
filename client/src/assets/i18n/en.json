@@ -41,7 +41,8 @@
     "name": "Name",
     "description": "Description",
     "total_votes": "Total Votes",
-    "number_of_steps": "Number of Steps"
+    "number_of_steps": "Number of Steps",
+    "steps": "Steps"
   },
   "step": {
     "votes": "Votes"
