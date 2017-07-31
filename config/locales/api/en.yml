@@ -19,6 +19,7 @@ en:
       stories_created: "The stories has been created"
       stories_showed: "The stories has been showed"
       story_not_found: "Can't find the story..."
+      update_successfully: "Update successfully"
   steps: 
     messages:
       step_not_found: "Can't find step..."
