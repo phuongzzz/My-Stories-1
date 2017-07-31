@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IStep } from '../shared/story.model';
 import { VoteService } from './vote.service';
 import { MdDialog } from '@angular/material';
+import { SubStepComponent } from './sub-step.component';
 
 @Component({
   selector: 'app-step-list',
@@ -17,7 +18,7 @@ export class StepListComponent implements OnInit {
     private dialog: MdDialog) { }
 
   @Input() steps: IStep[];
-
+  @Input() step: IStep;
   ngOnInit() {
   }
 
@@ -33,5 +34,13 @@ export class StepListComponent implements OnInit {
     return this.voteService.userHasVoted(step, this.current_user_id);
   }
 
+  openSubStepDialog(step) {
+    const dialogRef = this.dialog.open(SubStepComponent, {
+      height: '500px',
+      width: '600px',
+    });
+    dialogRef.componentInstance.name = step.name;
+    dialogRef.componentInstance.sub_steps = step.sub_steps;
+  }
 
 }
