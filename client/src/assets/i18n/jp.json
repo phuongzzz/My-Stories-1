@@ -21,6 +21,26 @@
     "content": "内容",
     "newstep": "新たステップ",
     "post": "投稿",
-    "step": "ステップ"
+    "step": "ステップ",
+    "blank_noti": "全て入力してください。"
+  },
+  "update_user": {
+    "name": "新たな名",
+    "current_password": "今のパスワード",
+    "password": "新たなパスワード",
+    "password_cofirmation": "新たなパスワード確認",
+    "submit": "提出"
+  },
+  "not-have-account": "アカウントがない",
+  "loginsuccess": "ログインに成功しました",
+  "loginfalse": "メールあるいはパスワードが間違った。",
+  "stories": {
+    "all_stories": "全て物語"
+  },
+  "single_story": {
+    "name": "物語名",
+    "description": "説明",
+    "total_votes": "投票数",
+    "number_of_steps": "ステップ数"
   }
 }

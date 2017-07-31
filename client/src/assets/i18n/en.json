@@ -8,6 +8,7 @@
   "password": "Password",
   "password_confirmation": "Password confirmation",
   "createstory": "New Story",
+
   "story_form": {
     "title": "Title",
     "description": "Description",
@@ -20,7 +21,8 @@
     "content": "Content",
     "newstep": "Add New Step",
     "post": "Post",
-    "step": "STEP"
+    "step": "STEP",
+    "blank_noti": "Some fields are blank !"
   },
   "update_user": {
     "name": "New Name",
@@ -30,6 +32,8 @@
     "submit": "Submit"
   },
   "not-have-account": "You do not have an account",
+  "loginsuccess": "Login success !",
+  "loginfalse": "invalid email or password !",
   "stories": {
     "all_stories": "All Stories"
   },

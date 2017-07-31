@@ -5,6 +5,7 @@ $blue: #4f6fad;
 $pink: #ee9cb4;
 $asbestos: #7f8c8d;
 $clouds: #ecf0f1;
+$alizarin: #e74c3c;
 
 @mixin lato-book { font-family: 'Lato', sans-serif; font-weight: 300; }
 @mixin lato-reg { font-family: 'Lato', sans-serif; font-weight: 400; }
@@ -29,7 +30,7 @@ body {
 .p-container {
   max-width: 1000px;
   min-width: 324px;
-  margin: 0 auto 0;
+  margin: 50px auto 0;
 
   .btn-slide {
     background-color: transparent;
@@ -55,7 +56,6 @@ body {
   position: relative;
   max-width: 800px;
   min-width: 324px;
-  margin: 50px auto 60px;
   background-color: $white;
   border: 1px solid lighten($grey, 1%);
   border-bottom: 3px solid $grey;
@@ -99,6 +99,74 @@ body {
     }
   }
 }
+
+.description {
+  display: inline-block;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.text-center {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5px;
+
+  img {
+    width: 100%;
+    height: 195px;
+  }
+
+  .upload-pic {
+    opacity: 0;
+    z-index: 2;
+    display: inline-block;
+    font-size: 1.2em;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    padding: 20px 20px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    &:focus, &:hover {
+      color: white;
+    }
+  }
+
+  &:hover{
+    .upload-pic{
+      opacity: 1;
+      transition: all .5s ease;
+    }
+  }
+
+  &:hover:after{
+    opacity: 1;
+  }
+
+  &:after{
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "";
+    transition: all .3s ease;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: 60px;
+    opacity: 0;
+  }
+}
+
+.infor-detail {
+  .btn-submit {
+    margin-left: 15px;
+  }
+}
+
 .pull-right {
   float: right;
 }
@@ -227,4 +295,36 @@ form {
 .btn-slide:hover i {
   transition: all ease .5s;
   transform: scale(5,5);
+}
+
+.phuong-photo {
+  transform: scale(4,4);
+  color: deepskyblue;
+  transition: all ease .5s;
+}
+
+.remove-icon {
+  color: $alizarin;
+   i {
+     transform: rotate(90deg);
+
+     &:hover {
+       transition: all ease .4s;
+       transform: rotate(0deg);
+     }
+   }
+}
+
+.del-icon {
+  color: $dark_grey;
+}
+
+.del-icon:hover i {
+  transition: all ease .4s;
+  transform: scale(2, 2);
+}
+
+.add-icon:hover i {
+  transition: all ease .4s;
+  transform: scale(2, 2);
 }
