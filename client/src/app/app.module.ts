@@ -22,12 +22,16 @@ import { InfoUserComponent } from './info-user/info-user.component';
 import { EditUserDialogComponent } from './info-user/user-dialog.component';
 import { MdSnackBarModule } from '@angular/material';
 
+import { CollapsibleWellComponent } from './story/story-details/collapsible-well.component';
 import {
   StoriesListComponent,
   StoryThumbnailComponent,
   StoryDetailsComponent,
   StoryService,
-  StoriesListResolverService
+  StoriesListResolverService,
+  StepListComponent,
+  UpvoteComponent,
+  VoteService
 } from './story/index';
 
 @NgModule({
@@ -42,11 +46,13 @@ import {
     UpdateUserNameComponent,
     InfoUserComponent,
     UpdateUserPasswordComponent,
-    InfoUserComponent,
     EditUserDialogComponent,
     StoriesListComponent,
+    StoryThumbnailComponent,
     StoryDetailsComponent,
-    StoryThumbnailComponent
+    StepListComponent,
+    CollapsibleWellComponent,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +77,12 @@ import {
     UpdateUserPasswordComponent,
     EditUserDialogComponent,
   ],
-  providers: [LoggedInGuard, StoryService, StoriesListResolverService],
+  providers: [
+    LoggedInGuard,
+    StoryService,
+    StoriesListResolverService,
+    VoteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

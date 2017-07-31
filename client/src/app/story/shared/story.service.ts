@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Rx';
+import { Subject, Observable } from 'rxjs/Rx';
+import { IStory, IStep } from '../shared/story.model';
 
 @Injectable()
 export class StoryService {
-  getStories() {
-    const subject = new Subject();
+  getStories(): Observable<IStory[]> {
+    const subject = new Subject<IStory[]>();
     setTimeout(() => {subject.next(STORIES); subject.complete(); },
       2000);
     return subject;
   }
 
-  getStory(id: number) {
+  getStory(id: number): IStory {
     return STORIES.find(story => story.id === id);
   }
 }
 
-const STORIES = [
+const STORIES: IStory[] = [
   {
     id: 1,
     name: 'Phuong Story',
@@ -24,14 +25,17 @@ const STORIES = [
     total_vote: 5,
     number_of_steps: 5,
     is_public: true,
-    due_date: '2017-07-25',
+    due_date: new Date('2017-07-25'),
     user_id: 1,
     steps: [
       {
         id: 1,
         name: 'First Step',
         content: 'First Step Content',
+        completed_rate: 67,
         total_vote: 4,
+        story_id: 1,
+        voters_id: [1, 2, 3, 4],
         sub_steps: [
           {
             id: 1,
@@ -49,7 +53,10 @@ const STORIES = [
         id: 2,
         name: 'Second Step',
         content: 'Second Step Content',
+        completed_rate: 23,
         total_vote: 6,
+        story_id: 1,
+        voters_id: [1, 4, 2],
         sub_steps: [
           {
             id: 4,
@@ -73,14 +80,17 @@ const STORIES = [
     total_vote: 9,
     number_of_steps: 2,
     is_public: true,
-    due_date: '2017-07-26',
+    due_date: new Date('2017-07-26'),
     user_id: 2,
     steps: [
       {
         id: 3,
         name: 'First Step of Phuc',
         content: 'First Step Content of Phuc',
+        completed_rate: 45,
         total_vote: 9,
+        story_id: 2,
+        voters_id: [1, 4],
         sub_steps: [
           {
             id: 5,
@@ -98,7 +108,10 @@ const STORIES = [
         id: 4,
         name: 'Second Step cua Phuc',
         content: 'Second Step Content cua Phuc',
+        completed_rate: 20,
         total_vote: 60,
+        story_id: 2,
+        voters_id: [2, 3],
         sub_steps: [
           {
             id: 7,

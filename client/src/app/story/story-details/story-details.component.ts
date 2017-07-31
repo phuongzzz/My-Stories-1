@@ -1,13 +1,14 @@
 import { Component, OnInit} from '@angular/core';
 import { StoryService } from '../shared/story.service';
 import { ActivatedRoute } from '@angular/router';
+import { IStory } from '../shared/story.model';
 
 @Component({
   templateUrl: './story-details.component.html'
 })
 
 export class StoryDetailsComponent implements OnInit {
-  story: any;
+  story: IStory;
   constructor(private storyService: StoryService,
     private route: ActivatedRoute) { }
 

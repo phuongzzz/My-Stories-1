@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoryService } from './shared/story.service';
 import { ActivatedRoute} from '@angular/router';
+import { IStory } from './shared/story.model';
 
 @Component({
   selector: 'app-stories-list',
@@ -8,7 +9,7 @@ import { ActivatedRoute} from '@angular/router';
 })
 
 export class StoriesListComponent implements OnInit {
-  stories: any[];
+  stories: IStory[];
   constructor(private storyService: StoryService,
     private route: ActivatedRoute) { }
 
