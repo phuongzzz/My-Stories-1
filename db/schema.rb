@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170719031923) do
   create_table "steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "content"
-    t.integer "completed_rate"
+    t.float "completed_rate", limit: 24
     t.integer "total_vote"
     t.integer "story_id"
     t.datetime "created_at", null: false

@@ -15,6 +15,7 @@ namespace :api, defaults: {format: "json"} do
       post "vote", to: "votes#up_down_vote"
       resources :steps, only: [:create, :show] do
         resources :comments, only: :create
+        resources :sub_steps, only: :update
         post "vote", to: "votes#up_down_vote"
       end
     end

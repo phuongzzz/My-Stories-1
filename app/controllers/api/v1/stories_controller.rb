@@ -1,7 +1,6 @@
 class Api::V1::StoriesController < Api::BaseController
   before_action :find_object, only: %i(show update)
   before_action :find_comments, only: :show
-  before_action :find_user, only: :update
   skip_before_action :authenticate_user_from_token, only: :show
 
   def show
@@ -20,26 +19,21 @@ class Api::V1::StoriesController < Api::BaseController
   end
 
   def update
-    not_have_permit unless correct_user find_user
-    if story.update_attributes stories_params
-      update_each_step if params_steps.present?
-      update_successfully
+    if correct_user story.user
+      if story.update_attributes stories_params
+        update_each_step if params_steps.present?
+        update_successfully
+      else
+        action_fail
+      end
     else
-      action_fail
+      not_have_permit
     end
   end
 
   private
 
   attr_reader :story, :comments, :step
-
-  def find_story
-    @story = Story.find_by id: params[:id]
-  end
-
-  def find_user
-    User.find_by id: story.user_id
-  end
 
   def find_comments
     @comments = Comment.comments_for_story params[:id]
