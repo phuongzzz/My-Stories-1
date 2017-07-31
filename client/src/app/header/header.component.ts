@@ -5,6 +5,7 @@ import { MdDialog } from '@angular/material';
 import { SignupComponent } from '../signup/signup.component';
 import { InfoUserComponent } from '../info-user/info-user.component'
 import * as $ from 'jquery';
+import { EditUserDialogComponent } from '../info-user/user-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -64,8 +65,8 @@ export class HeaderComponent implements OnInit {
 
   openDialogLogIn() {
     this.dialog.open(LoginComponent, {
-      height: '400px',
-      width: '600px'
+      height: '350px',
+      width: '450px'
     });
   }
 
@@ -76,7 +77,7 @@ export class HeaderComponent implements OnInit {
     });
   }
   openDialogInfoUser() {
-    this.dialog.open(InfoUserComponent,{
+    this.dialog.open( EditUserDialogComponent, {
       height: '300px',
       width: '800px',
     });

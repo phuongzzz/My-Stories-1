@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoUserComponent } from '../../info-user/info-user.component'
+import { FormsModule } from '@angular/forms';
+import { MdInputModule } from '@angular/material';
+
 
 @Component({
-  selector: 'app-update-user-name',
-  templateUrl: './update-user-name.component.html',
+  selector: 'app-update-user-password',
+  templateUrl: './update-user-password.component.html',
   styles: [
     `
       .form {
@@ -17,7 +20,7 @@ import { InfoUserComponent } from '../../info-user/info-user.component'
   ],
   providers: [ InfoUserComponent ]
 })
-export class UpdateUserNameComponent implements OnInit {
+export class UpdateUserPasswordComponent implements OnInit {
 
   constructor() {
   }

@@ -22,5 +22,13 @@
     "newstep": "Add New Step",
     "post": "Post",
     "step": "STEP"
-  }
+  },
+  "update_user": {
+    "name": "New Name",
+    "current_password": "Current Password",
+    "password": "New Password",
+    "password_cofirmation": "New Password Confirmation",
+    "submit": "Submit"
+  },
+  "not-have-account": "You do not have an account"
 }
