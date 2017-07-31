@@ -1,7 +1,7 @@
 class Api::V1::StoriesController < Api::BaseController
-  before_action :user_signed_in?
-  before_action :find_object, only: :show
+  before_action :find_object, only: %i(show update)
   before_action :find_comments, only: :show
+  before_action :find_user, only: :update
   skip_before_action :authenticate_user_from_token, only: :show
 
   def show
@@ -15,7 +15,17 @@ class Api::V1::StoriesController < Api::BaseController
       save_each_step if params_steps.present?
       created_response_success
     else
-      created_response_fail
+      action_fail
+    end
+  end
+
+  def update
+    not_have_permit unless correct_user find_user
+    if story.update_attributes stories_params
+      update_each_step if params_steps.present?
+      update_successfully
+    else
+      action_fail
     end
   end
 
@@ -27,6 +37,10 @@ class Api::V1::StoriesController < Api::BaseController
     @story = Story.find_by id: params[:id]
   end
 
+  def find_user
+    User.find_by id: story.user_id
+  end
+
   def find_comments
     @comments = Comment.comments_for_story params[:id]
   end
@@ -36,7 +50,11 @@ class Api::V1::StoriesController < Api::BaseController
   end
 
   def save_each_step
-    StoryService.new(total_params: params[:story], story: story).perform
+    StoryService.new(total_params: params[:story], story: story).save_step
+  end
+
+  def update_each_step
+    StoryService.new(total_params: params[:story], story: story).update_step
   end
 
   def params_steps
@@ -50,8 +68,7 @@ class Api::V1::StoriesController < Api::BaseController
     }, status: :ok
   end
 
-  def created_response_fail
-    warden.custom_failure!
+  def action_fail
     render json: {
       messages: story.errors.full_messages.to_sentence
     }, status: :unprocessable_entity
@@ -60,6 +77,13 @@ class Api::V1::StoriesController < Api::BaseController
   def show_response
     render json: {
       messages: I18n.t("stories.messages.stories_showed"),
+      data: {story: story_serializer}
+    }, status: :ok
+  end
+
+  def update_successfully
+    render json: {
+      messages: I18n.t("stories.messages.update_successfully"),
       data: {story: story_serializer}
     }, status: :ok
   end
