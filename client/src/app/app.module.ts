@@ -26,6 +26,15 @@ import { UpdateUserPasswordComponent } from './updateuser/update-user-password/u
 import { InfoUserComponent } from './info-user/info-user.component';
 import { EditUserDialogComponent } from './info-user/user-dialog.component';
 import { MdSnackBarModule } from '@angular/material';
+import { HomeComponent } from './home/home.component';
+import { MdToolbarModule } from '@angular/material';
+import { MdChipsModule } from '@angular/material';
+import { CategoryComponent } from './home/category/category.component';
+import { MdGridListModule } from '@angular/material';
+import { NewStoriesComponent } from './home/new-stories/new-stories.component';
+import { HotStoriesComponent } from './home/hot-stories/hot-stories.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 
 import { CollapsibleWellComponent } from './story/story-details/collapsible-well.component';
 import {
@@ -60,6 +69,13 @@ import {
     CollapsibleWellComponent,
     UpvoteComponent,
     SubStepComponent
+    StoryThumbnailComponent,
+    HomeComponent,
+    CategoryComponent,
+    NewStoriesComponent,
+    HotStoriesComponent,
+    CategoriesComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +92,9 @@ import {
     MdTooltipModule,
     MdSnackBarModule,
     MdChipsModule
+    MdToolbarModule,
+    MdChipsModule,
+    MdGridListModule
   ],
   entryComponents: [
     LoginComponent,
