@@ -1,0 +1,23 @@
+<md-toolbar class="category">
+  <span class="text-bar">{{'home.hot_story' | translate}}</span>
+</md-toolbar>
+<div class="cards">
+  <div class="row">
+    <div class="col-md-10 col-sm-offset-1">
+      <div class="col-md-3 col-xs-offset-1 card-new-story" *ngFor="let story of storyList">
+        <md-card class="example-card" (click)="onClickStory(story.id)">
+          <img md-card-image class="md-unstyled-image" src="{{story.imageUrl}}">
+          <md-card-content>
+            <p class="box">
+              {{story.description}}
+            </p>
+          </md-card-content>
+          <md-card-actions>
+            <button md-button>LIKE</button>
+            <button md-button>SHARE</button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</div>

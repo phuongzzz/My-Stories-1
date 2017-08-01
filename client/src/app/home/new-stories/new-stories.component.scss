@@ -1,0 +1,41 @@
+$bluec: #1976d2;
+$whitec: #FFF;
+
+md-toolbar.category {
+  background-color: $bluec;
+  color: $whitec;
+  padding-left: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 150%;
+}
+
+.example-card {
+}
+
+.box {
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 300px;
+}
+
+.md-unstyled-image img {
+  width: 100%;
+  height: auto !important;
+}
+
+.example-header-image {
+  background-image: url('');
+  background-size: cover;
+}
+
+.cards {
+  background-color: $bluec;
+}
+
+.card-new-story {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}

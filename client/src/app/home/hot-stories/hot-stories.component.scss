@@ -1,0 +1,43 @@
+$whitecolor: #FFF;
+$redpink: #ef5350;
+
+md-toolbar.category {
+  background-color: $redpink;
+  color: $whitecolor;
+  padding-left: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 150%;
+}
+
+.example-card {
+  background-color: #ef9a9a;
+  color: $whitecolor;
+}
+
+.box {
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 300px;
+}
+
+.md-unstyled-image img {
+  width: 100%;
+  height: auto !important;
+}
+
+.example-header-image {
+  background-image: url('');
+  background-size: cover;
+}
+
+.cards {
+  background-color: $redpink;
+}
+
+.card-new-story {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
