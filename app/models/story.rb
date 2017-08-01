@@ -7,9 +7,17 @@ class Story < ApplicationRecord
   has_many :steps, dependent: :destroy
 
   belongs_to :user
+  belongs_to :category
+
+  lambda_params_category_id = lambda do |params_category_id|
+    where category_id: params_category_id
+  end
+
+  scope :select_by_category_id, lambda_params_category_id
 
   validates :name, presence: true
   validates :description, presence: true
   validates :due_date, presence: true
   validates :user, presence: true
+  validates :category, presence: true
 end

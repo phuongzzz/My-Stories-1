@@ -10,7 +10,8 @@ namespace :api, defaults: {format: "json"} do
   scope module: :v1,
     constraints: ApiConstraints.new(version: 1, default: true) do
     resources :users, only: [:show, :update, :destroy]
-    resources :stories, only: [:create, :show, :update] do
+    resources :categories, only: :index
+    resources :stories, except: [:new, :edit, :destroy] do
       resources :comments, only: :create
       post "vote", to: "votes#up_down_vote"
       resources :steps, only: [:create, :show] do
