@@ -1,15 +1,23 @@
-<div class="row" *ngFor="let step of steps">
-  <div class="col-md-1">
-    <app-upvote
-      (vote)="toggleVote(step)"
-      [count]="step.voters_id.length"
-      [voted]="userHasVoted(step)"
-    ></app-upvote>
-  </div>
-  <div class="col-md-10">
-    <app-collapsible-well [name]="step.name">
-      <p>{{step.content}}</p>
-      <p>{{'step.votes' | translate}} : {{step.voters_id.length}}</p>
-    </app-collapsible-well>
-  </div>
-</div>
+<section class="timeline">
+  <ul>
+    <li class="in-view" *ngFor="let step of steps">
+      <div>
+        <div class="col-md-4">
+          <app-upvote
+            (vote)="toggleVote(step)"
+            [count]="step.voters_id.length"
+            [voted]="userHasVoted(step)"
+          ></app-upvote>
+        </div>
+        <div class="col-md-8">
+          <app-collapsible-well [name]="step.name"
+            [step]="step">
+            <p>{{step.content}}</p>
+            <p>{{'step.votes' | translate}} : {{step.voters_id.length}}</p>
+          </app-collapsible-well>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </li>
+  </ul>
+</section>

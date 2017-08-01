@@ -1,3 +1,16 @@
+i, .votes_count {
+  transition: all ease .5s;
+}
 i {
   cursor: hand;
+}
+
+.votes_count {
+  margin-top: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.votingWidgetContainer {
+  margin-top: 10px;
 }

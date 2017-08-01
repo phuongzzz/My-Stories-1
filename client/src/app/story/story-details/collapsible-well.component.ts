@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { IStep } from '../shared/story.model';
+import { SubStepComponent } from './sub-step.component';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-collapsible-well',
   template: `
-    <div (click)="toggleContent()" class="well pointable">
+    <div class="" (click)="openSubStepDialog()">
       <h4 class="well-title">
         {{name}}
       </h4>
@@ -13,10 +16,22 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CollapsibleWellComponent {
-  @Input() name: string;
   visible = true;
+
+  constructor(private dialog: MdDialog) { }
+  @Input() name: string;
+  @Input() step: IStep;
 
   toggleContent() {
     this.visible = !this.visible;
+  }
+
+  openSubStepDialog() {
+    const dialogRef = this.dialog.open(SubStepComponent, {
+      height: '500px',
+      width: '600px',
+    });
+    dialogRef.componentInstance.name = this.step.name;
+    dialogRef.componentInstance.sub_steps = this.step.sub_steps;
   }
 }
