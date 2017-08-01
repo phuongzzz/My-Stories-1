@@ -33,3 +33,7 @@ en:
     messages:
       voted_successfully: "Voted successfully"
       voted_fail: "Can't vote now, please try again."
+  sub_steps:
+    messages:
+      update_successfully: "Update successfully"
+      update_fail: "Update fail"

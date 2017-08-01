@@ -3,7 +3,7 @@ class CreateSteps < ActiveRecord::Migration[5.1]
     create_table :steps do |t|
       t.string :name
       t.text :content
-      t.integer :completed_rate
+      t.float :completed_rate
       t.integer :total_vote
       t.integer :story_id
 
