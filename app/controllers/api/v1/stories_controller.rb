@@ -1,10 +1,24 @@
 class Api::V1::StoriesController < Api::BaseController
   before_action :find_object, only: %i(show update)
   before_action :find_comments, only: :show
-  skip_before_action :authenticate_user_from_token, only: :show
+  skip_before_action :authenticate_user_from_token, only: %i(index show)
+
+  def index
+    @stories =
+      if params_category_id.present?
+        Story.select_by_category_id(params_category_id)
+      else
+        Story.all
+      end
+
+    render json: {
+      messages: I18n.t("stories.messages.stories_showed"),
+      data: {stories: stories}
+    }, status: :ok
+  end
 
   def show
-    show_response if story.present?
+    action_successfully if story.present?
   end
 
   def create
@@ -22,7 +36,7 @@ class Api::V1::StoriesController < Api::BaseController
     if correct_user story.user
       if story.update_attributes stories_params
         update_each_step if params_steps.present?
-        update_successfully
+        action_successfully
       else
         action_fail
       end
@@ -33,7 +47,7 @@ class Api::V1::StoriesController < Api::BaseController
 
   private
 
-  attr_reader :story, :comments, :step
+  attr_reader :story, :comments, :step, :stories
 
   def find_comments
     @comments = Comment.comments_for_story params[:id]
@@ -55,11 +69,8 @@ class Api::V1::StoriesController < Api::BaseController
     params[:story][:step]
   end
 
-  def created_response_success
-    render json: {
-      messages: I18n.t("stories.messages.stories_created"),
-      data: {story: story_serializer}
-    }, status: :ok
+  def params_category_id
+    params[:category_id]
   end
 
   def action_fail
@@ -68,16 +79,9 @@ class Api::V1::StoriesController < Api::BaseController
     }, status: :unprocessable_entity
   end
 
-  def show_response
+  def action_successfully
     render json: {
       messages: I18n.t("stories.messages.stories_showed"),
-      data: {story: story_serializer}
-    }, status: :ok
-  end
-
-  def update_successfully
-    render json: {
-      messages: I18n.t("stories.messages.update_successfully"),
       data: {story: story_serializer}
     }, status: :ok
   end

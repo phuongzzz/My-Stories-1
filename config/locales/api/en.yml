@@ -16,10 +16,9 @@ en:
       user_not_found: "User not found"
   stories:
     messages:
-      stories_created: "The stories has been created"
-      stories_showed: "The stories has been showed"
+      action_successfully: "Action successfully"
       story_not_found: "Can't find the story..."
-      update_successfully: "Update successfully"
+      stories_showed: "All of story has been showed"
   steps: 
     messages:
       step_not_found: "Can't find step..."
@@ -37,3 +36,6 @@ en:
     messages:
       update_successfully: "Update successfully"
       update_fail: "Update fail"
+  categories:
+    messages:
+      categories_showed: "All of categories have been showed"
