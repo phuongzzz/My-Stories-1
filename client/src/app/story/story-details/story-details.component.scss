@@ -1,0 +1,17 @@
+$background-color: #2ecc71;
+$text-color: #fff;
+
+.story-header {
+  background-size: cover;
+  //background-color: $background-color;
+  height: 300px;
+
+  h1, h4 {
+    padding-top: 20px;
+    padding-left: 20px;
+    color: $text-color;
+  }
+  h1 {
+    font-weight: bold;
+  }
+}

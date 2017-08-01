@@ -17,7 +17,7 @@ $dark-blue: #4a6e78;
 }
 .accordion li {
   border-bottom: 1px solid $light;
-  position: relative;
+  list-style-type: none;
 }
 .accordion li p {
   display: none;

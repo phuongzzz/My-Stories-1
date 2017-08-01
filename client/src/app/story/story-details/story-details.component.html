@@ -1,3 +1,8 @@
-<h1>{{story.name}}</h1>
+<div class="story-header"
+     [ngStyle]="{ 'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),   url(' + story.imageUrl + ')'}">>
+  <h1>{{story.name}}</h1>
+  <h4>{{story.description}}</h4>
+  <h4>{{story.total_vote}} {{'step.votes' | translate}}</h4>
+</div>
 
 <app-step-list [steps]="story.steps"></app-step-list>

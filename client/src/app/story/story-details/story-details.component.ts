@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { IStory } from '../shared/story.model';
 
 @Component({
-  templateUrl: './story-details.component.html'
+  templateUrl: './story-details.component.html',
+  styleUrls: ['./story-details.component.scss']
 })
 
 export class StoryDetailsComponent implements OnInit {
