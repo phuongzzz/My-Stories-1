@@ -1,0 +1,33 @@
+<div class= "top-head">
+  <h1 class="logo">{{'home.name' | translate}}</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h5 class="header">
+        {{'home.line1' | translate }}
+        <br>
+        {{'home.line2' | translate }}
+        <br>
+        {{'home.line3' | translate }}
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1 col-md-offset-4 card-header-first">
+    <md-chip-list class="mat-chip-list-stacked">
+      <md-chip selected="true" color="primary" class="year-header">Học hỏi</md-chip>
+    </md-chip-list>
+    </div>
+    <div class="col-md-1 col-md-offset-1 card-header" *ngFor="let chipColor of availableColors">
+      <md-chip-list class="mat-chip-list-stacked">
+      <md-chip
+        selected="true"
+        color="{{chipColor.color}}">
+        {{chipColor.name}}
+      </md-chip>
+      </md-chip-list>
+    </div>
+  </div>
+</div>
+<app-category></app-category>
+<app-new-stories></app-new-stories>
+<app-hot-stories></app-hot-stories>
