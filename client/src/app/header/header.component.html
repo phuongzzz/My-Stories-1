@@ -3,30 +3,30 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">My Stories</a>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" *ngIf="current_user">
       <li class="active"><a routerLink="/" md-button class="phuong-home">
         <i class="material-icons">home</i></a>
       </li>
-
-      <li class="dropdown" *ngIf="current_user; else loginTemplate">
-        <a  md-button data-toggle="dropdown" class="dropdown-toggle" href="#">
-          {{current_user.name}}
-        </a>
-        <ul class="dropdown-menu">
-          <li><a md-button (click)="openDialogInfoUser()">{{'Profile' | translate}}</a></li>
-          <li><a md-button (click)="$event.preventDefault();
-            onClick()">{{'logout' | translate}}</a></li>
-        </ul>
-      </li>
-      <li><a md-button routerLink="story/create" *ngIf="current_user">
+    </ul>
+    <ul class="nav navbar-nav button-right">
+      <li><a md-button routerLink="story/create" *ngIf="current_user; else loginTemplate">
         {{'createstory' | translate}}</a>
       </li>
       <li><a routerLink="story/list" md-button *ngIf="current_user">
         {{'stories.all_stories' | translate}}</a>
       </li>
+      <li class="dropdown" *ngIf="current_user">
+        <a  md-button data-toggle="dropdown" class="dropdown-toggle" href="#">
+          {{current_user.name}}
+        </a>
+        <ul class="dropdown-menu">
+          <li><a md-button routerLink="/user">{{'Profile' | translate}}</a></li>
+          <li><a md-button (click)="$event.preventDefault();
+            onClick()">{{'logout' | translate}}</a></li>
+        </ul>
+      </li>
       <ng-template #loginTemplate>
-        <li><a md-button (click)="openDialogLogIn()">{{'login' | translate}}</a></li>
-        <li><a md-button (click)="openDialogSignUp()">{{'signup' | translate}}</a></li>
+        <app-login></app-login>
       </ng-template>
     </ul>
   </div>

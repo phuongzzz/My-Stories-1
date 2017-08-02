@@ -1,26 +1,23 @@
-<div>
+<div class="container-signup">
   <h2>{{'signup' | translate}}</h2>
   <form #signupForm = "ngForm" (ngSubmit)="onSubmit(signupForm.value)" >
     <div ngModelGroup="user">
-      <div class="form-group">
-        <label for="name">{{'username' | translate}}</label>
-        <input type="text" name="name" id="name"
-          class="form-control" ngModel/>
-      </div>
-      <div class="form-group">
-        <label for="email">{{'email' | translate}}</label>
-        <input type="text" name="email" id="email" class="form-control" ngModel/>
-      </div>
-      <div class="form-group">
-        <label for="password">{{'password' | translate}}</label>
-        <input type="password" name="password" id="password"
-          class="form-control" ngModel/>
-      </div>
-      <div class="form-group">
-        <label for="password-confirmation">{{'password_confirmation' | translate}}</label>
-        <input type="password" name="password-confirmation"
-          id="password-confirmation" class="form-control" ngModel/>
-      </div>
+      <md-input-container class="full">
+        <input mdInput placeholder="{{'username' | translate}}"
+          type="text" name="name" id="name" ngModel/>
+      </md-input-container>
+      <md-input-container class="full">
+        <input mdInput placeholder="{{'email' | translate}}" type="text"
+          name="email" id="email" ngModel/>
+      </md-input-container>
+      <md-input-container class="full">
+        <input mdInput placeholder="{{'password' | translate}}"
+          type="password" name="password" id="password" ngModel/>
+      </md-input-container>
+      <md-input-container class="full">
+        <input mdInput placeholder="{{'password_confirmation' | translate}}"
+          type="password" name="password-confirmation" id="password-confirmation" ngModel/>
+      </md-input-container>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary" >{{'signup' | translate}}</button>
       </div>

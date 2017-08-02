@@ -13,14 +13,6 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  color: string;
-
-  availableColors = [
-    { name: 'Học hỏi', color: '' },
-    { name: 'Chia sẻ', color: 'primary' },
-    { name: 'Giao lưu', color: 'accent' }
-  ];
-
   ngOnInit() {
   }
 

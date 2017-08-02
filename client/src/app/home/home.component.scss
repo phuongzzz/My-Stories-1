@@ -1,46 +1,8 @@
 $whitec: #FFF;
 
-.top-head {
-  background-image: url("../../img/head_home.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.container-home {
   padding-top: 50px;
-  padding-bottom: 30px;
-}
-
-h1.logo {
-  padding-top: 30px;
-  text-align: center;
-  font-size: 400%;
-  margin: 0 0 20px 0;
-  color: $whitec;
-}
-
-.year-header {
-  color: $whitec;
-  text-align: center;
-}
-
-.card-header {
-  margin-left: auto; margin-right: auto;
-  padding-bottom: 30px;
-  padding-top: 10px;
-}
-
-.card-header-first {
-  padding-top: 10px;
-}
-
-h5.header{
-  color: $whitec;
-  padding: 10px;
-  text-align: center;
-}
-
-.example-icon {
-  padding: 0 14px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
+  background-image: url("http://sv1.upsieutoc.com/2017/08/03/background.jpg");
+  background-size: cover;
+  height: 700px;
 }

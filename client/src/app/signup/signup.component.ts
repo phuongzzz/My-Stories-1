@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+  styleUrls: ['./signup.component.scss'],
   providers: [ SignupService, MdSnackBarModule, MdDialog ]
 })
 export class SignupComponent implements OnInit {
