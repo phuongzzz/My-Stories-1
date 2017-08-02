@@ -5,6 +5,7 @@ class CreateSubSteps < ActiveRecord::Migration[5.1]
       t.text :content
       t.boolean :is_completed, default: false
       t.integer :step_id
+      t.string :picture
 
       t.timestamps
     end

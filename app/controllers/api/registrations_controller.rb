@@ -12,8 +12,7 @@ module Api
       else
         warden.custom_failure!
         render json: {
-          message: user.errors.messages,
-          data: {}
+          message: user.errors.messages
         }, status: :unprocessable_entity
       end
     end
