@@ -21,6 +21,8 @@ gem "rails_best_practices"
 gem "carrierwave"
 gem "carrierwave-base64"
 gem "cloudinary"
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
 
 group :development, :test do
   gem "pry"

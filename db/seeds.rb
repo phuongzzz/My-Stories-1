@@ -11,9 +11,9 @@ User.create(email: "chinhoccho@gmail.com", name: "Chinh Oc Cho", password: "1234
 Category.create(name: "Truyen Bi Kich")
 Category.create(name: "Truyen Tinh Yeu", parent_id: 1)
 
-Story.create!(name: "Khong Hoi Ket", description: "Hay lam!!! ^_^", user_id: 1, due_date: "30001231", category_id: 1)
-Story.create!(name: "Tu Bo Project", description: "Hay vch", user_id: 1, due_date: "30001231", category_id: 1)
-Story.create!(name: "Lam Lai Tu Dau", description: "Manh me len anh em", user_id: 1, due_date: "30001231", category_id: 1)
+Story.create!(name: "Khong Hoi Ket", description: "Hay lam!!! ^_^", user_id: 1, due_date: "30001231", category_id: 1, is_public: true)
+Story.create!(name: "Tu Bo Project", description: "Hay vch", user_id: 1, due_date: "30001231", category_id: 1, is_public: true)
+Story.create!(name: "Lam Lai Tu Dau", description: "Manh me len anh em", user_id: 1, due_date: "30001231", category_id: 1, is_public: true)
 
 Step.create(name: "Tran Huu Nam Phuong", content: "Chan ghet Angular/cli@lastest", story_id: 2, sub_steps_attributes: [{name: "Buoc 1", content: "Stand up!"}, {name: "Buoc 2", content: "Di den canh anh Trung"}, {name: "Buoc 3", content: "Em met moi lam roi! Em xin dung cuoc choi tai day. -_-"}])
 Step.create(name: "Doan Minh Phuc", content: "Du 40 Naitei", story_id: 2, sub_steps_attributes: [{name: "Buoc 1", content: "Xin dung cuoc choi"}, {name: "Buoc 2", content: "Ve nha ngu"}])

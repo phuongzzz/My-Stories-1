@@ -9,6 +9,7 @@ namespace :api, defaults: {format: "json"} do
 
   scope module: :v1,
     constraints: ApiConstraints.new(version: 1, default: true) do
+    get "search", to: "search#search"
     resources :users, only: [:show, :update, :destroy]
     resources :categories, only: :index
     resources :stories, except: [:new, :edit, :destroy] do
