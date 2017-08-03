@@ -19,17 +19,18 @@ class Api::V1::CommentsController < Api::BaseController
   def find_commentable
     @story = Story.find_by id: params[:story_id]
     @step = Step.find_by id: params[:step_id]
-    if story.present? && step.present?
-      @commentable = step
-    else
-      @commentable = story
-    end
+    @commentable =
+      if story.present? && step.present?
+        step
+      else
+        story
+      end
   end
 
   def comment_create_success
     render json: {
       messages: I18n.t("comments.messages.comment_created"),
-      data: {comment: comment}
+      data: {comment: comment_serializer}
     }, status: :ok
   end
 
@@ -41,5 +42,9 @@ class Api::V1::CommentsController < Api::BaseController
 
   def params_id
     params[:id]
+  end
+
+  def comment_serializer
+    Serializers::Comment::CommentSerializer.new(object: comment).serializer
   end
 end

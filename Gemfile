@@ -19,6 +19,7 @@ gem "rubocop", require: false
 gem "rubocop-checkstyle_formatter", require: false
 gem "rails_best_practices"
 gem "carrierwave"
+gem "carrierwave-base64"
 gem "cloudinary"
 
 group :development, :test do
