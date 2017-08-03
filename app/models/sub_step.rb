@@ -1,4 +1,6 @@
 class SubStep < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+
   belongs_to :step, optional: true
 
   scope :completed, ->{where is_completed: true}

@@ -18,11 +18,10 @@ class Api::V1::CommentsController < Api::BaseController
 
   def find_commentable
     @story = Story.find_by id: params[:story_id]
-    if story.present?
-      @step = Step.find_by id: params_id
+    @step = Step.find_by id: params[:step_id]
+    if story.present? && step.present?
       @commentable = step
     else
-      @story = Story.find_by id: params_id
       @commentable = story
     end
   end

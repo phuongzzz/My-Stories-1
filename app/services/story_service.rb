@@ -33,7 +33,7 @@ class StoryService
 
   def steps_params
     params.require(:step).permit Step::ATTRIBUTES_PARAMS,
-      sub_steps_attributes: [:id, :name, :content, :_destroy]
+      sub_steps_attributes: [:id, :name, :content, :_destroy, :picture]
   end
 
   def response_fail
