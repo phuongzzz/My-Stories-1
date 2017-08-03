@@ -1,3 +1,7 @@
 .signup{
   float: right;
 }
+
+.login-btn {
+  transition: all ease .25s;
+}

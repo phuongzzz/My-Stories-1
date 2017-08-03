@@ -1,21 +1,12 @@
-<div>
-  <h2>{{'login' | translate}}</h2>
-  <form #loginForm = "ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
-    <div ngModelGroup="sign_in">
-      <div class="form-group">
-        <label for="email">{{'email' | translate}}</label>
-        <input type="text" name="email" id="email" class="form-control" ngModel/>
-      </div>
-      <div class="form-group">
-        <label for="password">{{'password' | translate}}</label>
-        <input type="password" name="password" id="password" class="form-control" ngModel/>
-      </div>
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary">{{'login' | translate}}</button>
-        <div class="pull-right" mdTooltip="{{'not-have-account' | translate}}">
-        <a md-button class="signup" (click)="openDialogSignUp()" md-dialog-close>{{'signup' | translate}}</a>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
+<form #loginForm = "ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
+  <div ngModelGroup="sign_in">
+    <li>
+      <md-input-container >
+        <input mdInput type="text" placeholder="Email" name="email" id="email" ngModel/>
+      </md-input-container>
+      <md-input-container >
+        <input mdInput type="password" placeholder="Password" name="password" id="password" ngModel/>
+      </md-input-container>
+    <button md-button type="submit" class="btn btn-primary login-btn">{{'login' | translate}}</button></li>
+  </div>
+</form>

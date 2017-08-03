@@ -1,0 +1,67 @@
+$whitec: #FFF;
+$greyc: #eee;
+
+.top-head {
+  background-image: url("../img/cover-user.jpg");
+  height: 300px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+h1.logo {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 400%;
+  margin: 0 0 20px 0;
+  color: $whitec;
+}
+
+.media {
+  margin: 20px 0;
+  padding: 30px;
+}
+
+.dp {
+  border: 10px solid $greyc;
+  transition: all 0.2s ease-in-out;
+}
+
+.dp:hover {
+  border: 2px solid $greyc;
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+
+.example-tooltip-host {
+  display: inline-flex;
+  align-items: center;
+  margin: 50px;
+}
+
+.text {
+  text-indent: 1em;
+}
+
+.line {
+  margin: 8px auto
+}
+.image {
+  width: 200px;
+  height: 200px;
+}
+.cover-img {
+  padding-left: 70px;
+  padding-top: 100px;
+}
+
+.text_padding {
+  padding-top: 160px;
+  color: $whitec;
+}
+
+.edit {
+  padding-top: 270px;
+}

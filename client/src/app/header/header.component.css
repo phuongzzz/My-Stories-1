@@ -16,3 +16,20 @@
 .navbar {
   transition: all ease .5s
 }
+ng-template.right {
+  float: right;
+}
+
+.button-right {
+  float: right;
+}
+
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+

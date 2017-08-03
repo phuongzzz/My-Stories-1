@@ -24,11 +24,11 @@ export const routing: Routes = [
       { path: ':id', component: CategoryDetailsComponent }
     ]
   },
-  { path: 'user/edit', component: UpdateUserComponent,
+  { path: 'user', component: InfoUserComponent,
     canActivate: [LoggedInGuard],
   },
   {
-    path: 'home', component: HomeComponent
+    path: '', component: HomeComponent
   }
 ];
 export const AppRoutes  = RouterModule.forRoot(routing);

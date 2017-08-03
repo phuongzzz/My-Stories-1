@@ -6,7 +6,7 @@ import { MdTooltipModule } from '@angular/material';
 @Component({
   selector: 'app-info-user',
   templateUrl: './info-user.component.html',
-  styleUrls: ['./info-user.component.css'],
+  styleUrls: ['./info-user.components.scss'],
   providers: [InfoUserService, MdTooltipModule]
 })
 

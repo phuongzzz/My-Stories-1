@@ -29,7 +29,9 @@
     "current_password": "Current Password",
     "password": "New Password",
     "password_cofirmation": "New Password Confirmation",
-    "submit": "Submit"
+    "submit": "Submit",
+    "change_name": "Change name",
+    "change_password": "Change password"
   },
   "not-have-account": "You do not have an account",
   "loginsuccess": "Login success !",
