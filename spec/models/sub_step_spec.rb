@@ -11,6 +11,7 @@ RSpec.describe SubStep, type: :model do
     it {should have_db_column(:content).of_type :text}
     it {should have_db_column(:is_completed).of_type :boolean}
     it {should have_db_column(:step_id).of_type :integer}
+    it {should have_db_column(:picture).of_type :string}
 
     it {should belong_to :step}
 

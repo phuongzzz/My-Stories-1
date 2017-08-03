@@ -22,7 +22,7 @@ class StepService
 
   def steps_params
     params.require(:step).permit Step::ATTRIBUTES_PARAMS,
-      sub_steps_attributes: [:name, :content, :_destroy]
+      sub_steps_attributes: [:name, :content, :_destroy, :picture]
   end
 
   def step_created_fail
