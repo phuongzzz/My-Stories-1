@@ -23,6 +23,12 @@ class User < ApplicationRecord
   has_many :reports
   has_many :stories
 
+  lambda_find_user = lambda do |id, type|
+    joins(:votes).where votes: {voteable_id: id, voteable_type: type, value: 1}
+  end
+
+  scope :find_users_votes, lambda_find_user
+
   validates :name, presence: true,
     length: {maximum: 60}
   validates :email, presence: true,

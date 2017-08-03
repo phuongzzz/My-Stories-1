@@ -80,6 +80,8 @@ class Api::V1::StoriesController < Api::BaseController
   end
 
   def action_successfully
+    story.update_attributes! total_vote:
+      Vote.find_total_vote(story.id, story.class).count
     render json: {
       messages: I18n.t("stories.messages.story_showed"),
       data: {story: story_serializer}

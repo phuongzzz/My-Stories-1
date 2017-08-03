@@ -16,13 +16,13 @@ class Api::V1::VotesController < Api::BaseController
 
   def find_voteable
     @story = Story.find_by id: params[:story_id]
-    if story.present?
-      @step = Step.find_by id: params_id
-      @voteable = step
-    else
-      @story = Story.find_by id: params_id
-      @voteable = story
-    end
+    @step = Step.find_by id: params[:step_id]
+    @voteable =
+      if story.present? && step.present?
+        step
+      else
+        story
+      end
   end
 
   def find_vote
@@ -34,6 +34,7 @@ class Api::V1::VotesController < Api::BaseController
       change_vote_value
     else
       @vote = voteable.votes.new user_id: current_user.id
+      voteable.update_attributes! total_vote: params_vote + 1
       vote.save ? voted_response_successfully : voted_response_fail
     end
   end
@@ -41,15 +42,18 @@ class Api::V1::VotesController < Api::BaseController
   def change_vote_value
     if vote.value == 1
       vote.update_attributes! value: 0
+      voteable.update_attributes! total_vote: params_vote - 1
     else
       vote.update_attributes! value: 1
+      voteable.update_attributes! total_vote: params_vote + 1
     end
     voted_response_successfully
   end
 
   def voted_response_successfully
     render json: {
-      messages: I18n.t("votes.messages.voted_successfully")
+      messages: I18n.t("votes.messages.voted_successfully"),
+      data: {total_vote: voteable.total_vote}
     }, status: :ok
   end
 
@@ -61,5 +65,9 @@ class Api::V1::VotesController < Api::BaseController
 
   def params_id
     params[:id]
+  end
+
+  def params_vote
+    voteable.total_vote
   end
 end

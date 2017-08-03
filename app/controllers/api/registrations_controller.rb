@@ -4,7 +4,7 @@ module Api
 
     def create
       user = User.new user_params
-      
+
       if user.save
         user_serializer =
           Serializers::User::UsersSerializer.new(object: user).serializer
