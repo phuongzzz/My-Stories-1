@@ -1,6 +1,6 @@
 class Api::V1::CategoriesController < Api::BaseController
   skip_before_action :authenticate_user_from_token, only: :index
-  
+
   def index
     @categories = Category.all
     render json: {

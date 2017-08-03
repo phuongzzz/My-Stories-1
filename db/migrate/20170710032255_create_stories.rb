@@ -3,12 +3,12 @@ class CreateStories < ActiveRecord::Migration[5.1]
     create_table :stories do |t|
       t.string :name
       t.text :description
-      t.integer :total_vote
-      t.integer :number_of_steps
+      t.integer :total_vote, default: 0
       t.boolean :is_public
       t.datetime :due_date
       t.integer :user_id
       t.integer :category_id
+      t.string :picture
 
       t.timestamps
     end

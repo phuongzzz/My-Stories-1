@@ -1,8 +1,9 @@
 module Serializers
   module Story
     class StorySerializer < Serializers::SupportSerializer
-      attrs :id, :name, :description, :total_vote, :number_of_steps, :is_public
-      attrs :due_date, :user_id, :created_at, :updated_at, :steps, :comments
+      attrs :id, :name, :description, :total_vote, :is_public
+      attrs :due_date, :user_id, :created_at, :updated_at, :picture
+      attrs :steps, :comments
 
       delegate :id, to: :object
 

@@ -26,7 +26,7 @@ class Api::V1::StoriesController < Api::BaseController
 
     if story.save
       save_each_step if params_steps.present?
-      created_response_success
+      action_successfully
     else
       action_fail
     end
@@ -81,7 +81,7 @@ class Api::V1::StoriesController < Api::BaseController
 
   def action_successfully
     render json: {
-      messages: I18n.t("stories.messages.stories_showed"),
+      messages: I18n.t("stories.messages.story_showed"),
       data: {story: story_serializer}
     }, status: :ok
   end

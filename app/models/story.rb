@@ -1,5 +1,8 @@
 class Story < ApplicationRecord
-  ATTRIBUTES_PARAMS = %i(name description is_public due_date).freeze
+  ATTRIBUTES_PARAMS =
+    %i(name description is_public due_date category_id picture).freeze
+
+  mount_uploader :picture, PictureUploader
 
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable, dependent: :destroy
@@ -20,4 +23,5 @@ class Story < ApplicationRecord
   validates :due_date, presence: true
   validates :user, presence: true
   validates :category, presence: true
+  validates :is_public, presence: true
 end

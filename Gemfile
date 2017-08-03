@@ -18,6 +18,8 @@ gem "simple_token_authentication"
 gem "rubocop", require: false
 gem "rubocop-checkstyle_formatter", require: false
 gem "rails_best_practices"
+gem "carrierwave"
+gem "cloudinary"
 
 group :development, :test do
   gem "pry"

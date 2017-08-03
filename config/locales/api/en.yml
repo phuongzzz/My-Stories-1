@@ -18,7 +18,8 @@ en:
     messages:
       action_successfully: "Action successfully"
       story_not_found: "Can't find the story..."
-      stories_showed: "All of story has been showed"
+      stories_showed: "All of story have been showed"
+      story_showed: "The story has been showed"
   steps: 
     messages:
       step_not_found: "Can't find step..."

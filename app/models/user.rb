@@ -3,10 +3,12 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   ATTRIBUTES_PARAMS = [:email, :name, :avatar,
-    :password, :password_confirmation].freeze
+    :password, :password_confirmation, :avatar].freeze
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
+
+  mount_uploader :avatar, AvatarUploader
 
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "follower_id", dependent: :destroy
