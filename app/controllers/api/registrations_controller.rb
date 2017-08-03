@@ -4,10 +4,14 @@ module Api
 
     def create
       user = User.new user_params
+      
       if user.save
+        user_serializer =
+          Serializers::User::UsersSerializer.new(object: user).serializer
+
         render json: {
           message: I18n.t("devise.registrations.signed_up"),
-          data: {user: user}
+          data: {user: user_serializer}
         }, status: :ok
       else
         warden.custom_failure!

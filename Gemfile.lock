@@ -69,12 +69,15 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    carrierwave-base64 (2.5.3)
+      carrierwave (>= 0.8.0)
+      mime-types (~> 3.0)
     childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
     cloudinary (1.8.1)
       aws_cf_signer
       rest-client
-    code_analyzer (0.4.7)
+    code_analyzer (0.4.8)
       sexp_processor
     coderay (1.1.1)
     coffee-rails (4.2.2)
@@ -301,6 +304,7 @@ DEPENDENCIES
   better_errors
   capybara (~> 2.13)
   carrierwave
+  carrierwave-base64
   cloudinary
   coffee-rails (~> 4.2)
   database_cleaner

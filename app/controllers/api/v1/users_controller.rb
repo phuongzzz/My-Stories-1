@@ -2,8 +2,12 @@ class Api::V1::UsersController < Api::BaseController
   before_action :find_object, only: %i(show update destroy).freeze
 
   def show
+    user_serializer =
+      Serializers::User::UsersSerializer.new(object: user).serializer
+
     render json: {
-      messages: I18n.t("users.show.success"), data: {user: user_serializer}
+      messages: I18n.t("users.show.success"),
+      data: {user: user_serializer}
     }, status: :ok
   end
 
@@ -31,10 +35,6 @@ class Api::V1::UsersController < Api::BaseController
 
   attr_reader :user, :object
 
-  def user_serializer
-    Serializers::User::UsersSerializer.new(object: user).serializer
-  end
-
   def user_params
     params.require(:user).permit User::ATTRIBUTES_PARAMS
   end
@@ -42,7 +42,7 @@ class Api::V1::UsersController < Api::BaseController
   def updated_successfully
     render json: {
       messages: I18n.t("users.update.success"),
-      data: {user: user}
+      data: {user: user_serializer}
     }, status: :ok
   end
 
