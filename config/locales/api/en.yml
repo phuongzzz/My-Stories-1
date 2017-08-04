@@ -40,3 +40,6 @@ en:
   categories:
     messages:
       categories_showed: "All of categories have been showed"
+  search:
+    messages:
+      search_successfull: "Search successfully"
