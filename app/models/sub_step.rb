@@ -1,5 +1,5 @@
 class SubStep < ApplicationRecord
-  mount_uploader :picture, PictureUploader
+  mount_base64_uploader :picture, PictureUploader
 
   belongs_to :step, optional: true
 
