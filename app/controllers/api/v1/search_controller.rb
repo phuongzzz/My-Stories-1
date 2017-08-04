@@ -2,13 +2,14 @@ class Api::V1::SearchController < Api::BaseController
   skip_before_action :authenticate_user_from_token
 
   def search
-    if params[:q].nil?
+    if params_search.present?
+      @stories = Story.search params_search
+      @steps = Step.search params_search
+    else
       @stories = []
       @steps = []
-    else
-      @stories = Story.search params[:q]
-      @steps = Step.search params[:q]
     end
+
     render json: {
       messages: I18n.t("search_successfully"),
       data: {stories: stories, steps: steps}
@@ -18,4 +19,8 @@ class Api::V1::SearchController < Api::BaseController
   private
 
   attr_reader :stories, :steps
+
+  def params_search
+    params[:q]
+  end
 end

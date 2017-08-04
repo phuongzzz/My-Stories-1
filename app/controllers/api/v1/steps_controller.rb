@@ -78,17 +78,17 @@ class Api::V1::StepsController < Api::BaseController
   end
 
   def sub_step_serializer
-    Serializers::SubSteps::SubStepsSerializer
+    Serializers::SubSteps::SubStepSerializer
       .new(object: step.sub_steps).serializer
   end
 
   def step_serializer
-    Serializers::Step::StepSerializer
+    Serializers::Steps::StepSerializer
       .new(object: step).serializer
   end
 
   def story_serializer
-    Serializers::Story::StorySerializer
+    Serializers::Stories::StorySerializer
       .new(object: story).serializer
   end
 end

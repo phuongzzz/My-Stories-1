@@ -1,5 +1,5 @@
 module Serializers
-  module Story
+  module Stories
     class StorySerializer < Serializers::SupportSerializer
       attrs :id, :name, :description, :total_vote, :is_public
       attrs :due_date, :user_id, :created_at, :updated_at, :picture
@@ -8,12 +8,12 @@ module Serializers
       delegate :id, to: :object
 
       def steps
-        Serializers::Step::StepSerializer
+        Serializers::Steps::StepSerializer
           .new(object: object.steps).serializer
       end
 
       def comments
-        Serializers::Comment::CommentSerializer
+        Serializers::Comments::CommentSerializer
           .new(object: object.comments).serializer
       end
 

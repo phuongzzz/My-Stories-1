@@ -7,7 +7,7 @@ module Api
 
       if user.save
         user_serializer =
-          Serializers::User::UsersSerializer.new(object: user).serializer
+          Serializers::Users::UserSerializer.new(object: user).serializer
 
         render json: {
           message: I18n.t("devise.registrations.signed_up"),

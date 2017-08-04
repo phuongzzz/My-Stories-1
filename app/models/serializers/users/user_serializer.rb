@@ -1,6 +1,6 @@
 module Serializers
-  module User
-    class UsersSerializer < Serializers::SupportSerializer
+  module Users
+    class UserSerializer < Serializers::SupportSerializer
       attrs :id, :email, :name, :avatar
     end
   end

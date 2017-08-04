@@ -3,7 +3,7 @@ class Api::V1::UsersController < Api::BaseController
 
   def show
     user_serializer =
-      Serializers::User::UsersSerializer.new(object: user).serializer
+      Serializers::Users::UserSerializer.new(object: user).serializer
 
     render json: {
       messages: I18n.t("users.show.success"),

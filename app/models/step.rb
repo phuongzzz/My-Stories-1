@@ -27,12 +27,10 @@ class Step < ApplicationRecord
   class << self
     def search query
       __elasticsearch__.search(
-        {
-          query: {
-            multi_match: {
-              query: query,
-              fields: ["name^5", "content"]
-            }
+        query: {
+          multi_match: {
+            query: query,
+            fields: ["name^5", "content"]
           }
         }
       )
@@ -43,5 +41,5 @@ end
 Step.__elasticsearch__.client.indices.delete index: Step.index_name rescue nil
 Step.__elasticsearch__.client.indices.create \
   index: Step.index_name,
-  body: { settings: Step.settings.to_hash, mappings: Step.mappings.to_hash }
+  body: {settings: Step.settings.to_hash, mappings: Step.mappings.to_hash}
 Step.import

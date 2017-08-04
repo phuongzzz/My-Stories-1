@@ -1,5 +1,5 @@
 module Serializers
-  module Comment
+  module Comments
     class CommentSerializer < Serializers::SupportSerializer
       attrs :id, :user_id, :commentable_id, :commentable_type, :content
       attrs :user_name, :created_at, :updated_at
