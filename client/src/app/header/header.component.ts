@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LogoutService } from './logout.service';
 import { LoginComponent } from '../login/login.component'
 import { MdDialog } from '@angular/material';
@@ -6,17 +6,22 @@ import { SignupComponent } from '../signup/signup.component';
 import { InfoUserComponent } from '../info-user/info-user.component'
 import * as $ from 'jquery';
 import { EditUserDialogComponent } from '../info-user/user-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
   providers: [LogoutService, LoginComponent]
 })
 
 export class HeaderComponent implements OnInit {
   private current_user: any;
-  constructor(public logoutService: LogoutService, public dialog: MdDialog) {
+  public current_url: any;
+  constructor(public logoutService: LogoutService, public dialog: MdDialog, private router: Router,
+    private _router:Router) {
+      this.current_url= window.location.href;
+      console.log(this.current_url);
   }
 
   ngOnInit() {
@@ -61,6 +66,11 @@ export class HeaderComponent implements OnInit {
   onClick() {
     this.logoutService.logout(this.current_user.token).subscribe(this.onNext,
       this.onError, this.onComplete);
+  }
+
+  onSubmit(value: any){
+    localStorage.setItem('valueSearch', JSON.stringify(value));
+    this.router.navigate(['search']);
   }
 
   openDialogLogIn() {

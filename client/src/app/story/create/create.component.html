@@ -1,4 +1,4 @@
-<div class="p-container">
+<md-card class="p-container">
   <a href="" (click)="$event.preventDefault(); back()"
     class="btn-slide btn-left" *ngIf="presentStep >= 0">
     <i class="material-icons">keyboard_arrow_left</i>
@@ -7,7 +7,6 @@
     *ngIf="presentStep + 1 < StepForm.length && !hidden">
     <i class="material-icons">keyboard_arrow_right</i>
   </a>
-
   <form [formGroup]="StoryForm">
     <div class="container" id="story">
       <div class="row header">
@@ -16,23 +15,24 @@
       <div class="row body">
         <div class="infor-detail">
           <div class="col-md-7">
-            <p class="left">
-              <label >{{'story_form.title' | translate}}</label>
-              <input type="text" class="form-control" required
-                placeholder="Title" formControlName="name"/>
-            </p>
-            <p class="left">
-              <label>{{'story_form.public' | translate}}</label>
-              <select class="form-control" formControlName="is_public">
-                <option value = true >{{'story_form.public' | translate}}</option>
-                <option value = false >{{'story_form.private' | translate}}</option>
-              </select>
-            </p>
-            <p class="left">
-              <label>{{'story_form.duedate' | translate}}</label>
-              <input type="date" class="form-control" placeholder="Due Date"
-                required formControlName="due_date"/>
-            </p>
+            <md-input-container class="ip">
+              <input mdInput type="text" required
+                placeholder="{{'story_form.title' | translate}}" formControlName="name"/>
+            </md-input-container>
+            <md-select class="ip" placeholder="{{'story_form.public' | translate}}" formControlName="is_public">
+              <md-option [value]="true">
+                {{'story_form.public' | translate}}
+              </md-option>
+              <md-option [value]="false">
+                {{'story_form.private' | translate}}
+              </md-option>
+            </md-select>
+            <md-select class="ip-category" placeholder="Category" formControlName="category_id">
+              <md-option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+              </md-option>
+            </md-select>
+            <md-datepicker #picker></md-datepicker>
           </div>
           <div class="col-md-5">
             <div class="text-center">
@@ -44,6 +44,13 @@
               <input type="file" id="imageInput" style="display: none"
                 (change)="onChange($event, 0)">
             </div>
+          </div>
+          <div class="col-md-5">
+            <md-input-container class="ipc text-center-c">
+              <input mdInput type="date" [mdDatepicker]="picker" placeholder="Choose a date"
+                required formControlName="due_date"/>
+              <button mdSuffix [mdDatepickerToggle]="picker"></button>
+            </md-input-container>
           </div>
           <div class="description">
             <label>{{'story_form.description' | translate}}</label>
@@ -74,10 +81,10 @@
           class="infor-detail">
           <div [formGroupName]="i" id="step{{i}}">
             <h3>{{'story_form.step' | translate}} {{i+1}}</h3>
-            <div class="form-group">
-              <label class="center-block">{{'story_form.step_name' | translate}}</label>
-              <input class="form-control" required formControlName="name">
-            </div>
+            <md-input-container class="ip">
+              <input mdInput type="text" required
+                placeholder="{{'story_form.title' | translate}}" formControlName="name"/>
+            </md-input-container>
             <label>{{'story_form.content' | translate}}</label>
             <textarea cols="46" style="overflow:hidden" wrap="hard"
               id="description{{i}}" (input)="autoExpand('description'+i)"
@@ -92,12 +99,10 @@
                     <i class="material-icons">remove_circle_outline</i>
                   </a>
                   <div class="col-md-7">
-                    <div class="form-group">
-                      <label class="center-block">
-                        {{'story_form.step_name' | translate}}
-                      </label>
-                      <input class="form-control" formControlName="name">
-                    </div>
+                    <md-input-container class="ip">
+                      <input mdInput type="text" required
+                        placeholder="{{'story_form.title' | translate}}" formControlName="name"/>
+                    </md-input-container>
                     <label class="form-group">
                       {{'story_form.content' | translate}}
                     </label>
@@ -133,4 +138,4 @@
       </div>
     </div>
   </form>
-</div>
+</md-card>

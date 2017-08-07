@@ -24,8 +24,9 @@ export class CreateComponent implements OnInit {
 
   private presentStep = -1;
   constructor(private formbuilder: FormBuilder, private router: Router,
-    private createService: CreateStoryService, private snackBar: MdSnackBar,
-    private translate: TranslateService, public createStoryService: CreateStoryService) {
+    private createService: CreateStoryService,
+    private snackBar: MdSnackBar, private translate: TranslateService,
+    public createStoryService: CreateStoryService) {
   }
 
   ngOnInit() {
@@ -56,7 +57,7 @@ export class CreateComponent implements OnInit {
         is_public: 'true',
         category_id: ['', Validators.required],
         description: ['', Validators.required],
-        picture: '',
+        image: '',
         step: this.formbuilder.array([])
       })
     });
@@ -157,7 +158,8 @@ export class CreateComponent implements OnInit {
 
   form_is_invalid(): boolean {
     if (this.StoryForm.dirty && this.StoryForm.valid) {
-      return this.StoryForm.value.picture === '';
+      // return this.StoryForm.value.image === '';
+      return false;
     }
     return true;
   }
@@ -169,6 +171,7 @@ export class CreateComponent implements OnInit {
       });
       return;
     } else {
+    console.log(this.PackageStoryForm.value);
       this.createService.createStory(this.PackageStoryForm.value,
         this.current_user.token).subscribe(response => this.onSuccess(response),
         response => this.onError(response));

@@ -15,6 +15,7 @@ export class InfoUserComponent implements OnInit {
   user: User;
   user_name: string;
   user_email: string;
+  stories: any[];
   position = 'before';
   constructor(private infoUser: InfoUserService) { }
 
@@ -30,8 +31,10 @@ export class InfoUserComponent implements OnInit {
 
   onSuccess(response) {
     const user = response.data.user;
-    this.user = new User(user.id, user.name, user.email, user.avatar);
+    this.user = new User(user.id, user.name, user.email, user.avatar, user.stories);
     this.user_name = user.name;
     this.user_email = user.email;
+    this.stories = user.stories;
+    console.log(this.stories);
   }
 }

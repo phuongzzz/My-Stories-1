@@ -5,11 +5,13 @@ import { StoryDetailsComponent } from './story/story-details/story-details.compo
 import { StoriesListResolverService } from './story/shared/stories-list-resolver.service';
 import { CreateComponent } from './story/create/create.component';
 import { LoggedInGuard } from './logged-in.guard';
+import { NotLoggedInGuard } from './not-logged-in.guard';
 import { UpdateUserComponent } from './updateuser/updateuser.component';
 import { InfoUserComponent } from './info-user/info-user.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { CategoryDetailsComponent } from './categories/category-details/category-details.component'
+import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
+import { SearchComponent } from './search/search.component';
 export const routing: Routes = [
   { path: 'story', component: StoryComponent, canActivate: [LoggedInGuard],
     children: [
@@ -28,8 +30,16 @@ export const routing: Routes = [
     canActivate: [LoggedInGuard],
   },
   {
-    path: '', component: HomeComponent
+    path: '', component: InfoUserComponent,
+    canActivate: [NotLoggedInGuard],
+  },
+  {
+    path: 'signin', component: HomeComponent
+  },
+  {
+    path: 'search', component: SearchComponent
   }
+
 ];
 export const AppRoutes  = RouterModule.forRoot(routing);
 export const URL = 'http://localhost:3000/';
