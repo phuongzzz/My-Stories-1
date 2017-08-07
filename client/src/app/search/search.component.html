@@ -1,0 +1,77 @@
+<div class="search-text">
+  <div class="container">
+    <div class="row text-center">
+      <div class="form">
+        <form #searchForm = "ngForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-search form-horizontal">
+          <div ngModelGroup="search">
+            <input type="text" class="input-search" placeholder="Search" name="email" id="email" ngModel/>
+            <button type="submit" class="btn-search">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<md-tab-group>
+  <md-tab label="{{'search.stories' | translate}}">
+  <div *ngIf="story_info" class="results"><h3>{{"search.results1" | translate}} {{story_info.length}} {{"search.results2" | translate}}</h3></div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-4 well pricing-table" *ngFor="let story of story_info" >
+          <div>
+            <div class="pricing-table-holder">
+              <div>
+                <img src="http://www.placehold.it/100X100">
+                <h3>{{story.name}}</h3>
+                  <div class="example-scrolling-content caption cap">
+                    {{story.description}}
+                  </div>
+              </div>
+            </div>
+            <div class="custom-button-group">
+              <div class="col-md-8 col-sm-9">
+                <button type="button" class="btn btn-royal-blue btn-block " >
+                  {{'search.steps' | translate}}
+                </button>
+              </div>
+              <div class="col-md-4 col-sm-3">
+                <button class="btn btn-primary btn-block">
+                  {{story.total_vote}} {{'search.voted' | translate}}
+                </button>
+              </div>
+            </div>
+            <div class="pricing-feature-list">
+              <ul class="list-group" *ngFor="let step of story.steps | slice:0:4">
+                <li class="list-group-item">{{step.name}}</li>
+              </ul>
+              <div *ngIf="story.steps.length < 5">
+                <ul class="list-group" *ngFor="let i of l1 | slice :0:(4-story.steps.length)">
+                  <li class="list-group-item"></li>
+                </ul>
+              </div>
+            </div>
+            <div class="price-table-button-holder">
+              <button class="btn btn-info btn-block">
+                {{'search.more' | translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="{{'search.steps' | translate}}">
+    <div class="card-step" *ngFor="let step of search_step">
+    <md-card class="card-step">
+      <main>
+        <a class="cta-wrap">
+          <span>{{step._source.name}}</span>
+        </a>
+        <div class="info-wrap">
+          <p>{{step._source.content}}</p>
+        </div>
+      </main>
+    </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>
