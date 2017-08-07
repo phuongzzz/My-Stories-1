@@ -1,0 +1,74 @@
+$barc: rgba(168, 168, 168, 1);
+$whitec: #fff;
+$deeppink: #ff1493;
+$green: #33a444;
+$green1:rgba(0, 109, 0, .8);
+$gray: rgba(0, 0, 0, .075);
+
+.custom-nav {
+  -webkit-box-shadow: 0 1px 2px 0 $barc;
+  -moz-box-shadow: 0 1px 2px 0 $barc;
+  box-shadow: 0 1px 2px 0 $barc;
+  border-radius: 0;
+  background-color: $whitec;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+}
+
+.phuong-home:hover {
+  color: $deeppink;
+};
+
+.navbar {
+  transition: all ease .5s;
+}
+
+ng-template.right {
+  float: right;
+}
+
+.button-right {
+  float: right;
+}
+
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.form-control-search {
+  height: 30px;
+}
+
+.btn-search {
+  height: 30px;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.btn-search .glyphicon-search {
+  margin-right:12px;
+}
+
+.form-control-search {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.form-control-search {
+  &:focus{
+    border-color: $green;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px $gray, 0 0 1px $green1;
+    box-shadow: inset 0 1px 1px $gray, 0 0 1px $green1;
+  }
+}
+
+.search-bar {
+  padding-top: 7px;
+}

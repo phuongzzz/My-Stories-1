@@ -1,8 +1,12 @@
 $whitec: #FFF;
 
 .container-home {
-  padding-top: 50px;
-  background-image: url("http://sv1.upsieutoc.com/2017/08/03/background.jpg");
-  background-size: cover;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    height: 700px;
+}
+
+.signin {
+  padding-left: 80px;
   height: 700px;
 }
