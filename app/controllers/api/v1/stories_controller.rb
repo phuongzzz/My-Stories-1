@@ -89,6 +89,6 @@ class Api::V1::StoriesController < Api::BaseController
   end
 
   def story_serializer
-    Serializers::Story::StorySerializer.new(object: story).serializer
+    Serializers::Stories::StorySerializer.new(object: story).serializer
   end
 end

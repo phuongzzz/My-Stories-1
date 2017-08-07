@@ -393,10 +393,6 @@ Style/RegexpLiteral:
                  `MaxSlashes` '/' character.
   Enabled: true
 
-Style/RescueModifier:
-  Description: "Avoid using rescue in its modifier form."
-  Enabled: true
-
 Style/SelfAssignment:
   Description: "Checks for places where self-assignment shorthand should have been used."
   Enabled: true

@@ -40,12 +40,10 @@ class Story < ApplicationRecord
   class << self
     def search query
       __elasticsearch__.search(
-        {
-          query: {
-            multi_match: {
-              query: query,
-              fields: ["name^10", "description"]
-            }
+        query: {
+          multi_match: {
+            query: query,
+            fields: ["name^10", "description"]
           }
         }
       )
@@ -56,5 +54,5 @@ end
 Story.__elasticsearch__.client.indices.delete index: Story.index_name rescue nil
 Story.__elasticsearch__.client.indices.create \
   index: Story.index_name,
-  body: { settings: Story.settings.to_hash, mappings: Story.mappings.to_hash }
+  body: {settings: Story.settings.to_hash, mappings: Story.mappings.to_hash}
 Story.import

@@ -45,6 +45,6 @@ class Api::V1::CommentsController < Api::BaseController
   end
 
   def comment_serializer
-    Serializers::Comment::CommentSerializer.new(object: comment).serializer
+    Serializers::Comments::CommentSerializer.new(object: comment).serializer
   end
 end
