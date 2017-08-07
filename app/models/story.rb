@@ -28,7 +28,6 @@ class Story < ApplicationRecord
   validates :due_date, presence: true
   validates :user, presence: true
   validates :category, presence: true
-  validates :is_public, presence: true
 
   settings index: {number_of_shards: 1} do
     mappings dynamic: "false" do
