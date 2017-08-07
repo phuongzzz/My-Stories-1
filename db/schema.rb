@@ -32,31 +32,36 @@ ActiveRecord::Schema.define(version: 20170731155508) do
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
+    t.integer "user_id"
+    t.integer "followable_id"
+    t.string "followable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["followable_id"], name: "index_relationships_on_followable_id"
+    t.index ["followable_type"], name: "index_relationships_on_followable_type"
+    t.index ["user_id", "followable_id"], name: "index_relationships_on_user_id_and_followable_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "story_id"
+    t.integer "reportable_id"
+    t.string "reportable_type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["story_id"], name: "index_reports_on_story_id"
+    t.index ["reportable_id"], name: "index_reports_on_reportable_id"
+    t.index ["user_id", "reportable_id", "reportable_type"], name: "index_reports_on_user_id_and_reportable_id_and_reportable_type"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "content"
-    t.integer "completed_rate"
-    t.integer "total_vote"
+    t.float "completed_rate", limit: 24
+    t.integer "total_vote", default: 0
     t.integer "story_id"
+    t.datetime "due_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["story_id"], name: "index_steps_on_story_id"
@@ -66,13 +71,14 @@ ActiveRecord::Schema.define(version: 20170731155508) do
     t.string "name"
     t.text "description"
     t.integer "total_vote", default: 0
-    t.boolean "is_public"
+    t.boolean "is_public", default: false
     t.datetime "due_date"
     t.integer "user_id"
     t.integer "category_id"
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_stories_on_category_id"
     t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
@@ -112,6 +118,7 @@ ActiveRecord::Schema.define(version: 20170731155508) do
     t.string "voteable_type"
     t.integer "voteable_id"
     t.integer "user_id"
+    t.integer "value", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_votes_on_user_id"

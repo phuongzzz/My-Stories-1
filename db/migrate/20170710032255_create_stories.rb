@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :description
       t.integer :total_vote, default: 0
-      t.boolean :is_public
+      t.boolean :is_public, default: false
       t.datetime :due_date
       t.integer :user_id
       t.integer :category_id

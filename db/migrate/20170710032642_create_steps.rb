@@ -6,6 +6,7 @@ class CreateSteps < ActiveRecord::Migration[5.1]
       t.float :completed_rate
       t.integer :total_vote, default: 0
       t.integer :story_id
+      t.datetime :due_data
 
       t.timestamps
     end
