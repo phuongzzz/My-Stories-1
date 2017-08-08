@@ -10,7 +10,6 @@ module Serializers
         Serializers::Stories::StorySerializer
           .new(object: object.stories.newest).serializer
       end
-
     end
   end
 end

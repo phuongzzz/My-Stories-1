@@ -33,6 +33,10 @@ export const routing: Routes = [
   { path: 'user', component: InfoUserComponent,
     canActivate: [LoggedInGuard],
   },
+  { path: 'user', component: InfoUserComponent,
+  },
+  { path: 'user/:id', component: InfoUserComponent,
+  },
   {
     path: '', component: InfoUserComponent,
     canActivate: [NotLoggedInGuard],
