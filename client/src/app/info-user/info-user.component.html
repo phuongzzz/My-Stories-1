@@ -4,7 +4,7 @@
       <div class="media">
         <a class="pull-left cover-img">
           <img class="media-object dp img-circle image"
-            src="">
+            src="../img/cover-user.jpg">
         </a>
         <div class="media-body">
           <h2 class="media-heading text text_padding">{{user_name}}</h2>
@@ -27,4 +27,32 @@
     </md-menu>
     </div>
   </div>
+</div>
+<div class="col-md-5 col-md-offset-3">
+  <md-card class="ucard">
+  <md-tab-group class="ecard">
+    <md-tab label="New Stories">
+      <div *ngFor="let story of stories" class="ucard">
+        <md-card class="ecard">
+          <md-card-header>
+            <div md-card-avatar class="example-header-image"></div>
+            <md-card-title name-story>{{story.name}}</md-card-title>
+            <md-card-subtitle>By {{user_name}} at {{story.created_at}}</md-card-subtitle>
+          </md-card-header>
+          <md-card-content>
+            <p>
+              {{story.description}}
+            </p>
+          </md-card-content>
+          <img md-card-image src="{{story.image}}">
+          <md-card-actions>
+            <button md-button>{{story.total_vote}} </button>
+            <button md-button></button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-tab>
+    <md-tab label="Tab 2"></md-tab>
+  </md-tab-group>
+  </md-card>
 </div>

@@ -16,9 +16,15 @@ import { MdDialogModule,
   MdCardModule,
   MdInputModule,
   MdTooltipModule,
-  MdMenuModule
+  MdMenuModule,
+  MdSelectModule,
+  MdDatepickerModule,
+  MdNativeDateModule,
+  MdTabsModule,
+  MdAutocompleteModule
 } from '@angular/material';
 import { LoggedInGuard } from './logged-in.guard';
+import { NotLoggedInGuard } from './not-logged-in.guard';
 import 'hammerjs';
 import { UpdateUserComponent } from './updateuser/updateuser.component';
 import { UpdateUserNameComponent } from './updateuser/update-user-name/update-user-name.component'
@@ -35,7 +41,7 @@ import { NewStoriesComponent } from './home/new-stories/new-stories.component';
 import { HotStoriesComponent } from './home/hot-stories/hot-stories.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
-
+import { MdSidenavModule } from '@angular/material';
 import { CollapsibleWellComponent } from './story/story-details/collapsible-well.component';
 import {
   StoriesListComponent,
@@ -48,6 +54,7 @@ import {
   VoteService,
   SubStepComponent
 } from './story/index';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +83,7 @@ import {
     HotStoriesComponent,
     CategoriesComponent,
     CategoryDetailsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,7 +103,13 @@ import {
     MdToolbarModule,
     MdChipsModule,
     MdGridListModule,
-    MdMenuModule
+    MdMenuModule,
+    MdSelectModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
+    MdTabsModule,
+    MdAutocompleteModule,
+    MdSidenavModule,
   ],
   entryComponents: [
     LoginComponent,
@@ -104,13 +118,14 @@ import {
     UpdateUserNameComponent,
     UpdateUserPasswordComponent,
     EditUserDialogComponent,
-    SubStepComponent
+    SubStepComponent,
   ],
   providers: [
     LoggedInGuard,
+    NotLoggedInGuard,
     StoryService,
     StoriesListResolverService,
-    VoteService
+    VoteService,
   ],
   bootstrap: [AppComponent]
 })

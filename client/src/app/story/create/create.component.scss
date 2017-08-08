@@ -57,8 +57,6 @@ body {
   max-width: 800px;
   min-width: 324px;
   background-color: $white;
-  border: 1px solid lighten($grey, 1%);
-  border-bottom: 3px solid $grey;
 }
 .row {
   width: 100%;
@@ -66,7 +64,6 @@ body {
   padding: 0 2.5em;
   &.header {
     padding: 10px 10px;
-    border-bottom: 1px solid $grey;
     color: black;
     h2{
       margin-top: 0;
@@ -161,6 +158,12 @@ body {
   }
 }
 
+.text-center-c {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5px;
+}
+
 .infor-detail {
   .btn-submit {
     margin-left: 15px;
@@ -245,7 +248,6 @@ form {
   }
   input {
     margin: 0 0 0.5em 0;
-    border: 1px solid $grey;
     padding: 6px 10px;
     color: $dark_grey;
     font-size: pxtoem(16, 16);
@@ -327,4 +329,20 @@ form {
 .add-icon:hover i {
   transition: all ease .4s;
   transform: scale(2, 2);
+}
+
+.ip {
+  width: 23pc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ip-category {
+  width: 23pc;
+  padding-top: 47px;
+  padding-bottom: 20px;
+}
+
+.ipc {
+  width: 17pc;
 }
