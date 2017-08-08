@@ -1,7 +1,26 @@
-<h1 class="text-center">{{name}}</h1>
-<ul class="accordion">
-  <li *ngFor="let sub_step of sub_steps">
-    <a>{{sub_step.name}}</a>
-    <p>{{sub_step.content}}</p>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="text-center">{{name}}</h1>
+    <ul class="accordion">
+      <li *ngFor="let sub_step of sub_steps">
+        <a>{{sub_step.name}}</a>
+        <p>{{sub_step.content}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <md-toolbar color="primary">
+      <button md-button class="col-md-2" id="heart_step" (click)="onVote()">
+        <i class="material-icons">favorite</i> {{'like' | translate}}
+      </button>
+      <button md-button class="col-md-2" (click)="onFocusComment()">
+        <i class="material-icons">comment</i> {{'comment' | translate}}
+      </button>
+    </md-toolbar>
+    <div class="voted-contain">
+      <a md-button>{{'voted' | translate}} {{step.total_vote}}</a>
+    </div>
+    <app-comment [comments]="step.comments" [commentable_id]="step.id"
+      [commentable_type]="step" [story_id]="story_id"></app-comment>
+  </div>
+</div>

@@ -8,15 +8,14 @@ import * as $ from 'jquery';
   styleUrls: ['./story-thumbnail.component.scss']
 })
 
-export class StoryThumbnailComponent {
+export class StoryThumbnailComponent implements AfterViewInit {
   @Input() story: IStory;
 
   ngAfterViewInit() {
     $('.phuong-custom-card').addClass('animated bounceInUp');
   }
-
   getStoryTotalVotes() {
-    if(this.story && this.story.total_vote > 5) {
+    if (this.story && this.story.total_vote > 5) {
       return 'green';
     }
     return '';

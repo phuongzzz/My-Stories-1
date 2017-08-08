@@ -1,17 +1,42 @@
 $background-color: #2ecc71;
 $text-color: #fff;
+$heart: #e74c3c;
+
+.story-details {
+  margin-top: 100px;
+}
 
 .story-header {
   background-size: cover;
-  //background-color: $background-color;
   height: 300px;
 
-  h1, h4 {
+  h1,
+  h4 {
     padding-top: 20px;
     padding-left: 20px;
     color: $text-color;
   }
+
   h1 {
     font-weight: bold;
   }
+}
+
+.container {
+  max-width: 900px;
+  min-width: 324px;
+  margin: 50px auto 50px;
+}
+
+img {
+  width: 50%;
+  height: 250px;
+}
+
+.container {
+  margin: 60px auto 30px;
+}
+
+.voted {
+  color: $heart;
 }

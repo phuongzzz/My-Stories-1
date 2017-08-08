@@ -17,10 +17,9 @@ import { MdDialog } from '@angular/material';
 
 export class CollapsibleWellComponent {
   visible = true;
-
-  constructor(private dialog: MdDialog) { }
   @Input() name: string;
   @Input() step: IStep;
+  constructor(private dialog: MdDialog) { }
 
   toggleContent() {
     this.visible = !this.visible;
