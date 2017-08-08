@@ -1,6 +1,6 @@
 <div class="container">
   <div class="story-header"
-    [ngStyle]="{ 'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),   url(' + story.picture + ')'}">
+    [ngStyle]="{ 'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + story.picture + ')'}">
     <h1>{{story.name}}</h1>
     <div class="col-md-3"></div>
     <img [src]="image_url + story.picture" class="col-md-6">
@@ -18,13 +18,13 @@
         <button md-button class="col-md-3" (click)="onComment()">
           <i class="material-icons">comment</i> {{'comment' | translate}}
         </button>
-        <div class="col-md-4"></div>
-        <a md-button class="col-md-3">
-          {{'voted' | translate}} {{story.total_vote}}
+        <div class="col-md-3"></div>
+        <a md-button class="col-md-4">
+          {{story.total_vote}} {{'step.votes' | translate}}
         </a>
       </md-toolbar>
       <app-comment [comments]="story.comments" [story_id]="story.id"
-        [commentable_type]="story"></app-comment>
+        [commentable_id]="story.id" [commentable_type]="'story'"></app-comment>
     </div>
   </div>
 </div>

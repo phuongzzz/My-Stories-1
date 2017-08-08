@@ -48,14 +48,7 @@
     "steps": "Steps"
   },
   "step": {
-    "votes": "Votes"
-  },
-  "home": {
-    "line1": "Nơi mà bạn chia sẻ những kiến thức, kỹ năng và kinh nhiệm bạn có được trong quá trình học",
-    "line2": "Cùng nhau xây dựng những công thức, những quá trình, và những phương pháp học",
-    "line3": "để đạt được kết quả tốt nhất",
-    "new_story": "New Story",
-    "hot_story": "Hot Story"
+    "votes": "Voted"
   },
   "search": {
     "stories": "Stories",
@@ -64,5 +57,9 @@
     "voted": "Voted",
     "results1": "There are",
     "results2": "story results for search"
-  }
+  },
+  "writecomment": "Write a comment ...",
+  "comment": "Comment",
+  "like": "Like",
+  "re_send": "Try Again"
 }

@@ -38,7 +38,7 @@ export class StepListComponent implements OnDestroy {
   openSubStepDialog(step) {
     const dialogRef = this.dialog.open(SubStepComponent, {
       height: '82%',
-      width: '75%'
+      width: '80%'
     });
     dialogRef.componentInstance.name = step.name;
     dialogRef.componentInstance.sub_steps = step.sub_steps;

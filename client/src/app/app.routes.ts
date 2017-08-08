@@ -12,13 +12,17 @@ import { HomeComponent } from './home/home.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 import { SearchComponent } from './search/search.component';
+import { StoryResolverService } from './story/shared/story-resolver.service';
+
 export const routing: Routes = [
   { path: 'story', component: StoryComponent, canActivate: [LoggedInGuard],
     children: [
       { path: 'list', component: StoriesListComponent,
         resolve: {stories: StoriesListResolverService}},
       { path: 'create', component: CreateComponent },
-      { path: ':id', component: StoryDetailsComponent }
+      { path: ':id', component: StoryDetailsComponent,
+        resolve: {story: StoryResolverService}
+      }
     ]
   },
   { path: 'category', component: CategoriesComponent,
