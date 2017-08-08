@@ -1,16 +1,13 @@
 <ul class="cbp_tmtimeline">
   <li *ngFor="let step of steps" class="step-list">
-    <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>{{step.voters_id.length}} <i class="material-icons">favorite</i></span></time>
+    <time class="cbp_tmtime" datetime="2013-04-10 18:30">
+      <span>4/10/13</span>
+    </time>
     <div class="cbp_tmicon">
     </div>
     <div class="cbp_tmlabel">
-      <h2 (click)="openSubStepDialog(this.step)">{{step.name}}</h2>
+      <h2 (click)="openSubStepDialog(step)">{{step.name}}</h2>
       <p>{{step.content}}</p>
-      <app-upvote
-        (vote)="toggleVote(step)"
-        [count]="step.voters_id.length"
-        [voted]="userHasVoted(step)"
-      ></app-upvote>
     </div>
   </li>
 </ul>

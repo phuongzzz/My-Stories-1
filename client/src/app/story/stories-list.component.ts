@@ -5,7 +5,8 @@ import { IStory } from './shared/story.model';
 
 @Component({
   selector: 'app-stories-list',
-  templateUrl: './stories-list.component.html'
+  templateUrl: './stories-list.component.html',
+  styleUrls: ['./story-thumbnail.component.scss']
 })
 
 export class StoriesListComponent implements OnInit {

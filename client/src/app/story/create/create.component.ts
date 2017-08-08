@@ -16,22 +16,31 @@ export class CreateComponent implements OnInit {
   url_image_story = 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png';
   private current_user: any;
   StoryForm: FormGroup;
+  PackageStoryForm: FormGroup;
   StepForm: FormArray;
   hidden = true;
   sub_temp: number;
+  categories:  any[];
+
   private presentStep = -1;
   constructor(private formbuilder: FormBuilder, private router: Router,
-    private createService: CreateStoryService,
-    private snackBar: MdSnackBar, private translate: TranslateService) {
+    private createService: CreateStoryService, private snackBar: MdSnackBar,
+    private translate: TranslateService, public createStoryService: CreateStoryService) {
   }
 
   ngOnInit() {
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));
     this.createForm();
+    this.createStoryService.getCategory().
+    subscribe(response => this.onSuccessCategory(response));
     $('#story').addClass('animated fadeInLeft');
     setInterval(function() {
       $('#story').removeClass('animated fadeInLeft');
     }, 1500);
+  }
+
+  onSuccessCategory(response) {
+    this.categories = response.data.categories;
   }
 
   getStepForm(i: number): FormArray {
@@ -40,13 +49,16 @@ export class CreateComponent implements OnInit {
   }
 
   createForm() {
-    this.StoryForm = this.formbuilder.group({
-      name: ['', Validators.required],
-      due_date: ['', Validators.required],
-      is_public: 'true',
-      description: ['', Validators.required],
-      image: '',
-      step: this.formbuilder.array([])
+    this.PackageStoryForm = this.formbuilder.group({
+      story: this.StoryForm = this.formbuilder.group({
+        name: ['', Validators.required],
+        due_date: ['', Validators.required],
+        is_public: 'true',
+        category_id: ['', Validators.required],
+        description: ['', Validators.required],
+        picture: '',
+        step: this.formbuilder.array([])
+      })
     });
     this.StepForm = <FormArray>this.StoryForm.controls['step'];
   }
@@ -63,7 +75,7 @@ export class CreateComponent implements OnInit {
     return this.formbuilder.group({
       name: ['', Validators.required],
       content: ['', Validators.required],
-      image: ''
+      picture: ''
     })
   }
 
@@ -144,8 +156,8 @@ export class CreateComponent implements OnInit {
   }
 
   form_is_invalid(): boolean {
-    if (!this.StoryForm.dirty && !this.StoryForm.valid) {
-      return this.StoryForm.value.image === '';
+    if (this.StoryForm.dirty && this.StoryForm.valid) {
+      return this.StoryForm.value.picture === '';
     }
     return true;
   }
@@ -157,7 +169,7 @@ export class CreateComponent implements OnInit {
       });
       return;
     } else {
-      this.createService.createStory(this.StoryForm.value,
+      this.createService.createStory(this.PackageStoryForm.value,
         this.current_user.token).subscribe(response => this.onSuccess(response),
         response => this.onError(response));
     }
@@ -165,7 +177,10 @@ export class CreateComponent implements OnInit {
   }
 
   onSuccess(response) {
-    console.log(response);
+    if (response) {
+      const story = JSON.parse(response._body).data.story;
+      this.router.navigate(['story', story.id]);
+    }
   }
 
   onError(response) {
@@ -197,12 +212,12 @@ export class CreateComponent implements OnInit {
     const image = <FileReader> e.target;
     if (this.presentStep === -1) {
       $('#story_cover').attr('src', image.result);
-      this.StoryForm.controls['image'].setValue(image.result);
+      this.StoryForm.controls['picture'].setValue(image.result);
     } else {
       const img = '#image' + this.presentStep + '_' + this.sub_temp;
       $(img).attr('src', image.result);
       const sub_step = <FormGroup>this.getStepForm(this.presentStep).controls[this.sub_temp];
-      sub_step.controls['image'].setValue(image.result);
+      sub_step.controls['picture'].setValue(image.result);
     }
   }
 
@@ -233,7 +248,7 @@ export class CreateComponent implements OnInit {
       }, 1500);
       return;
     }
-    const step_next = '#step' + (this.presentStep +1);
+    const step_next = '#step' + (this.presentStep + 1);
     $(step_next).fadeIn();
     $(step_next).addClass('animated fadeInRight');
     setInterval(function() {

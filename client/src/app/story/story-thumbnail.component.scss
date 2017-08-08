@@ -1,45 +1,44 @@
 $many_votes: #2ecc71;
 $card-text-color: #2c3e50;
 $dim-color: #D7D7D7;
+$gray: #919191;
 
-.green {
-  border: 1px solid $many_votes;
+.container {
+  max-width: 900px;
+  min-width: 324px;
+  margin: 50px auto 50px;
 }
 
-.phuong-custom-card {
-  margin-bottom: 80px;
-  box-shadow: none !important;
-  padding: 0;
-  border-radius: 6px;
-  color: $card-text-color;
-}
-
-.phuong-custom-card:hover {
-  -webkit-box-shadow: 0px 9px 5px -8px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 9px 5px -8px rgba(0,0,0,0.75);
-  box-shadow: 0px 9px 5px -8px rgba(0,0,0,0.75);
-  cursor: hand;
-}
-
-.phuong-custom-card img {
+.image-cover {
+  height: 100%;
   width: 100%;
-  border-radius: 6px 0 0 6px;
 }
 
-.phuong-custom-card .story-img {
-  padding-left: 0;
+.row {
+  margin-bottom: 2%;
 }
 
-.story_description {
-  margin-top: 100px;
+.meta-post {
+  height: 25px;
+  .content {
+    float: left;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .material-icons {
+    font-size: 1.2em;
+    float: left;
+  }
 }
 
-.meta-data {
-  margin-top: 100px;
-  color: darken($dim-color, 50%);
+.title {
+  margin: 0 auto 0;
 }
 
-.meta-data > div:first-child {
-  margin-left: 0;
-  padding-left: 0;
+.fa-user {
+  margin-top: 2px;
+}
+
+.content {
+  color: $gray;
 }

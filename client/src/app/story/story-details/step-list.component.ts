@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { IStep } from '../shared/story.model';
 import { VoteService } from './vote.service';
 import { MdDialog } from '@angular/material';
@@ -10,37 +10,40 @@ import { SubStepComponent } from './sub-step.component';
   styleUrls: ['./step-list.component.scss']
 })
 
-export class StepListComponent implements OnInit {
+export class StepListComponent implements OnDestroy {
 
-  current_user_id = JSON.parse(localStorage.currentUser).id;
+  current_user = JSON.parse(localStorage.currentUser);
+  @Input() story_id: number;
+  @Input() steps: IStep[];
 
   constructor(private voteService: VoteService,
     private dialog: MdDialog) { }
 
-  @Input() steps: IStep[];
-  @Input() step: IStep;
-  ngOnInit() {
+  ngOnDestroy() {
+    this.dialog.closeAll();
   }
 
   toggleVote(step: IStep) {
-    if(this.userHasVoted(step)) {
-      this.voteService.unvote(step, this.current_user_id);
+    if (this.userHasVoted(step)) {
+      this.voteService.unvote(step, this.current_user.id);
     } else {
-      this.voteService.upvote(step, this.current_user_id);
+      this.voteService.upvote(step, this.current_user.id, this.current_user.token);
     }
   }
 
   userHasVoted(step: IStep) {
-    return this.voteService.userHasVoted(step, this.current_user_id);
+    return this.voteService.userHasVoted(step, this.current_user.id);
   }
 
   openSubStepDialog(step) {
     const dialogRef = this.dialog.open(SubStepComponent, {
-      height: '500px',
-      width: '600px',
+      height: '82%',
+      width: '75%'
     });
     dialogRef.componentInstance.name = step.name;
     dialogRef.componentInstance.sub_steps = step.sub_steps;
+    dialogRef.componentInstance.step = step;
+    dialogRef.componentInstance.story_id = this.story_id;
   }
 
 }

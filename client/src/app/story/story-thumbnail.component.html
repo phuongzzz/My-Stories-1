@@ -1,13 +1,25 @@
-<md-card class="phuong-custom-card" [routerLink]="['/story', story.id]">
-  <div class="col-md-7 story-img"><img src="{{story.imageUrl}}" alt=""></div>
-  <div class="col-md-5">
-    <h2 class="">{{story.name}}</h2>
-    <p class="story_description">{{story.description}}</p>
-    <div class="meta-data">
-      <div class="col-md-4">{{story.steps.length}} {{'single_story.steps' | translate}}</div>
-      <div class="col-md-4">{{story.total_vote}} {{'step.votes' | translate}}</div>
-      <div class="col-md-4">test</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]= "story.picture.url" class="image-cover">
+      </div>
+      <div class="col-md-8">
+        <h3 class="title" [routerLink]="['/story', story.id]">{{story.name}}</h3>
+        <h5 class="fa-user">
+          <a class="meta-post"><i class="material-icons">person_outline</i>
+            <p class="content">Doan Minh Phuc</p>
+          </a>
+          <a class="meta-post"><i class="material-icons">event_note</i>
+            <p class="content">{{story.created_at | date}}</p>
+          </a>
+        </h5>
+        <br>
+        <div class="content">{{story.description}}</div>
+      </div>
     </div>
   </div>
-  <div class="clearfix"></div>
-</md-card>
+  <div class="col-md-1"></div>
+</div>
+<hr>

@@ -2,6 +2,9 @@ $light-green: #2ecc71;
 $light: #d9e5e8;
 $light-blue: #6b97a4;
 $dark-blue: #4a6e78;
+$primary: #3f51b5;
+$clouds: #ecf0f1;
+$heart: #e74c3c;
 
 .custom-header {
   color: $light-green;
@@ -14,52 +17,71 @@ $dark-blue: #4a6e78;
   margin: 0 auto 100px;
   border-top: 1px solid $light;
   list-style-type: none;
+
+  li {
+    border-bottom: 1px solid $light;
+    list-style-type: none;
+
+    p {
+      display: none;
+      padding: 10px 25px 30px;
+      color: $light-blue;
+    }
+  }
+
+  a {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 3;
+    font-size: 14px;
+    font-size: 2em;
+    text-indent: 15px;
+    user-select: none;
+    text-decoration: none;
+
+    &:after {
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid $dark-blue;
+      border-bottom: 1px solid $dark-blue;
+      position: absolute;
+      right: 10px;
+      content: " ";
+      top: 30px;
+      transform: rotate(-45deg);
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    font-size: 1.2em;
+    line-height: 2em;
+    padding: 10px;
+  }
 }
-.accordion li {
-  border-bottom: 1px solid $light;
-  list-style-type: none;
-}
-.accordion li p {
-  display: none;
-  padding: 10px 25px 30px;
-  color: $light-blue;
-}
-.accordion a {
-  width: 100%;
-  display: block;
-  cursor: pointer;
-  font-weight: 600;
-  line-height: 3;
-  font-size: 14px;
-  font-size: 2em;
-  text-indent: 15px;
-  user-select: none;
-  text-decoration: none;
-}
-.accordion a:after {
-  width: 8px;
-  height: 8px;
-  border-right: 1px solid $dark-blue;
-  border-bottom: 1px solid $dark-blue;
-  position: absolute;
-  right: 10px;
-  content: " ";
-  top: 30px;
-  transform: rotate(-45deg);
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-.accordion p {
-  font-size: 13px;
-  font-size: 1.2em;
-  line-height: 2em;
-  padding: 10px;
-}
+
 
 a.active:after {
   transform: rotate(45deg);
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+.voted-contain {
+  background-color: $primary;
+
+  a {
+    margin-left: 20px;
+    color: $clouds;
+  }
+}
+
+.voted {
+  color: $heart;
 }

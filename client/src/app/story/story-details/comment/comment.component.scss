@@ -1,0 +1,94 @@
+$color1: #ddd;
+$color2: #333;
+$color3: #fff;
+$color4: #999;
+$color5: #aaa;
+$color6: #454545;
+$color7: #ed4956;
+$white: rgba(0, 0, 0, 0.3);
+
+.panel-shadow {
+  box-shadow: $white 7px 7px 7px;
+}
+
+.panel-white {
+  border: 1px solid $color1;
+}
+
+.post-heading {
+  height: 95px;
+  padding: 20px 15px;
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-right: 15px;
+  }
+
+  .title {
+    margin-bottom: 0;
+
+    a {
+      color: black;
+      &:hover {
+        color: $color5;
+      }
+    }
+  }
+
+  .time {
+    margin-top: 8px;
+    color: $color4;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.post-description {
+  padding: 15px;
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+
+  .fa{
+    font-size: 1.8em;
+    float: left;
+  }
+
+  .fa-heart{
+    color: $color7;
+  }
+
+  textarea{
+    float: left;
+    margin-left: 15px;
+    border: none;
+    width: 500px;
+    height: 40px;
+    font-size: 1.1em;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0 auto;
+    padding: 0 15px;
+    &:focus{
+      box-shadow: none;
+    }
+  }
+}
+
+.description {
+  display: inline-block;
+  width: 100%;
+  padding: 0 15px;
+}
