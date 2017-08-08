@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
 
   onNext(response) {
     if (response.status === 200) {
-      console.log('vl');
       this.User = JSON.parse(response._body);
       this.User_info = this.User.data.user_info;
       localStorage.setItem('currentUser', JSON.stringify(this.User_info));

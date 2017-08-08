@@ -1,0 +1,155 @@
+$bluec: #7dabdb;
+$whitec: #fff;
+$whitec1: #f9f9f9;
+$whitec2: #eee;
+$dark-gray: #333;
+$dark-gray1: #444;
+$dark-gray2: #595353;
+$lightblue: #7dabdb;
+$light-red: #F95353;
+$lightblue1: #23A4F2;
+
+
+.search-text{
+  margin-top: 50px;
+  background-color: $bluec;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.search-text {
+  .input-search {
+    height: 45px;
+    width: 400px;
+    padding-left: 20px;
+    color: $dark-gray;
+  }
+}
+
+.search-text {
+  .btn-search {
+    background-color: $lightblue;
+    border:1px solid $whitec;
+    font-family: Roboto;
+    color: $whitec;
+    padding: 11px 20px 11px 20px;
+  }
+}
+
+.search-text {
+  .btn-search:hover{
+    background-color: $whitec;
+    color: $lightblue;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+center {
+  img {
+    position: relative;
+    margin-top: -24%;
+  }
+}
+
+.well{
+  background: $whitec;
+  box-shadow: 0 0 0 0;
+  border: 0px;
+}
+.jumbotron{
+  background: $whitec;
+}
+
+.base-padding{
+  padding: 3% 0;
+}
+.well.pricing-table{
+  background: $whitec;
+  transition:all 0.6s ease-out;
+}
+
+.well.pricing-table:hover{
+  box-shadow:0 5px 6px $dark-gray1;
+  cursor:pointer;
+}
+
+.pricing-feature-list{
+  padding: 10%;
+  background: $dark-gray1;
+  color: $whitec2;
+}
+
+.pricing-feature-list {
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 13px 15px;
+    margin-bottom: -1px;
+    background-color: $dark-gray1;
+    font-size: 15px;
+    border: 1px solid $dark-gray1;
+    border-bottom: 1px solid $dark-gray2;
+  }
+}
+
+.pricing-table {
+  .pricing-table-holder{
+    background: $whitec1;
+    padding: 6%;
+  }
+}
+
+.btn-info{
+  color: $whitec;
+  background-color: $light-red;
+  border-color: $light-red;
+  padding: 3%;
+  transition: all 0.6s ease-in;
+}
+
+.custom-button-group{
+  background: $whitec1;
+  padding: 0%;
+}
+
+.btn-royal-blue{
+  color: $whitec;
+  background-color: $lightblue1;
+  border-color: $lightblue1;
+  transition: all 0.4s ease-in;
+}
+
+.btn-royal-blue:hover{
+  color: $whitec2;
+  transition: all 0.5s ease-in;
+}
+
+.caption {
+ height: 80px;
+}
+
+.cap {
+  overflow: hidden;
+  max-width: 70ch;
+  max-height: 80px;
+}
+
+.example-scrolling-content {
+  overflow: auto;
+}
+
+.results {
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-bottom: 20pxx;
+}
+
+.card-step {
+  padding-left: 50px; 
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
