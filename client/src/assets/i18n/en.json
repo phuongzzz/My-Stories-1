@@ -1,5 +1,6 @@
 {
   "homelink": "Home",
+  "start": "Start here",
   "login": "Login",
   "logout": "Log out",
   "signup": "Sign Up",
@@ -55,5 +56,13 @@
     "line3": "để đạt được kết quả tốt nhất",
     "new_story": "New Story",
     "hot_story": "Hot Story"
+  },
+  "search": {
+    "stories": "Stories",
+    "steps": "Steps",
+    "more": "More",
+    "voted": "Voted",
+    "results1": "There are",
+    "results2": "story results for search"
   }
 }
