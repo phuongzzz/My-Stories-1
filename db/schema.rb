@@ -32,26 +32,22 @@ ActiveRecord::Schema.define(version: 20170731155508) do
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.integer "followable_id"
-    t.string "followable_type"
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followable_id"], name: "index_relationships_on_followable_id"
-    t.index ["followable_type"], name: "index_relationships_on_followable_type"
-    t.index ["user_id", "followable_id"], name: "index_relationships_on_user_id_and_followable_id", unique: true
-    t.index ["user_id"], name: "index_relationships_on_user_id"
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "reportable_id"
-    t.string "reportable_type"
+    t.integer "story_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reportable_id"], name: "index_reports_on_reportable_id"
-    t.index ["user_id", "reportable_id", "reportable_type"], name: "index_reports_on_user_id_and_reportable_id_and_reportable_type"
+    t.index ["story_id"], name: "index_reports_on_story_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 

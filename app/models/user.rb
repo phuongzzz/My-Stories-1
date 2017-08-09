@@ -39,4 +39,12 @@ class User < ApplicationRecord
     token = User.generate_unique_secure_token
     update_attributes authentication_token: token
   end
+
+  def followed_users
+    following
+  end
+
+  def follower_users
+    followers
+  end
 end

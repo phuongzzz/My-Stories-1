@@ -4,6 +4,8 @@ en:
     invalid_token: "Invalid token"
     not_have_permit: "You don't have permission"
   users:
+    index:
+      all_user: "All user showed"
     show:
       success: "Showed user successfully"
     update:
@@ -43,3 +45,11 @@ en:
   search:
     messages:
       search_successfull: "Search successfully"
+  relationships:
+    follow_success: "Followed successfully"
+    unfollow_success: "Unfollow successfully"
+    action_fail: "Can't do now"
+    cant_find_user: "Maybe this people have been deactived"
+    following_user_showed: "Following users have been showed"
+    follower_user_showed: "Followers have been showed"
+    cant_find_user: "Can't find user"
