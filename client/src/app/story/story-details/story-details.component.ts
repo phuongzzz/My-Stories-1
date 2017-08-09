@@ -23,7 +23,6 @@ export class StoryDetailsComponent implements OnInit {
     this.story = this.route.snapshot.data['story'];
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));
     this.checkVoted();
-    console.log(this.story);
   }
 
   onComment() {

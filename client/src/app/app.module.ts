@@ -42,6 +42,7 @@ import { HotStoriesComponent } from './home/hot-stories/hot-stories.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 import { MdSidenavModule } from '@angular/material';
+import { CommentComponent } from './story/story-details/comment/comment.component';
 import { CollapsibleWellComponent } from './story/story-details/collapsible-well.component';
 import {
   StoriesListComponent,
@@ -55,6 +56,7 @@ import {
   SubStepComponent
 } from './story/index';
 import { SearchComponent } from './search/search.component';
+import { StoryResolverService } from './story/shared/story-resolver.service';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,7 @@ import { SearchComponent } from './search/search.component';
     CategoriesComponent,
     CategoryDetailsComponent,
     SearchComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +129,7 @@ import { SearchComponent } from './search/search.component';
     StoryService,
     StoriesListResolverService,
     VoteService,
+    StoryResolverService
   ],
   bootstrap: [AppComponent]
 })

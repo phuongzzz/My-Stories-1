@@ -6,31 +6,30 @@ $color5: #aaa;
 $color6: #454545;
 $color7: #ed4956;
 $white: rgba(0, 0, 0, 0.3);
+$belizehole: #2980b9;
 
-.panel-shadow {
-  box-shadow: $white 7px 7px 7px;
+.avatar {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-right: 15px;
 }
 
-.panel-white {
-  border: 1px solid $color1;
+.panel-shadow {
+  border-right: 1px solid $white;
+  border-left: 1px solid $white;
 }
 
 .post-heading {
-  height: 95px;
-  padding: 20px 15px;
+  margin-top: 0;
+  padding: 20px 10px;
 
-  .avatar {
-    width: 60px;
-    height: 60px;
-    display: block;
-    margin-right: 15px;
-  }
-
-  .title {
-    margin-bottom: 0;
+  .comment-body {
+    margin-left: 30px;
+    padding-left: 20px;
 
     a {
-      color: black;
+      color: $color2;
       &:hover {
         color: $color5;
       }
@@ -44,7 +43,6 @@ $white: rgba(0, 0, 0, 0.3);
 }
 
 .image {
-  width: 100%;
   height: auto;
 }
 
@@ -91,4 +89,13 @@ $white: rgba(0, 0, 0, 0.3);
   display: inline-block;
   width: 100%;
   padding: 0 15px;
+}
+
+.unsendable {
+  opacity: .3;
+}
+
+.btn-resend {
+  display: none;
+  color: $belizehole !important;
 }

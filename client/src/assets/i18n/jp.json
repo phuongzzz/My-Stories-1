@@ -42,5 +42,12 @@
     "description": "説明",
     "total_votes": "投票数",
     "number_of_steps": "ステップ数"
-  }
+  },
+  "step": {
+    "votes": "人が「いいね」をした"
+  },
+  "writecomment": "コメントする...",
+  "comment": "コメントする",
+  "like": "いいね!",
+  "re_send": " もう一度実行"
 }
