@@ -1,5 +1,13 @@
 class Api::V1::UsersController < Api::BaseController
   before_action :find_object, only: %i(show update destroy).freeze
+  
+  def index
+    @users = User.all
+    render json: {
+      messages: I18n.t("users.index.all_user"),
+      data: {users: index_user_serializer}
+    }, status: :ok
+  end
 
   def show
     user_serializer =
@@ -7,7 +15,7 @@ class Api::V1::UsersController < Api::BaseController
 
     render json: {
       messages: I18n.t("users.show.success"),
-      data: {user: user_serializer}
+      data: {user: user_serializer, followed: check_follow}
     }, status: :ok
   end
 
@@ -33,7 +41,7 @@ class Api::V1::UsersController < Api::BaseController
 
   private
 
-  attr_reader :user, :object
+  attr_reader :user, :object, :users
 
   def user_params
     params.require(:user).permit User::ATTRIBUTES_PARAMS
@@ -62,5 +70,10 @@ class Api::V1::UsersController < Api::BaseController
     render json: {
       messages: I18n.t("users.destroy.fail")
     }, status: :unprocessable_entity
+  end
+
+  def index_user_serializer
+    Serializers::Users::IndexUserSerializer
+      .new(object: users).serializer
   end
 end
