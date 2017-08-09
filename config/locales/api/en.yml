@@ -31,8 +31,10 @@ en:
       created_success: "The step has been created"
       created_fail: "Can't create step.... Please try again!!!"
   comments:
-    messages: 
-      comment_created: "Your comment was successfully posted"
+    dont_have_permission: "You don't have permission to do this action"
+    messages:
+      comment_not_found: "Can't find comment"
+      comment_action_success: "Your comment was successfully %{type}"
   votes:
     messages:
       voted_successfully: "Voted successfully"
