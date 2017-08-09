@@ -21,7 +21,8 @@ import { MdDialogModule,
   MdDatepickerModule,
   MdNativeDateModule,
   MdTabsModule,
-  MdAutocompleteModule
+  MdAutocompleteModule,
+  MdListModule,
 } from '@angular/material';
 import { LoggedInGuard } from './logged-in.guard';
 import { NotLoggedInGuard } from './not-logged-in.guard';
@@ -113,6 +114,10 @@ import { StoryResolverService } from './story/shared/story-resolver.service';
     MdTabsModule,
     MdAutocompleteModule,
     MdSidenavModule,
+    MdTabsModule,
+    MdTabsModule,
+    MdListModule,
+    MdSidenavModule
   ],
   entryComponents: [
     LoginComponent,

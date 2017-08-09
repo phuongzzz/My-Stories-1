@@ -62,5 +62,19 @@
   "writecomment": "Write a comment ...",
   "comment": "Comment",
   "like": "Like",
-  "re_send": "Try Again"
+  "re_send": "Try Again",
+  "user": {
+    "following": "Following",
+    "post": "Post",
+    "voted": "Voted",
+    "des1": "'Tin rằng bạn có thể làm một điều gì đó",
+    "des2": "đồng nghĩa với việc bạn đã đi được nửa đường đến đó'",
+    "des3": "Theodore Roosevelt",
+    "followed": "Followed",
+    "all_stories": "All Stories",
+    "story": "Story",
+    "steps": "Steps",
+    "comment": "Comment",
+    "more": "More"
+  }
 }

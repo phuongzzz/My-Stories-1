@@ -1,14 +1,7 @@
 $whitec: #FFF;
 $greyc: #eee;
-
-.top-head {
-  background-image: url("../img/cover-user.jpg");
-  height: 300px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding-top: 50px;
-  padding-bottom: 30px;
-}
+$gray: rgba(255, 255, 255, 0.3);
+$red: #c5251e;
 
 h1.logo {
   padding-top: 30px;
@@ -48,6 +41,7 @@ h1.logo {
 .line {
   margin: 8px auto
 }
+
 .image {
   width: 200px;
   height: 200px;
@@ -62,26 +56,92 @@ h1.logo {
   color: $whitec;
 }
 
-.edit {
-  padding-top: 270px;
+.user-page {
+  padding-top: 65px;
 }
 
-.ecard {
-  width: 800px;
+.follow-card {
+  margin-top: 20px;
 }
 
-.ucard {
-  width: 850px;
+.profile-block {
+  position:relative;
+  overflow:hidden;
 }
 
-.scard {
-  padding-bottom: 40px;
+.profile-block .user-heading {
+  background: $red none repeat scroll 0 0;
+  border-radius: 4px 4px 0 0;
+  color: $whitec;
+  text-align: center;
 }
 
-.example-header-image {
-  background-size: cover;
+.profile-block .user-heading a img {
+  border-radius: 50%;
+  margin:auto auto 10px;
+  display: block;
+  height: 140px;
+  width: 140px;
+  border: 10px solid $gray;
 }
 
-.name-story {
-  font-weight: bold;
+.img-user {
+  padding: 70px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.fix-info {
+  position: fixed;
+}
+
+.head-all{
+  margin-bottom: 30px;
+}
+
+.card-story {
+  background-color: $whitec;
+  height: 440px;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.img-story {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  max-height: 200px;
+}
+
+.step {
+  margin-left: 10px;
+}
+
+.hr-story {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.example-scrolling-content {
+  overflow: auto;
+}
+
+.caption {
+ height: 80px;
+}
+
+.cap {
+  overflow: hidden;
+  max-width: 70ch;
+  max-height: 80px;
+}
+
+.card-story {
+  .bar-story {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
