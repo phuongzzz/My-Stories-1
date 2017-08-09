@@ -8,7 +8,6 @@ class Story < ApplicationRecord
     %i(name description is_public due_date category_id picture).freeze
 
   mount_base64_uploader :picture, PictureUploader
-  ATTRIBUTES_PARAMS = %i(name description is_public due_date category_id).freeze
 
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable, dependent: :destroy

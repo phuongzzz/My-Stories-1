@@ -3,7 +3,11 @@
   <div class="col-md-10">
     <div class="row">
       <div class="col-md-4">
-        <img [src]= "story.picture.url" class="image-cover">
+        <a [routerLink]="['/story', story.id]">
+          <img [src]="story.picture.url" class="image-cover" *ngIf="checkImageExist()">
+          <img src="../../assets/picture/default_story.jpg"
+            class="image-cover" *ngIf="!checkImageExist()">
+        </a>
       </div>
       <div class="col-md-8">
         <h3 class="title" [routerLink]="['/story', story.id]">{{story.name}}</h3>

@@ -16,6 +16,10 @@ module Serializers
         Serializers::Comments::CommentSerializer
           .new(object: object.comments).serializer
       end
+
+      def user_voted
+        User.find_users_votes object_id, object.class
+      end
     end
   end
 end

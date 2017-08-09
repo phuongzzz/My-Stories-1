@@ -23,7 +23,8 @@
     "newstep": "Add New Step",
     "post": "Post",
     "step": "STEP",
-    "blank_noti": "Some fields are blank !"
+    "blank_noti": "Some fields are blank !",
+    "done": "Done"
   },
   "update_user": {
     "name": "New Name",

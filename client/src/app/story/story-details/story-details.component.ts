@@ -54,6 +54,11 @@ export class StoryDetailsComponent implements OnInit {
 
   checkVoted() {
     const user_voted = this.story.users_voted;
+
+    if (user_voted === null) {
+      return;
+    };
+
     if (user_voted.find(user => user.id === this.current_user.id)) {
       $('#heart').addClass('voted');
     } else {
