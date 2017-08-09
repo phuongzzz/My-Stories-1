@@ -20,4 +20,9 @@ export class StoryThumbnailComponent implements AfterViewInit {
     }
     return '';
   }
+
+  checkImageExist() {
+    const picture = <any>this.story.picture;
+    return !!picture.url;
+  }
 }

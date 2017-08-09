@@ -57,7 +57,7 @@ export class CreateComponent implements OnInit {
         is_public: 'true',
         category_id: ['', Validators.required],
         description: ['', Validators.required],
-        image: '',
+        picture: '',
         step: this.formbuilder.array([])
       })
     });
@@ -181,6 +181,9 @@ export class CreateComponent implements OnInit {
 
   onSuccess(response) {
     if (response) {
+      this.snackBar.open(this.translate.instant('story_form.done'), '', {
+        duration: 5000
+      });
       const story = JSON.parse(response._body).data.story;
       this.router.navigate(['story', story.id]);
     }
