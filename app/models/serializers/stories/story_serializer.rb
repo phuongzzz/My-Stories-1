@@ -17,8 +17,8 @@ module Serializers
           .new(object: object.comments).serializer
       end
 
-      def user_voted
-        User.find_users_votes object_id, object.class
+      def users_voted
+        User.find_users_votes object.id, object.class
       end
     end
   end
