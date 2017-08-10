@@ -22,7 +22,9 @@
     "newstep": "新たステップ",
     "post": "投稿",
     "step": "ステップ",
-    "blank_noti": "全て入力してください。"
+    "blank_noti": "全て入力してください。",
+    "cantcreate": "作成できません。もう一度実行",
+    "done": "作成できました。"
   },
   "update_user": {
     "name": "新たな名",
@@ -41,13 +43,21 @@
     "name": "物語名",
     "description": "説明",
     "total_votes": "投票数",
-    "number_of_steps": "ステップ数"
+    "number_of_steps": "ステップ数",
+    "comment": "コメント",
+    "comments": "コメント",
+    "vote": "「いいね」",
+    "votes": "「いいね」"
   },
   "step": {
-    "votes": "人が「いいね」をした"
+    "votes": "人が「いいね」をした",
+    "checkedsuccess": "完了です。",
+    "checkederror": "エラーがあります。もう一度実行してください。",
+    "votederror": "エラーがあります。もう一度実行してください。"
   },
   "writecomment": "コメントする...",
   "comment": "コメントする",
   "like": "いいね!",
-  "re_send": " もう一度実行"
+  "re_send": " もう一度実行",
+  "loading": "ロード中"
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
 $light-green: #2ecc71;
 $light: #d9e5e8;
 $light-blue: #6b97a4;
@@ -5,6 +6,10 @@ $dark-blue: #4a6e78;
 $primary: #3f51b5;
 $clouds: #ecf0f1;
 $heart: #e74c3c;
+$gray: #f5f5f5;
+$black: #212121;
+$sub-step-name-color: #333;
+$sub-step-content-color: #2c2f34;
 
 .custom-header {
   color: $light-green;
@@ -14,7 +19,7 @@ $heart: #e74c3c;
 
 .accordion {
   max-width: 560px;
-  margin: 0 auto 100px;
+  margin: 0 auto 20px;
   border-top: 1px solid $light;
   list-style-type: none;
 
@@ -23,9 +28,17 @@ $heart: #e74c3c;
     list-style-type: none;
 
     p {
-      display: none;
       padding: 10px 25px 30px;
-      color: $light-blue;
+      color: $sub-step-content-color;
+    }
+
+    a {
+      color: $sub-step-name-color;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -40,21 +53,6 @@ $heart: #e74c3c;
     text-indent: 15px;
     user-select: none;
     text-decoration: none;
-
-    &:after {
-      width: 8px;
-      height: 8px;
-      border-right: 1px solid $dark-blue;
-      border-bottom: 1px solid $dark-blue;
-      position: absolute;
-      right: 10px;
-      content: " ";
-      top: 30px;
-      transform: rotate(-45deg);
-      -webkit-transition: all 0.2s ease-in-out;
-      -moz-transition: all 0.2s ease-in-out;
-      transition: all 0.2s ease-in-out;
-    }
   }
 
   p {
@@ -74,11 +72,11 @@ a.active:after {
 }
 
 .voted-contain {
-  background-color: $primary;
+  background-color: $gray;
 
   a {
     margin-left: 20px;
-    color: $clouds;
+    color: $black;
   }
 }
 
@@ -88,8 +86,37 @@ a.active:after {
 
 .content {
   padding-left: 0;
+  overflow-y: scroll;
+  position: relative;
 }
 
 .comment {
-  padding-right: 0;
+  padding-left: 0;
+  overflow-y: scroll;
+}
+
+.font {
+  font-family: 'Open Sans', Serif;
+  font-weight: bold;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: $black;
+}
+
+.body {
+  overflow: hidden;
+}
+
+.tracking-list {
+  position: fixed;
+  left: 59%;
+  top: 12%;
+  z-index: 999;
+}
+
+.sub-step-element {
+  border-bottom: 1px solid $light;
 }

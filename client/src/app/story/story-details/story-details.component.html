@@ -1,25 +1,42 @@
-<div class="container">
-  <div class="story-header"
-    [ngStyle]="{ 'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + story.picture + ')'}">
-    <h1>{{story.name}}</h1>
-    <div class="col-md-3"></div>
-    <img [src]="image_url + story.picture" class="col-md-6">
-    <h4>{{story.description}}</h4>
-    <h4>{{story.total_vote}} {{'step.votes' | translate}}</h4>
+<div class="container content-wrap">
+  <h1 class="text-center story-header">
+    {{story.name}}
+  </h1>
+
+  <div class="meta-data text-center">
+   <p>
+     {{story.created_at | date}} by Doan Minh Phuc,
+     {{story.comments.length | i18nPlural: commentMapping}},
+     {{story.total_vote | i18nPlural: voteMapping}}
+   </p>
   </div>
-  <app-step-list [steps]="story.steps" [story_id]="story.id"></app-step-list>
+
+  <div class="story-featured-image text-center">
+    <img src="{{image_url}}{{story.picture}}" *ngIf="checkImageExist()">
+    <img src="../../../assets/picture/default_story.jpg" *ngIf="!checkImageExist()">
+  </div>
+
+  <div class="story-content">
+    <p class="story-description">{{story.description}}</p>
+  </div>
+
+  <div class="step-list-wrap">
+    <app-step-list [steps]="story.steps" [story_id]="story.id" [user_id]="story.user_id">
+    </app-step-list>
+    <hr>
+  </div>
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-      <md-toolbar color="primary">
-        <button md-button class="col-md-2" id="heart" (click)="onVote()">
+      <md-toolbar class="border">
+        <button md-button class="col-md-2 font" id="heart" (click)="onVote()">
           <i class="material-icons">favorite</i> {{'like' | translate}}
         </button>
-        <button md-button class="col-md-3" (click)="onComment()">
+        <button md-button class="col-md-3 font" (click)="onComment()">
           <i class="material-icons">comment</i> {{'comment' | translate}}
         </button>
         <div class="col-md-3"></div>
-        <a md-button class="col-md-4">
+        <a md-button class="col-md-4 font">
           {{story.total_vote}} {{'step.votes' | translate}}
         </a>
       </md-toolbar>
