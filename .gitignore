@@ -67,3 +67,7 @@ client/e2e/*.map
 # System Files
 client/.DS_Store
 client/Thumbs.db
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
