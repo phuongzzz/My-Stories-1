@@ -16,6 +16,8 @@ en:
       fail: "Destroy fail"
     messages:
       user_not_found: "User not found"
+      following_user_showed: "Following users showed"
+      follower_user_showed: "Follower showed"
   stories:
     messages:
       action_successfully: "Action successfully"
@@ -48,8 +50,17 @@ en:
   relationships:
     follow_success: "Followed successfully"
     unfollow_success: "Unfollow successfully"
-    action_fail: "Can't do now"
+    action_fail: "Can't do now, please try again later"
     cant_find_user: "Maybe this people have been deactived"
-    following_user_showed: "Following users have been showed"
-    follower_user_showed: "Followers have been showed"
+    relationship_user_showed: "Followed people / followers have been showed"
     cant_find_user: "Can't find user"
+    messages:
+      relationship_not_found: "Can't find relationship with this user"
+  relationship_stories:
+    action_fail: "Can't do now, please try again later"
+    follow_success: "Follow success!"
+    story_followed: "The story has been followed, you can unfollow later"
+    cant_find_story: "Can't find story"
+    story_followers_showed: "Story followers has been showed"
+    messages:
+      relationship_story_not_found: "Can't find relationship with this story"

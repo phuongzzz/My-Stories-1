@@ -84,11 +84,15 @@ class Api::V1::StoriesController < Api::BaseController
       Vote.find_total_vote(story.id, story.class).count
     render json: {
       messages: I18n.t("stories.messages.story_showed"),
-      data: {story: story_serializer}
+      data: {story: story_serializer, followed: check_follow}
     }, status: :ok
   end
 
   def story_serializer
     Serializers::Stories::StorySerializer.new(object: story).serializer
+  end
+
+  def check_follow
+    current_user.following_story.include? story
   end
 end

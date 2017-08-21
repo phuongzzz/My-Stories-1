@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::BaseController
   before_action :find_object, only: %i(show update destroy).freeze
-  
+
   def index
     @users = User.all
     render json: {
@@ -75,5 +75,9 @@ class Api::V1::UsersController < Api::BaseController
   def index_user_serializer
     Serializers::Users::IndexUserSerializer
       .new(object: users).serializer
+  end
+
+  def check_follow
+    current_user.following.include? user
   end
 end

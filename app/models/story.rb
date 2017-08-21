@@ -9,6 +9,9 @@ class Story < ApplicationRecord
 
   mount_base64_uploader :picture, PictureUploader
 
+  has_many :follower_user, class_name: RelationshipStory.name,
+    dependent: :destroy
+  has_many :followers, through: :follower_user, source: :user
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable, dependent: :destroy
   has_many :reports
@@ -22,7 +25,7 @@ class Story < ApplicationRecord
   end
 
   scope :select_by_category_id, lambda_params_category_id
-  scope :newest, -> {order created_at: :desc}
+  scope :newest, ->{order created_at: :desc}
 
   validates :name, presence: true
   validates :description, presence: true

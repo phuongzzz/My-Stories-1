@@ -18,6 +18,9 @@ class User < ApplicationRecord
     source: :followed
   has_many :followers, through: :passive_relationships,
     source: :follower
+  has_many :followed_story, class_name: RelationshipStory.name,
+    dependent: :destroy
+  has_many :following_story, through: :followed_story, source: :story
   has_many :comments
   has_many :votes
   has_many :reports
