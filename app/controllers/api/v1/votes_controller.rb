@@ -41,11 +41,8 @@ class Api::V1::VotesController < Api::BaseController
 
   def change_vote_value
     if vote.value == 1
-      vote.update_attributes! value: 0
+      vote.destroy!
       voteable.update_attributes! total_vote: params_vote - 1
-    else
-      vote.update_attributes! value: 1
-      voteable.update_attributes! total_vote: params_vote + 1
     end
     voted_response_successfully
   end
@@ -53,7 +50,7 @@ class Api::V1::VotesController < Api::BaseController
   def voted_response_successfully
     render json: {
       messages: I18n.t("votes.messages.voted_successfully"),
-      data: {total_vote: voteable.total_vote}
+      data: {total_vote: voteable_serializer}
     }, status: :ok
   end
 
@@ -69,5 +66,9 @@ class Api::V1::VotesController < Api::BaseController
 
   def params_vote
     voteable.total_vote
+  end
+
+  def voteable_serializer
+    Serializers::Votes::VoteableSerializer.new(object: voteable).serializer
   end
 end

@@ -15,11 +15,11 @@ namespace :api, defaults: {format: "json"} do
     end
     resources :categories, only: :index
     resources :stories, except: [:new, :edit, :destroy] do
-      resources :comments, only: :create
+      resources :comments, only: [:create, :update, :destroy]
       resources :relationship_stories, only: [:index, :create, :destroy]
       post "vote", to: "votes#up_down_vote"
       resources :steps, only: [:create, :show] do
-        resources :comments, only: :create
+        resources :comments, only: [:create, :update, :destroy]
         resources :sub_steps, only: :update
         post "vote", to: "votes#up_down_vote"
       end
