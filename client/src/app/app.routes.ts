@@ -9,27 +9,24 @@ import { NotLoggedInGuard } from './not-logged-in.guard';
 import { UpdateUserComponent } from './updateuser/updateuser.component';
 import { InfoUserComponent } from './info-user/info-user.component';
 import { HomeComponent } from './home/home.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoryComponent } from './story/category/category.component';
 import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 import { SearchComponent } from './search/search.component';
 import { StoryResolverService } from './story/shared/story-resolver.service';
 
 export const routing: Routes = [
-  { path: 'story', component: StoryComponent, canActivate: [LoggedInGuard],
+  { path: '', redirectTo: '/story/list', pathMatch: 'full' },
+  { path: 'story', component: StoryComponent,
     children: [
       { path: 'list', component: StoriesListComponent,
-        resolve: {stories: StoriesListResolverService}},
-      { path: 'create', component: CreateComponent },
+        resolve: { stories: StoriesListResolverService } },
+      { path: 'create', component: CreateComponent, canActivate: [LoggedInGuard] },
       { path: ':id', component: StoryDetailsComponent,
-        resolve: {story: StoryResolverService}
+        resolve: { story: StoryResolverService }
       }
     ]
   },
-  { path: 'category', component: CategoriesComponent,
-    children: [
-      { path: ':id', component: CategoryDetailsComponent }
-    ]
-  },
+  { path: 'category/:id', component: CategoryComponent },
   { path: 'user', component: InfoUserComponent,
     canActivate: [LoggedInGuard],
   },
@@ -42,13 +39,10 @@ export const routing: Routes = [
     canActivate: [NotLoggedInGuard],
   },
   {
-    path: 'signin', component: HomeComponent
-  },
-  {
     path: 'search', component: SearchComponent
   }
-
 ];
+
 export const AppRoutes  = RouterModule.forRoot(routing);
 export const URL = 'http://localhost:3000/';
 export const IMG_URL = 'http://res.cloudinary.com/my-stories/';

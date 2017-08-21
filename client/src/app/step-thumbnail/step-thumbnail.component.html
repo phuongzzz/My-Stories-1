@@ -1,0 +1,22 @@
+<div class="col-md-4">
+  <div class="story-thumbnail">
+    <div class="col-md-7 story-brief-details">
+      <h4 class="story-thumbnail-name" [routerLink]="['/story', step._source.story_id]">{{step._source.name}}</h4>
+      <div class="story-thumbnail-meta-data">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://gitlab.com/uploads/-/system/user/avatar/56386/tt_avatar_small.jpg" alt="" class="story-thumbnail-user-avatar">
+          </div>
+          <div class="col-md-9">
+            <p class="story-thumbnail-user-name">{{step._source.user_name}}</p>
+            <p class="story-thumbnail-story-created-at">{{step._source.created_at | date}}</p> <br>
+            <p class="story-thumbnail-votes">{{step._source.total_vote}} Hearts</p>
+          </div>
+        </div>
+        <br>
+        <p class="story-thumbnail-description">{{step._source.content}}</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

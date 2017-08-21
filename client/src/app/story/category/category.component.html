@@ -1,0 +1,7 @@
+<div class="container category-wrapper">
+  <h1 class="text-center category-title">{{category_name}}</h1>  
+  <app-story-thumbnail
+    [story]="story"
+    *ngFor="let story of stories_by_category">
+  </app-story-thumbnail>
+</div>

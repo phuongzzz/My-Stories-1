@@ -2,7 +2,7 @@ export interface IStory {
   id: number,
   name: string,
   description: string,
-  picture: string,
+  picture: any,
   total_vote: number,
   number_of_steps: number,
   is_public: boolean,

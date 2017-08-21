@@ -21,7 +21,6 @@ $border-color: #e5e5e5;
   font-weight: 700;
   line-height: 150%;
   margin: 0;
-  cursor: pointer;
 }
 
 .story-thumbnail-description {
@@ -42,15 +41,5 @@ $border-color: #e5e5e5;
 .story-thumbnail-story-created-at,
 .story-thumbnail-votes {
   color: lighten($base-font-color, 50%);
-  display: block;
-}
-
-.story-thumbnail-votes {
-  button {
-    text-align: left;
-    padding: 0;
-     i {
-       color: #34495e;
-     }
-  }
+  display: inline;
 }

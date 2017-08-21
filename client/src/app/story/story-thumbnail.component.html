@@ -1,29 +1,27 @@
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <div class="row">
-      <div class="col-md-4">
-        <a [routerLink]="['/story', story.id]">
-          <img [src]="story.picture.url" class="image-cover" *ngIf="checkImageExist()">
-          <img src="../../assets/picture/default_story.jpg"
-            class="image-cover" *ngIf="!checkImageExist()">
-        </a>
-      </div>
-      <div class="col-md-8">
-        <h3 class="title" [routerLink]="['/story', story.id]">{{story.name}}</h3>
-        <h5 class="fa-user">
-          <a class="meta-post"><i class="material-icons">person_outline</i>
-            <p class="content">Doan Minh Phuc</p>
-          </a>
-          <a class="meta-post"><i class="material-icons">event_note</i>
-            <p class="content">{{story.created_at | date}}</p>
-          </a>
-        </h5>
-        <br>
-        <div class="content">{{story.description}}</div>
+<div class="col-md-6">
+  <div class="story-thumbnail">
+    <div class="col-md-5 story-featured-image" [ngStyle]="{'background-image': 'url('+checkExistPicture()+')' }"></div>
+    <div class="col-md-7 story-brief-details">
+      <h4 class="story-thumbnail-name" [routerLink]="['/story', story.id]">{{story.name}}</h4>
+      <p class="story-thumbnail-description">{{story.description}}</p>
+      <div class="story-thumbnail-meta-data">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://gitlab.com/uploads/-/system/user/avatar/56386/tt_avatar_small.jpg" alt="" class="story-thumbnail-user-avatar">
+          </div>
+          <div class="col-md-9">
+            <p class="story-thumbnail-user-name">{{story.user_name}}</p>
+            <p class="story-thumbnail-story-created-at">{{story.created_at | date}}</p>
+            <div class="story-thumbnail-votes">
+              <button md-button>
+                <i class="material-icons">favorite</i>
+                {{story.total_vote}}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="clearfix"></div>
   </div>
-  <div class="col-md-1"></div>
 </div>
-<hr>

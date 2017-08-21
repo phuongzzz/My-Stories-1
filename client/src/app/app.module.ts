@@ -15,6 +15,7 @@ import { MdDialogModule, MdCardModule, MdInputModule, MdTooltipModule, MdMenuMod
   MdSelectModule, MdDatepickerModule, MdNativeDateModule, MdTabsModule, MdProgressSpinnerModule,
   MdAutocompleteModule, MdListModule, MdButtonModule, MdSnackBarModule, MdToolbarModule,
   MdChipsModule, MdGridListModule, MdSidenavModule, MdCheckboxModule} from '@angular/material';
+import { CategoryComponent } from './story/category/category.component';
 import { LoggedInGuard } from './logged-in.guard';
 import { NotLoggedInGuard } from './not-logged-in.guard';
 import 'hammerjs';
@@ -23,10 +24,6 @@ import { UpdateUserNameComponent } from './updateuser/update-user-name/update-us
 import { UpdateUserPasswordComponent } from './updateuser/update-user-password/update-user-password.component'
 import { InfoUserComponent } from './info-user/info-user.component';
 import { EditUserDialogComponent } from './info-user/user-dialog.component';
-import { HomeComponent } from './home/home.component';
-import { CategoryComponent } from './home/category/category.component';
-import { NewStoriesComponent } from './home/new-stories/new-stories.component';
-import { HotStoriesComponent } from './home/hot-stories/hot-stories.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 import { CommentComponent } from './story/story-details/comment/comment.component';
@@ -36,6 +33,8 @@ import { StoriesListComponent, StoryThumbnailComponent, StoryDetailsComponent,
 import { SearchComponent } from './search/search.component';
 import { StoryResolverService } from './story/shared/story-resolver.service';
 import { LoadingComponent } from './loading.component';
+import { StepThumbnailComponent } from './step-thumbnail/step-thumbnail.component';
+import { EditStoryComponent } from './story/story-details/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -57,15 +56,14 @@ import { LoadingComponent } from './loading.component';
     UpvoteComponent,
     SubStepComponent,
     StoryThumbnailComponent,
-    HomeComponent,
-    CategoryComponent,
-    NewStoriesComponent,
-    HotStoriesComponent,
     CategoriesComponent,
+    CategoryComponent,
     CategoryDetailsComponent,
     SearchComponent,
     CommentComponent,
     LoadingComponent,
+    StepThumbnailComponent,
+    EditStoryComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +105,8 @@ import { LoadingComponent } from './loading.component';
     UpdateUserPasswordComponent,
     EditUserDialogComponent,
     SubStepComponent,
-    LoadingComponent
+    LoadingComponent,
+    EditStoryComponent
   ],
   providers: [
     LoggedInGuard,

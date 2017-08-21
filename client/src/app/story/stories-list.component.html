@@ -1,6 +1,34 @@
-<div class="container">
-  <h1>{{'stories.all_stories' | translate}}</h1>
-  <hr>
-  <app-story-thumbnail *ngFor="let story of stories"
-    [story]="story"></app-story-thumbnail>
+<div class="container-fluid stories-list-wrapper">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="stories-list-header" *ngIf="checkSignedIn()">
+        <div class="col-md-5 col-md-offset-7 stories-list-header--text-wrapper">
+          <h1 class="stories-list-header--slogan">{{'slogan' | translate}}</h1>
+          <p class="stories-list-header--sub-slogan">
+            {{'sub_slogan' | translate}}
+          </p>
+          <button class="stories-list-header--cta btn btn-success btn-lg" (click)="opendialog()">
+            {{'signupnow' | translate}}
+          </button>
+        </div>
+      </div>
+      <div class="main-content-wrapper">
+        <div class="categories-wrapper" *ngFor="let category of stories_categories" >
+          <div class="categories-header">
+            <h3 class="category-name" [routerLink]="['/category/', category.id]">
+              {{category.name}}
+            </h3>
+            <h3 class="category-see-more">More >>> </h3>
+            <div class="clearfix"></div>
+          </div>
+          <div class="categories-content">
+            <div class="row">
+              <app-story-thumbnail *ngFor="let story of category.stories" [story]="story">
+              </app-story-thumbnail>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
