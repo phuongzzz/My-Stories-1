@@ -1,13 +1,13 @@
 module Serializers
-  module Category
-    class CategoriesSerializer < Serializers::SupportSerializer
+  module Categories
+    class CategorySerializer < Serializers::SupportSerializer
       attrs :id, :name, :string, :parent_id
       attrs :stories
 
       delegate :id, to: :object
 
       def stories
-        Serializers::Story::StoryIdSerializer
+        Serializers::Stories::StoryMinForHomeSerializer
           .new(object: object.stories).serializer
       end
     end

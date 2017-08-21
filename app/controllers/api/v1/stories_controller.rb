@@ -6,9 +6,11 @@ class Api::V1::StoriesController < Api::BaseController
   def index
     @stories =
       if params_category_id.present?
-        Story.select_by_category_id(params_category_id)
+        Story
+          .select_by_category_id(params_category_id)
+          .page(params_page).per Settings.per_page
       else
-        Story.all
+        Story.page(params_page).per Settings.per_page
       end
 
     render json: {
@@ -71,6 +73,10 @@ class Api::V1::StoriesController < Api::BaseController
 
   def params_category_id
     params[:category_id]
+  end
+
+  def params_page
+    params[:page]
   end
 
   def action_fail
