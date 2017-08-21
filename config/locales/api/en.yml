@@ -24,6 +24,8 @@ en:
       story_not_found: "Can't find the story..."
       stories_showed: "All of story have been showed"
       story_showed: "The story has been showed"
+      clone_successfully: "Clone successfully"
+      clone_fail: "Can't clone this story now, please try again!!!"
   steps: 
     messages:
       step_not_found: "Can't find step..."
