@@ -14,7 +14,7 @@ class Api::V1::CategoriesController < Api::BaseController
   attr_reader :categories
 
   def categories_serializer
-    Serializers::Categories::CategorySerializer
+    Serializers::Categories::IndexStoryCategorySerializer
       .new(object: categories).serializer
   end
 end

@@ -28,8 +28,8 @@ gem "bundle-audit"
 gem "reek"
 gem "scss_lint"
 gem "scss_lint_reporter_checkstyle"
-gem "kaminari"
 gem "config"
+gem "kaminari"
 
 group :development, :test do
   gem "pry"
