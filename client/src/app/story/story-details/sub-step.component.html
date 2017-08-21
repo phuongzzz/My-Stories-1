@@ -1,24 +1,43 @@
-<div class="row">
-  <div class="col-md-8 content">
-    <h1 class="text-center">{{name}}</h1>
+<div class="row body">
+  <div class="col-md-8 content" [ngStyle]="{'height': height + 'px'}">
+    <div class="tracking-list">
+
+      <div class="dropdown" *ngIf="step.sub_steps.length !== 0">
+        <a class="dropdown-toggle" href="#" (click)="dropdownMenuToggle($event)" id="drop-icon">
+          <i class="material-icons">keyboard_arrow_down</i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" id="menu">
+          <li *ngFor="let sub_step of step.sub_steps; let i = index" class="sub-step-element">
+            <md-checkbox class="checkbox" (change)="onchange(i, sub_step.id)"
+              [(ngModel)]="sub_step.is_completed" [disabled]="disableCheck()">
+              <a (click)="$event.preventDefault(); onFocusSubStep(i)">
+                {{'story_form.step' | translate}} {{i+1}}
+              </a>
+            </md-checkbox>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h1 class="text-center title">{{name}}</h1>
     <ul class="accordion">
-      <li *ngFor="let sub_step of sub_steps">
-        <a>{{sub_step.name}}</a>
+      <li *ngFor="let sub_step of step.sub_steps; let i=index">
+        <a id="substep{{i}}">{{sub_step.name}}</a>
+        <img src="{{image_url}}{{sub_step.picture}}" *ngIf="sub_step.picture"/>
         <p>{{sub_step.content}}</p>
       </li>
     </ul>
   </div>
-  <div class="col-md-4 comment">
-    <md-toolbar color="primary">
-      <button md-button class="col-md-2" id="heart_step" (click)="onVote()">
+  <div class="col-md-4 comment" [ngStyle]="{'height': height + 'px'}">
+    <md-toolbar>
+      <button md-button class="col-md-2 font" id="heart_step" (click)="onVote()">
         <i class="material-icons">favorite</i> {{'like' | translate}}
       </button>
-      <button md-button class="col-md-2" (click)="onFocusComment()">
+      <button md-button class="col-md-7 font" (click)="onFocusComment()">
         <i class="material-icons">comment</i> {{'comment' | translate}}
       </button>
     </md-toolbar>
     <div class="voted-contain">
-      <a md-button>{{step.total_vote}} {{'step.votes' | translate}}</a>
+      <a md-button class="font">{{step.total_vote}} {{'step.votes' | translate}}</a>
     </div>
     <div class="comment-box">
       <app-comment [comments]="step.comments" [commentable_id]="step.id"

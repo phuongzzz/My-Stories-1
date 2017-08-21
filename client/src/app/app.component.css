@@ -5,3 +5,30 @@
 .container {
   margin-top: 100px;
 }
+
+.loading-box {
+  display: inline-block;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.custom {
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+  float: left;
+}
+
+p {
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-top: 15px;
+  margin-left: 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#cdk-overlay-0{
+  height: auto;
+}

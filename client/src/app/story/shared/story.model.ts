@@ -10,7 +10,8 @@ export interface IStory {
   user_id: number,
   steps: IStep[],
   comments: IComment[],
-  users_voted: IUserVote[]
+  users_voted: IUserVote[],
+  created_at: string
 }
 
 export interface IStep {
@@ -20,11 +21,22 @@ export interface IStep {
   completed_rate: number,
   total_vote: number,
   story_id: number,
-  voters_id: number[],
-  sub_steps?: object[],
+  sub_steps?: ISubStep[],
   created_at?: string,
   updated_at?: string,
-  users_voted: IUserVote[]
+  users_voted: IUserVote[],
+  comments: IComment[]
+}
+
+export interface ISubStep {
+  content: string,
+  created_at: string,
+  id: number,
+  is_completed: boolean,
+  name: string,
+  picture?: string,
+  step_id: number,
+  updated_at: string
 }
 
 export interface IComment {

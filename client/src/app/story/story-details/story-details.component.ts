@@ -4,6 +4,8 @@ import { IStory } from '../shared/story.model';
 import { StoryResolverService } from '../shared/story-resolver.service';
 import { VoteService } from './vote.service';
 import * as $ from 'jquery';
+import { IMG_URL } from '../../app.routes';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   templateUrl: './story-details.component.html',
@@ -13,16 +15,27 @@ import * as $ from 'jquery';
 
 export class StoryDetailsComponent implements OnInit {
   story: IStory;
-  image_url = 'http://res.cloudinary.com/my-stories/';
+  image_url = IMG_URL;
   current_user: any;
+  commentMapping:
+    {[k: string]: string} = {'=1': '# ' + this.translate.instant('single_story.comment'),
+    'other': '# ' + this.translate.instant('single_story.comments')};
+  voteMapping:
+    {[k: string]: string} = {'=1': '# ' + this.translate.instant('single_story.vote'),
+    'other': '# ' + this.translate.instant('single_story.votes')};
 
-  constructor(private route: ActivatedRoute, private voteService: VoteService) {
+  constructor(private route: ActivatedRoute, private voteService: VoteService,
+    private translate: TranslateService) {
   }
 
   ngOnInit() {
     this.story = this.route.snapshot.data['story'];
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));
     this.checkVoted();
+  }
+
+  checkImageExist() {
+    return !!this.story.picture;
   }
 
   onComment() {
@@ -53,6 +66,9 @@ export class StoryDetailsComponent implements OnInit {
   }
 
   checkVoted() {
+    if (this.story.users_voted === null) {
+      this.story.users_voted = [];
+    };
     const user_voted = this.story.users_voted;
 
     if (user_voted === null) {

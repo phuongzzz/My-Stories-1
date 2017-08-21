@@ -1,13 +1,22 @@
-<ul class="cbp_tmtimeline">
-  <li *ngFor="let step of steps" class="step-list">
-    <time class="cbp_tmtime" datetime="2013-04-10 18:30">
-      <span>4/10/13</span>
-    </time>
-    <div class="cbp_tmicon">
+<div class="step-list">
+  <div *ngFor="let step of steps; let i = index" class="item">
+    <div class="image">
+      <div class="step-border">
+        <a>
+          <img src="../../../assets/picture/success-icon.png" *ngIf="rate(i)>84" />
+          <img src="../../../assets/picture/unsuccess-icon.png" *ngIf="rate(i)<85" />
+        </a>
+      <span>
+        <p class="text-center">{{step.created_at | date: 'shortDate'}}</p>
+        <p>{{rate(i)}}%</p>
+      </span>
+      </div>
     </div>
-    <div class="cbp_tmlabel">
-      <h2 (click)="openSubStepDialog(step)">{{step.name}}</h2>
-      <p>{{step.content}}</p>
+    <div class="details">
+      <div>
+        <h1 (click)="openSubStepDialog(step)">{{step.name}}</h1>
+        <h4>{{step.content}}</h4>
+      </div>
     </div>
-  </li>
-</ul>
+  </div>
+</div>

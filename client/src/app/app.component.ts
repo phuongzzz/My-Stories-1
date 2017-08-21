@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +14,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.phuong-btn').addClass('animated bounceInUp');
   }
 }

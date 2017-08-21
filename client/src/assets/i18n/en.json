@@ -24,7 +24,8 @@
     "post": "Post",
     "step": "STEP",
     "blank_noti": "Some fields are blank !",
-    "done": "Done"
+    "cantcreate": "Cannot create story! Please try again!",
+    "done": "Create Success !"
   },
   "update_user": {
     "name": "New Name",
@@ -46,10 +47,17 @@
     "description": "Description",
     "total_votes": "Total Votes",
     "number_of_steps": "Number of Steps",
-    "steps": "Steps"
+    "steps": "Steps",
+    "comment": "Comment",
+    "comments": "Comments",
+    "vote": "Vote",
+    "votes": "Votes"
   },
   "step": {
-    "votes": "Voted"
+    "votes": "Voted",
+    "checkedsuccess": "Substep is done!",
+    "checkederror": "Action does not work! Please try again!",
+    "votederror": "Cannot vote! Please try again!"
   },
   "search": {
     "stories": "Stories",
@@ -76,5 +84,6 @@
     "steps": "Steps",
     "comment": "Comment",
     "more": "More"
-  }
+  },
+  "loading" : "Loading ..."
 }
