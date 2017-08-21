@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+$border-color: #34495e;
+
+.category-wrapper {
+  margin-top: 60px;
+}
+
+.category-title {
+  border-bottom: 1px dotted $border-color;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
