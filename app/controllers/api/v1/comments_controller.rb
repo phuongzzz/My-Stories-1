@@ -15,8 +15,6 @@ class Api::V1::CommentsController < Api::BaseController
       else
         comment_action_fail
       end
-    else
-      dont_have_permission
     end
   end
 

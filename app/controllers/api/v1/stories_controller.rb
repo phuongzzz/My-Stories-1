@@ -1,6 +1,7 @@
 class Api::V1::StoriesController < Api::BaseController
-  before_action :find_object, only: %i(show update)
+  before_action :find_object, only: %i(show update destroy)
   before_action :find_comments, only: :show
+  before_action :find_category_name, only: :index
   skip_before_action :authenticate_user_from_token, only: %i(index show)
 
   def index
@@ -15,7 +16,7 @@ class Api::V1::StoriesController < Api::BaseController
 
     render json: {
       messages: I18n.t("stories.messages.stories_showed"),
-      data: {stories: stories}
+      data: {stories: index_story_serializer, category: find_category_name}
     }, status: :ok
   end
 
@@ -47,12 +48,26 @@ class Api::V1::StoriesController < Api::BaseController
     end
   end
 
+  def destroy
+    if correct_user story.user
+      story.destroy!
+    else
+      not_have_permit
+    end
+  end
+
   private
 
-  attr_reader :story, :comments, :step, :stories
+  attr_reader :story, :comments, :step, :stories, :category
 
   def find_comments
     @comments = Comment.comments_for_story params[:id]
+  end
+
+  def find_category_name
+    @category = Category.find_by id: params[:category_id]
+
+    return category.name if category.present?
   end
 
   def stories_params
@@ -98,7 +113,15 @@ class Api::V1::StoriesController < Api::BaseController
     Serializers::Stories::StorySerializer.new(object: story).serializer
   end
 
+  def index_story_serializer
+    Serializers::Stories::StorySerializer.new(object: stories).serializer
+  end
+
   def check_follow
-    current_user.following_story.include? story
+    if current_user.present?
+      current_user.following_story.include? story
+    else
+      false
+    end
   end
 end

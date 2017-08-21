@@ -14,7 +14,7 @@ namespace :api, defaults: {format: "json"} do
       resources :relationships, only: [:index, :create, :destroy]
     end
     resources :categories, only: :index
-    resources :stories, except: [:new, :edit, :destroy] do
+    resources :stories, except: [:new, :edit] do
       resources :clones, only: [:create]
       resources :comments, only: [:create, :update, :destroy]
       resources :relationship_stories, only: [:index, :create, :destroy]

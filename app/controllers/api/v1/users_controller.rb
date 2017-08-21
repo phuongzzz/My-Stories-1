@@ -80,4 +80,9 @@ class Api::V1::UsersController < Api::BaseController
   def check_follow
     current_user.following.include? user
   end
+
+  def user_serializer
+    Serializers::Users::UserSerializer
+      .new(object: user).serializer
+  end
 end
