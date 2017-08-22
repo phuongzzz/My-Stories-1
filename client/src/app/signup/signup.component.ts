@@ -28,11 +28,7 @@ export class SignupComponent implements OnInit {
     private formbuilder: FormBuilder
   ) { }
 
-  ngOnInit() {
-    if (localStorage.getItem('currentUser')) {
-      this.router.navigate(['']);
-    }
-  }
+  ngOnInit() { }
 
   createForm(email:string, password: string) {
     this.loginForm = this.formbuilder.group({
@@ -46,11 +42,11 @@ export class SignupComponent implements OnInit {
   onSubmit(value: any) {
     this.signupService.signup(value).subscribe(response => {
       if (response) {
-        this.snackBar.open("Sign up success", "", {
+        this.snackBar.open('Sign up success', "", {
           duration: 5000
         })
         this.createForm(value.user.email, value.user.password);
-        this.loginService.login(this.loginForm.value).subscribe( response => {
+        this.loginService.login(this.loginForm.value).subscribe(response => {
           if (response) {
             this.User = JSON.parse(response._body);
             this.User_info = this.User.data.user_info;

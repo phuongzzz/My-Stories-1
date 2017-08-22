@@ -1,0 +1,82 @@
+<form [formGroup]="StoryForm">
+  <h4 class="title-bar">{{"editform.editing" | translate}}</h4>
+  <div class="edit-panel">
+    <div class="row first-section">
+    <textarea class="form-control story-name text-center custom-input" id="storyname"
+      wrap="hard" formControlName="name" (input)="autoExpand('storyname')"></textarea>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 image-div">
+          <img src="{{getsrcImage('story')}}" *ngIf="getsrcImage('story')"
+            id="story_cover">
+          <a class="upload-pic" href="#"
+            (click)="$event.preventDefault(); chooseImage('#imageInput')">
+            <i class="material-icons">linked_camera</i>
+          </a>
+          <input type="file" class="choose-file" id="imageInput"
+            (change)="onChange($event, -1, -1)">
+        </div>
+      </div>
+    <textarea value="{{story.description}}" class="form-control custom-input"
+      formControlName="description" id="storycontent"
+      (input)="autoExpand('storycontent')"></textarea>
+    </div>
+    <div formArrayName="step">
+      <div class="row second-section" *ngFor="let step of StepForm.controls; let i = index">
+        <div [formGroupName]="i" class="row step-edit-wrapper">
+          <div class="step-properties-wrapper">
+            <div class="col-md-2 col-md-offset-1">
+              <h4>Step Name</h4>
+            </div>
+            <div class="col-md-8">
+             <textarea class="form-control step-name accordion" id="stepname{{i}}" wrap="hard"
+               (input)="autoExpand('stepname'+i)" formControlName="name"></textarea>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="step-properties-wrapper">
+            <div class="col-md-2 col-md-offset-1">
+              <h4>Step Content</h4>
+            </div>
+            <div class="col-md-8">
+          <textarea class="form-control step-content" id="stepcontent{{i}}" wrap="hard"
+            (input)="autoExpand('stepcontent'+i)" formControlName="content"></textarea>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div formArrayName="sub_steps_attributes">
+            <div *ngFor="let substep of getStepForm(i).controls; let j=index" class="panel">
+              <div [formGroupName] = "j" class="sub-steps-attributes-wrapper">
+                <textarea class="form-control custom-input sub-step-name" formControlName="name"
+                  id="subname{{i}}_{{j}}" (input)="autoExpand('subname'+i+'_'+j)"></textarea>
+                <div class="row">
+                  <div class="col-md-9 col-md-offset-1 image-div">
+                    <img src="{{getsrcImage('step',i,j)}}" *ngIf="getsrcImage('step',i,j)"
+                         id="picture{{i}}_{{j}}">
+                    <a class="upload-pic" href="#"
+                       (click)="$event.preventDefault(); chooseImage('#imageInput'+i+'_'+j)">
+                      <i class="material-icons">linked_camera</i>
+                    </a>
+                    <input type="file" class="choose-file" id="imageInput{{i}}_{{j}}"
+                      (change)="onChange($event, i, j)">
+                  </div>
+                </div>
+                <textarea class="form-control custom-input sub-step-content" formControlName="content"
+                  id="subcontent{{i}}_{{j}}" (input)="autoExpand('subcontent'+i+'_'+j)"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4 class="action-btn">
+    <div class="col-md-1 col-md-offset-10">
+      <button class="btn btn-primary" (click)="onClick()">
+        {{"editform.save" | translate}}
+      </button>
+    </div>
+    <div class="clearfix"></div>
+  </h4>
+</form>

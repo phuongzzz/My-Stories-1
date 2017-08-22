@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   public current_url: any;
   constructor(public logoutService: LogoutService, public dialog: MdDialog, private router: Router,
     private _router:Router) {
-      this.current_url= window.location.href;
+      this.current_url = window.location.href;
       console.log(this.current_url);
   }
 
@@ -34,10 +34,14 @@ export class HeaderComponent implements OnInit {
       if (wn > 120) {
         $('.navbar').removeClass('custom-nav');
         $('.navbar').addClass('navbar-inverse');
+        $('.custom-navbar-brand').addClass('lighten');
+        $('.custom-navbar-brand').removeClass('darken');
       }
       else {
         $('.navbar').removeClass('navbar-inverse');
         $('.navbar').addClass('custom-nav');
+        $('.custom-navbar-brand').addClass('darken');
+        $('.custom-navbar-brand').removeClass('lighten');
       }
     });
   }
@@ -68,7 +72,7 @@ export class HeaderComponent implements OnInit {
       this.onError, this.onComplete);
   }
 
-  onSubmit(value: any){
+  onSubmit(value: any) {
     localStorage.setItem('valueSearch', JSON.stringify(value));
     this.router.navigate(['search']);
   }

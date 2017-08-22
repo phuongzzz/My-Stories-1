@@ -18,17 +18,17 @@ body {
 
 .item {
   display: flex;
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
 
   .image {
     padding: 1em 2em;
     z-index: 10;
 
     .step-border {
-      position: relative;
       text-align: center;
       font-size: 0.8em;
+      position: relative;
 
       &:after {
         content: '';
@@ -68,7 +68,7 @@ body {
     z-index: 1;
 
     div {
-      border: 1px solid $typo-base-color;
+      border: 3px solid $typo-base-color;
       border-radius: 0.5em;
       padding: 1.5em;
       margin: 1em 0;
@@ -76,9 +76,17 @@ body {
       h1 {
         color: $black;
         font-size: 2em;
+        font-family: 'Open Sans';
+        font-weight: 700;
         margin: 0;
         padding: 0 0 0.5em 0;
         letter-spacing: 0.1em;
+        cursor: pointer;
+        transition: all ease .5s;
+        
+        &:hover {
+          opacity: .6;
+        }
       }
 
       h4 {
