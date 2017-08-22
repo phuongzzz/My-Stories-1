@@ -8,8 +8,14 @@
               <div class="panel text-center">
                 <div class="user-heading">
                   <a class="img-user">
-                    <img src="../img/no-avatar.png" alt="" title="">
+                    <img src="../../assets/picture/no-avatar.jpg" id="avatar">
                   </a>
+                  <a class="upload-pic" href="#"
+                    (click)="$event.preventDefault();chooseImage('#imageInput')">
+                    <i class="material-icons">linked_camera</i>
+                  </a>
+                  <input type="file" class="choose-file" id="imageInput"
+                    (change)="onChange($event)">
                 </div>
               </div>
             </div>
@@ -79,46 +85,8 @@
             <hr>
           </div>
           <div class="content">
-            <div class="col-lg-6" *ngFor="let story of stories">
-              <div class="card-story">
-                <md-tab-group>
-                  <md-tab label="{{'user.story' | translate}}">
-                    <div *ngIf="story.piture === ''; else noPicture">
-                      <img class="img-story" src="story.picture">
-                    </div>
-                    <ng-template #noPicture>
-                      <img class="img-story" src="../plan_no_bg.jpg">
-                    </ng-template>
-                    <div class="text-center">
-                      <h5>{{story.name}}</h5>
-                      <div class="example-scrolling-content cap caption">
-                        {{story.description}}
-                      </div>
-                    </div>
-                  </md-tab>
-                  <md-tab label="{{'user.steps' | translate}}">
-                    <md-list class="step" *ngFor="let step of story.steps">
-                      <md-list-item>{{step.name}}</md-list-item>
-                    </md-list>
-                  </md-tab>
-                </md-tab-group>
-                <hr>
-                <div class="bar-story">
-                  <div class="text-center">
-                    <div class="row">
-                      <div class="col-md-3 col-md-offset-1">
-                        <h5><br /><small>{{'user.voted' | translate}}</small></h5>
-                      </div>
-                      <div class="col-md-4">
-                        <h5><br /><small>{{'user.comment' | translate}}</small></h5>
-                      </div>
-                      <div class="col-md-3" (click)="onClickMore(story.id)">
-                        <br /><button md-button><h5><small>{{'user.more' | translate}}</small></h5></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div>
+              <app-story-thumbnail *ngFor="let story of stories" [story]="story" ></app-story-thumbnail>
             </div>
           </div>
         </div>

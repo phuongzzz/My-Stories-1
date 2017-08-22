@@ -3,9 +3,23 @@
     {{story.name}}
   </h1>
 
+  <button md-icon-button [mdMenuTriggerFor]="menu" class="story-menu"
+    *ngIf="story.user_id === current_user.id">
+    <i class="material-icons">reorder</i>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="edit()">
+      <md-icon>Edit this Post</md-icon>
+    </button>
+    
+    <button md-menu-item (click)="delete()">
+      <md-icon>Delete this Post</md-icon>
+    </button>
+  </md-menu>
+
   <div class="meta-data text-center">
    <p>
-     {{story.created_at | date}} by Doan Minh Phuc,
+     {{story.created_at | date}} by {{story.user_name}},
      {{story.comments.length | i18nPlural: commentMapping}},
      {{story.total_vote | i18nPlural: voteMapping}}
    </p>

@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { IStep } from '../shared/story.model';
-import { VoteService } from './vote.service';
 import { MdDialog } from '@angular/material';
 import { SubStepComponent } from './sub-step.component';
 

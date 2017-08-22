@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+$accent-color: #5D5D5D;
+$heart: #e74c3c;
+$background: #f6f5f6;
+$gray: #d7d7d7;
+$darken_white: #f6f7f9;
+$second-background: rgba(0, 0, 0, 0.5);
+$black_trans: rgba(0, 0, 0, 0.3);
+$white: #fff;
+
+.story-header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 55px;
+}
+
+.first-section {
+  border-bottom: 1px solid lighten($accent-color, 50%);
+  padding-bottom: 20px;
+}
+
+.custom-input {
+  border: 0;
+  box-shadow: none;
+}
+
+.story-name {
+  font-size: 3em;
+  margin-top: 50px;
+}
+
+.image-div {
+  padding: 0;
+  &:hover {
+    .upload-pic {
+      opacity: 1;
+      transition: all .5s ease;
+    }
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+
+  &:after {
+    background-color: $second-background;
+    bottom: 0;
+    content: "";
+    display: inline-block;
+    left: 0;
+    height: 60px;
+    opacity: 0;
+    position: absolute;
+    transition: all .3s ease;
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.step-name, .step-content {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: $white;
+}
+
+textarea {
+  overflow: hidden;
+  resize: vertical;
+}
+
+.choose-file {
+  display: none;
+}
+
+.upload-pic {
+  opacity: 0;
+  z-index: 2;
+  display: inline-block;
+  font-size: 1.2em;
+  float: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  padding: 20px 20px;
+  color: $white;
+  cursor: pointer;
+  text-decoration: none;
+  &:focus, &:hover {
+    color: $white;
+  }
+}
+
+
+.step-edit-wrapper {
+  margin-top: 20px;
+}
+
+
+.sub-steps-attributes-wrapper {
+  margin-top: 10px;
+  margin-left: 70px;
+
+  .sub-step-name {
+    font-size: 2em;
+    font-weight: 500;
+    height: auto;
+  }
+
+  .sub-step-content {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+}
+
+.step-properties-wrapper {
+  margin-top: 10px;
+}
+
+form {
+  position: relative;
+
+  .title-bar {
+    border-bottom: 1px solid $black_trans; 
+    position: fixed;
+    z-index: 1000;
+    width: 800px;
+    background-color: $darken_white;
+    margin-top: 0;
+    padding: 30px;
+    top: 60px;
+    margin-left: -24px;
+  }
+
+  .edit-panel {
+    z-index: 10;
+    padding: 60px 0;
+
+  }
+
+  .action-btn {
+    position: fixed;
+    margin-left: -24px;
+    z-index: 1000;
+    width: 800px;
+    background-color: $darken_white;
+    margin-top: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    bottom: 0px;
+    border-top: 1px solid $black_trans;
+  }
+}

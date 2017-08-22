@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
-$accent-color: #5D5D5D;
+$accent-color: #5d5d5d;
 $heart: #e74c3c;
 $background: #f6f5f6;
 $gray: #d7d7d7;
@@ -9,6 +9,7 @@ $gray: #d7d7d7;
   padding: 0 50px;
   margin-bottom: 50px;
   background-color: $background;
+  position: relative;
 }
 
 .story-header {
@@ -48,7 +49,7 @@ $gray: #d7d7d7;
 .story-content {
   margin-top: 30px;
 
-  .story-description{
+  .story-description {
     font-size: 25px;
     line-height: 25px;
     font-family: Serif;
@@ -70,4 +71,19 @@ $gray: #d7d7d7;
 
 .border {
   border: 1px solid $gray;
+}
+
+
+.story-menu {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+
+.mat-dialog-container {
+  padding-top: 0;
+}
+
+textarea {
+  padding: 0;
 }

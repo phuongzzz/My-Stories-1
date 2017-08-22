@@ -4,6 +4,7 @@
   "login": "Login",
   "logout": "Log out",
   "signup": "Sign Up",
+  "signupnow": "Sign Up Now!",
   "username": "User Name",
   "email": "Email",
   "password": "Password",
@@ -70,6 +71,8 @@
   "writecomment": "Write a comment ...",
   "comment": "Comment",
   "like": "Like",
+  "slogan": "Make the world around you better!",
+  "sub_slogan": "Listen to the success stories from all people around the world, then create your own way to reach your destinations, your dreams, and your passions",
   "re_send": "Try Again",
   "user": {
     "following": "Following",
@@ -85,5 +88,11 @@
     "comment": "Comment",
     "more": "More"
   },
-  "loading" : "Loading ..."
+  "loading" : "Loading ...",
+  "editform": {
+    "save": "Save",
+    "editing": "Editing Story"
+  },
+  "search_placeholder": "Search...",
+  "brand": "MyStories"
 }
