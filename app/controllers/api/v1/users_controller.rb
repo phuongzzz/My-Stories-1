@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::BaseController
   before_action :find_object, only: %i(show update destroy).freeze
-
+  skip_before_action :authenticate_user_from_token, only: %i(index show)
   def index
     @users = User.all
     render json: {
@@ -78,7 +78,15 @@ class Api::V1::UsersController < Api::BaseController
   end
 
   def check_follow
-    current_user.following.include? user
+    if current_user.present?
+      if current_user.following.include? user
+        Relationship.find_relationship(current_user.id, user.id).ids
+      else
+        false
+      end
+    else
+      false
+    end
   end
 
   def user_serializer
