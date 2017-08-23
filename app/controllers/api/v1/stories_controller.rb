@@ -119,7 +119,11 @@ class Api::V1::StoriesController < Api::BaseController
 
   def check_follow
     if current_user.present?
-      current_user.following_story.include? story
+      if current_user.following_story.include? story
+        RelationshipStory.find_relationship_story(current_user.id, story.id).ids
+      else
+        false
+      end
     else
       false
     end

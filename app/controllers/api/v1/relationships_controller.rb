@@ -1,5 +1,5 @@
 class Api::V1::RelationshipsController < Api::BaseController
-  before_action :find_user, only: :index
+  before_action :find_user, only: %i(index create)
   before_action :check_relationship, only: :create
   before_action :find_object, only: :destroy
 
