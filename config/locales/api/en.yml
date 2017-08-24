@@ -18,6 +18,7 @@ en:
       user_not_found: "User not found"
       following_user_showed: "Following users showed"
       follower_user_showed: "Follower showed"
+      notification_update: "%{name_user} updated %{name_story}"
   stories:
     messages:
       action_successfully: "Action successfully"
@@ -26,6 +27,8 @@ en:
       story_showed: "The story has been showed"
       clone_successfully: "Clone successfully"
       clone_fail: "Can't clone this story now, please try again!!!"
+      notification_update: "Story %{name} has been updated"
+      notification_create: "%{name_user} created new story %{name_story}"
   steps: 
     messages:
       step_not_found: "Can't find step..."

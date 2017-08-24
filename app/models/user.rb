@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :votes
   has_many :reports
   has_many :stories
+  has_many :notifications, as: :notificationable
 
   lambda_find_user = lambda do |id, type|
     joins(:votes).where votes: {voteable_id: id, voteable_type: type, value: 1}

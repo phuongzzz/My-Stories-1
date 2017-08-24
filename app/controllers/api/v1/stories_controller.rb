@@ -29,6 +29,7 @@ class Api::V1::StoriesController < Api::BaseController
 
     if story.save
       save_each_step if params_steps.present?
+      create_notification if story.is_public
       action_successfully
     else
       action_fail
@@ -39,6 +40,7 @@ class Api::V1::StoriesController < Api::BaseController
     if correct_user story.user
       if story.update_attributes stories_params
         update_each_step if params_steps.present?
+        update_notification if story.is_public
         action_successfully
       else
         action_fail
@@ -80,6 +82,14 @@ class Api::V1::StoriesController < Api::BaseController
 
   def update_each_step
     StoryService.new(total_params: params[:story], story: story).update_step
+  end
+
+  def update_notification
+    Notifications::NotificationWhenUpdateStoryService.new(story: story).perform
+  end
+
+  def create_notification
+    Notifications::NotificationWhenCreateStoryService.new(story: story).perform
   end
 
   def params_steps
