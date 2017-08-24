@@ -39,4 +39,11 @@ export class StoryService {
     const options = new RequestOptions({headers: headers});
     return this.http.delete(apiurl, options);
   }
+
+  cloneStory(id: number, token: string) {
+    const link = URL + 'api/stories/' + id + '/clones';
+    const headers: any = {'MS-AUTH-TOKEN': token };
+    const options = new RequestOptions({headers: headers});
+    return this.http.post(link, id, options)
+  }
 }
