@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808071136) do
+ActiveRecord::Schema.define(version: 20170822075710) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20170808071136) do
     t.datetime "updated_at", null: false
     t.index ["commentable_id"], name: "index_comments_on_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "notificationable_type"
+    t.integer "notificationable_id"
+    t.integer "recipient_id"
+    t.string "content"
+    t.boolean "read"
   end
 
   create_table "relationship_stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

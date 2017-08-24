@@ -14,6 +14,7 @@ class Story < ApplicationRecord
   has_many :followers, through: :follower_user, source: :user
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable, dependent: :destroy
+  has_many :notifications, as: :notificationable
   has_many :reports
   has_many :steps, dependent: :destroy
 
