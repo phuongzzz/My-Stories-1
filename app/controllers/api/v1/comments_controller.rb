@@ -5,13 +5,13 @@ class Api::V1::CommentsController < Api::BaseController
   def create
     @comment = commentable.comments.new comments_params
     comment.user = current_user
-    comment.save ? comment_action_success(created) : comment_action_fail
+    comment.save ? comment_action_success("created") : comment_action_fail
   end
 
   def update
     if correct_user comment.user
       if comment.update_attributes comments_params
-        comment_action_success updated
+        comment_action_success "updated"
       else
         comment_action_fail
       end
@@ -21,7 +21,7 @@ class Api::V1::CommentsController < Api::BaseController
   def destroy
     if correct_user comment.user
       if comment.destroy
-        comment_action_success destroyed
+        comment_action_success "destroyed"
       else
         comment_action_fail
       end
@@ -53,7 +53,7 @@ class Api::V1::CommentsController < Api::BaseController
     render json: {
       messages:
         I18n.t("comments.messages.comment_action_success",
-          type: type_action.to_s),
+          type: type_action),
       data: {comment: comment_serializer}
     }, status: :ok
   end

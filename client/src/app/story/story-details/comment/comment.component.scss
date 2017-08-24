@@ -104,3 +104,16 @@ $gray: #d7d7d7;
   display: none;
   color: $belizehole !important;
 }
+
+.dropdown-menu > li > a {
+  display: flex;
+  align-items: center;
+  .material-icons {
+    margin-right: 10px;
+  }
+}
+
+.cmt-input {
+  width: 100%;
+  display: none;
+}

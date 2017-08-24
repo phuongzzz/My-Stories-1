@@ -8,16 +8,36 @@
               <img src="http://bootdey.com/img/Content/user_1.jpg"
                 class="img-circle avatar" alt="user profile image">
             </div>
-            <div class="col-md-9 comment-body">
+            <div class="col-md-8 comment-body">
               <a class="user-name" href="#" id="user_{{i}}">
                 <b>{{comment.user_name}}</b>
-              </a>: <p id="cmt_{{i}}">{{comment.content}}</p>
+              </a>: <p id="cmt_{{i}}" class="cmt-content">{{comment.content}}</p>
+              <input type="text" id="cmt_input_{{i}}" class="cmt-input form-control" required
+                autocomplete="off" (keyup)="checkEsc($event, i, comment.id)">
               <h6 class="text-muted time">{{comment.created_at | date}}</h6>
               <h6>
                 <a (click)="resend(i)" class="btn-resend" id="resend_{{i}}">
                   {{'re_send' | translate}}
                 </a>
               </h6>
+            </div>
+            <div class="col-md-1 dropdown" *ngIf="canDropdown(comment.user_id)">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                (click)="$event.preventDefault()">
+                <i class="material-icons">more_horiz</i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" id="menu">
+                <li *ngIf="canEdit(comment.user_id)">
+                  <a href="#" (click)="edit($event, i)">
+                    <i class="material-icons">edit</i>{{"single_story.edit" | translate}}
+                  </a>
+                </li>
+                <li *ngIf="canDelete(comment.user_id)">
+                  <a href="#" (click)="delete($event, comment.id)">
+                    <i class="material-icons">delete</i>{{"single_story.delete" | translate}}
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
