@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IMG_URL } from '../app.routes';
+import { IMG_URL } from '../constants';
 import * as $ from 'jquery';
 
 @Component({

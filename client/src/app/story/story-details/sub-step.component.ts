@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IStep } from '../shared/story.model';
 import * as $ from 'jquery';
 import { VoteService } from './vote.service';
-import { IMG_URL } from '../../app.routes';
+import { IMG_URL } from '../../constants';
 import { MdSnackBar } from '@angular/material';
 import { TranslateService } from 'ng2-translate';
 

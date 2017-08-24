@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Http, RequestOptions } from '@angular/http';
-import { URL } from '../../../app.routes';
+import { URL } from '../../../constants';
 
 @Injectable()
 export class CommentService {
