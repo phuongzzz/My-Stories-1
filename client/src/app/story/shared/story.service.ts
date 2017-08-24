@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs/Rx';
 import { IStory, IStep } from '../shared/story.model';
 import { Http, Response, RequestOptions } from '@angular/http';
-import { URL } from '../../app.routes';
+import { URL } from '../../constants';
 
 @Injectable()
 export class StoryService {

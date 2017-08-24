@@ -4,7 +4,7 @@ import { IStory } from '../shared/story.model';
 import { StoryResolverService } from '../shared/story-resolver.service';
 import { VoteService } from './vote.service';
 import * as $ from 'jquery';
-import { IMG_URL } from '../../app.routes';
+import { IMG_URL } from '../../constants';
 import { TranslateService } from 'ng2-translate';
 import { MdSnackBar, MdDialog } from '@angular/material';
 import { EditStoryComponent } from './edit/edit.component';

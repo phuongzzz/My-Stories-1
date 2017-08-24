@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { IStory } from '../../shared/story.model';
 import * as $ from 'jquery';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IMG_URL } from '../../../app.routes';
+import { IMG_URL } from '../../../constants';
 import { EditStoryService } from './edit.service';
 import { MdSnackBar } from '@angular/material';
 

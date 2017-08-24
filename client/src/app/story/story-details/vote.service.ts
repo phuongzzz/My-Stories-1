@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IStep } from '../shared/story.model';
 import { Http, RequestOptions } from '@angular/http';
-import { URL } from '../../app.routes';
+import { URL } from '../../constants';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()

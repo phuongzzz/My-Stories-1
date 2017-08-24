@@ -6,7 +6,7 @@ import { ActivatedRoute , Router } from '@angular/router';
 import * as $ from 'jquery';
 import { LoadingComponent } from '../loading.component';
 import { MdSnackBar, MdDialog } from '@angular/material';
-import { IMG_URL } from '../app.routes';
+import { IMG_URL } from '../constants';
 
 @Component({
   selector: 'app-info-user',

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IStory } from './shared/story.model';
-import { IMG_URL } from '../app.routes';
+import { IMG_URL } from '../constants';
 import * as $ from 'jquery';
 
 @Component({
