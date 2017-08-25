@@ -11,7 +11,7 @@
     <button md-menu-item (click)="edit()">
       <md-icon>Edit this Post</md-icon>
     </button>
-    
+
     <button md-menu-item (click)="delete()">
       <md-icon>Delete this Post</md-icon>
     </button>
@@ -57,7 +57,7 @@
           {{story.total_vote}} {{'step.votes' | translate}}
         </a>
       </md-toolbar>
-      <app-comment [comments]="story.comments" [story_id]="story.id"
+      <app-comment [comments]="story.comments" [story_id]="story.id" [user_of_story]="story.user_id"
         [commentable_id]="story.id" [commentable_type]="'story'"></app-comment>
     </div>
   </div>

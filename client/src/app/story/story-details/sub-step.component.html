@@ -41,7 +41,8 @@
     </div>
     <div class="comment-box">
       <app-comment [comments]="step.comments" [commentable_id]="step.id"
-        [commentable_type]="step" [story_id]="story_id"></app-comment>
+        [commentable_type]="step" [story_id]="story_id" [user_of_story]="story.user_id">
+      </app-comment>
     </div>
   </div>
 </div>

@@ -52,7 +52,9 @@
     "comment": "Comment",
     "comments": "Comments",
     "vote": "Vote",
-    "votes": "Votes"
+    "votes": "Votes",
+    "edit": "Edit ...",
+    "delete": "Delete ..."
   },
   "step": {
     "votes": "Voted",

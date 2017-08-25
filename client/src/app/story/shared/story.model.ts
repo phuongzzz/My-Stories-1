@@ -47,6 +47,7 @@ export interface IComment {
   id?: number,
   updated_at?: string,
   user_name: string,
+  user_id?: number
 }
 
 export interface IUserVote {

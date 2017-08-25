@@ -15,6 +15,8 @@ import { MdDialogModule, MdCardModule, MdInputModule, MdTooltipModule, MdMenuMod
   MdSelectModule, MdDatepickerModule, MdNativeDateModule, MdTabsModule, MdProgressSpinnerModule,
   MdAutocompleteModule, MdListModule, MdButtonModule, MdSnackBarModule, MdToolbarModule,
   MdChipsModule, MdGridListModule, MdSidenavModule, MdCheckboxModule} from '@angular/material';
+import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
+
 import { CategoryComponent } from './story/category/category.component';
 import { LoggedInGuard } from './logged-in.guard';
 import { NotLoggedInGuard } from './not-logged-in.guard';
@@ -35,6 +37,8 @@ import { StoryResolverService } from './story/shared/story-resolver.service';
 import { LoadingComponent } from './loading.component';
 import { StepThumbnailComponent } from './step-thumbnail/step-thumbnail.component';
 import { EditStoryComponent } from './story/story-details/edit/edit.component';
+import { Ng2CableModule } from 'ng2-cable';
+import { CustomToastr } from './custom-toastr';
 
 @NgModule({
   declarations: [
@@ -95,7 +99,9 @@ import { EditStoryComponent } from './story/story-details/edit/edit.component';
     MdListModule,
     MdSidenavModule,
     MdCheckboxModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    Ng2CableModule,
+    ToastModule.forRoot()
   ],
   entryComponents: [
     LoginComponent,
@@ -114,7 +120,8 @@ import { EditStoryComponent } from './story/story-details/edit/edit.component';
     StoryService,
     StoriesListResolverService,
     VoteService,
-    StoryResolverService
+    StoryResolverService,
+    {provide: ToastOptions, useClass: CustomToastr}
   ],
   bootstrap: [AppComponent]
 })
