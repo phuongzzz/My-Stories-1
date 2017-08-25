@@ -49,6 +49,9 @@
         <button md-button class="col-md-3 font" (click)="onComment()">
           <i class="material-icons">comment</i> {{'comment' | translate}}
         </button>
+        <button md-button class="col-md-3 font" (click)="onCloneButtom(story.id)">
+          <i class="material-icons">library_add</i> {{'clone' | translate}}
+        </button>
         <div class="col-md-3"></div>
         <a md-button class="col-md-4 font">
           {{story.total_vote}} {{'step.votes' | translate}}

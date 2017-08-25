@@ -25,7 +25,8 @@ class Step < ApplicationRecord
   end
 
   class << self
-    def search query
+
+   def search query
       __elasticsearch__.search(
         query: {
           multi_match: {
