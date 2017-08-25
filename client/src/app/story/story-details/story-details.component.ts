@@ -9,8 +9,6 @@ import { TranslateService } from 'ng2-translate';
 import { MdSnackBar, MdDialog } from '@angular/material';
 import { EditStoryComponent } from './edit/edit.component';
 import { StoryService } from '../shared/story.service';
-import { Response } from '@angular/http';
-import { URL } from '../../app.routes';
 
 @Component({
   templateUrl: './story-details.component.html',
